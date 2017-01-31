@@ -1,10 +1,11 @@
 'use strict'
 
-const isObject = require('../is/object')
+const getType = require('../get-type')
 const isArrayLike = require('../is/array-like')
 
 module.exports = (collection, fn) => {
-  if (isObject(collection)) {
+  let type = getType(collection)
+  if (type === 'object') {
     let result = {}
     for (let key in collection) {
       if ({}.hasOwnProperty.call(collection, key)) {
@@ -19,6 +20,12 @@ module.exports = (collection, fn) => {
       result.push(fn.call(collection, collection[i], i, collection))
     }
 
+    if (type === 'string') {
+      return result.join('')
+    }
+
     return result
   }
+  
+  return collection
 }
