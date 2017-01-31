@@ -26,6 +26,6 @@ module.exports = (collection, fn) => {
 
     return result
   }
-  
+
   return collection
 }
