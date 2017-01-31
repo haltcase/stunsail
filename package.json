@@ -1,0 +1,62 @@
+{
+  "name": "stunsail",
+  "version": "1.0.0-alpha.1",
+  "description": "Super opinionated collection of utility functions.",
+  "license": "MIT",
+  "author": {
+    "name": "Bo Lingen",
+    "email": "thecitycide@gmail.com",
+    "url": "github.com/citycide"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/citycide/stunsail.git"
+  },
+  "homepage": "https://github.com/citycide/stunsail",
+  "bugs": "https://github.com/citycide/stunsail/issues",
+  "engines": {
+    "node": ">=4"
+  },
+  "scripts": {
+    "lint": "eslint **/*.js",
+    "pretest": "npm run lint",
+    "test": "ava",
+    "test:watch": "ava -w",
+    "changelog": "standard-changelog -i CHANGELOG.md -o CHANGELOG.md",
+    "prep": "npm run changelog && npm test",
+    "commit": "git-cz"
+  },
+  "keywords": [
+    "utility",
+    "tools",
+    "utils",
+    "collection",
+    "functions"
+  ],
+  "dependencies": {
+    "asyncro": "^2.0.1",
+    "lodash.isequal": "^4.5.0",
+    "req-all": "^1.0.0"
+  },
+  "devDependencies": {
+    "ava": "^0.17.0",
+    "commitizen": "^2.9.0",
+    "cz-conventional-changelog": "^1.2.0",
+    "eslint": "^3.12.2",
+    "eslint-config-standard": "^6.2.1",
+    "eslint-plugin-prefer-let": "^0.1.0",
+    "eslint-plugin-promise": "^3.4.0",
+    "eslint-plugin-standard": "^2.0.1",
+    "standard-changelog": "0.0.1"
+  },
+  "ava": {
+    "files": [
+      "tests/**/*.js"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
