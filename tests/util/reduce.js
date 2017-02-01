@@ -6,12 +6,12 @@ const array = [1, 2, 3, 4, 5]
 const string = 'foobar'
 
 test('reduces object inputs', t => {
-  let result = fn(object, (acc, cur) => acc + cur, 0))
+  let result = fn(object, (acc, cur) => acc + cur, 0)
   t.is(result, 6)
 })
 
 test('reduces array-like inputs', t => {
-  let result = fn(array, (acc, cur) => acc + cur, 0))
+  let result = fn(array, (acc, cur) => acc + cur, 0)
   t.is(result, 15)
 
   result = fn(string, (acc, cur) => {
