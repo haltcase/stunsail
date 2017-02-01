@@ -17,6 +17,6 @@ module.exports = (collection, fn, initial) => {
       accumulator = fn(accumulator, collection[i], i, collection)
     }
   }
-  
+
   return accumulator
 }
