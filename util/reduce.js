@@ -3,7 +3,7 @@
 const isObject = require('../is/object')
 const isArrayLike = require('../is/array-like')
 
-module.exports = (collection, fn, initial) {
+module.exports = (collection, fn, initial) => {
   let accumulator = initial
 
   if (isObject(collection)) {
