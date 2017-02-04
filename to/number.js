@@ -12,30 +12,37 @@ const {
 module.exports = (value, round) => {
   if (!value) return 0
 
-  let type = getType(value)
+  let inputType = getType(value)
 
-  if (type === 'object') {
-    value = getType(value.valueOf) === 'function'
-      ? value.valueOf() : Object.keys().length
+  let rolling = value
+  if (typeof rolling === 'object') {
+    rolling = inputType === 'object'
+      ? Object.keys(rolling).length
+      : getType(rolling.valueOf) === 'function'
+        ? rolling.valueOf()
+        : rolling
   }
 
-  if (typeof value !== 'string') {
-    if (isArrayLike(value)) return value.length
-    value = String(value)
+  if (typeof rolling !== 'string') {
+    if (isArrayLike(rolling)) return rolling.length
+    rolling = String(rolling)
   }
 
-  value = value.replace(/^\s+|\s+$/g, '')
+  rolling = rolling.replace(/^\s+|\s+$/g, '')
 
-  let isBinary = BINARY_REGEX.test(value)
-  if (isBinary || OCTAL_REGEX.test(value)) {
-    value = parseInt(value.slice(2), isBinary ? 2 : 8)
+  let isBinary = BINARY_REGEX.test(rolling)
+  if (isBinary || OCTAL_REGEX.test(rolling)) {
+    rolling = parseInt(rolling.slice(2), isBinary ? 2 : 8)
   } else {
-    if (BAD_HEX_REGEX.test(value)) {
-      value = (0 / 0)
+    if (BAD_HEX_REGEX.test(rolling)) {
+      rolling = (0 / 0)
     }
   }
 
-  value = Number.isNaN(value) ? 0 : +value
+  rolling = Number.isNaN(rolling) ? 0 : +rolling
+  rolling = Number.isNaN(rolling)
+    ? inputType === 'string' ? value.length : 0
+    : rolling
 
-  return round ? Math.round(value) : value
+  return round ? Math.round(rolling) : rolling
 }
