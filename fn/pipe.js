@@ -27,7 +27,7 @@ module.exports = function pipe (input) {
         output = fn(output)
       }
     } else {
-      output = fn
+      output = i === 0 ? fn : output
     }
   })
 
