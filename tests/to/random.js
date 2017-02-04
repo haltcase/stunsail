@@ -8,10 +8,10 @@ test('operates on array input', t => {
 })
 
 test('operates on object input', t => {
-  let keys = ['one', 'two', 'three']
+  let values = [1, 2, 3]
   let input = { one: 1, two: 2, three: 3 }
   let result = toRandom(input)
-  t.true(keys.indexOf(result) > -1)
+  t.true(values.indexOf(result) > -1)
 })
 
 test('operates on number input, one argument', t => {
