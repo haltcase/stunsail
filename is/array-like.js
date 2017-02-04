@@ -7,8 +7,7 @@ module.exports = value => {
   let length = value.length
 
   return (
-    typeof value === 'object' ||
-    typeof length === 'number' &&
+    (typeof value === 'object' || typeof length === 'number') &&
     (length === 0 || (length > 0 && (length - 1) in value))
   )
 }
