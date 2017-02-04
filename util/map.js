@@ -1,31 +1,20 @@
 'use strict'
 
-const getType = require('../get-type')
+const each = require('./each')
+const curry2 = require('../fn/curry2')
 const isArrayLike = require('../is/array-like')
 
-module.exports = (collection, fn) => {
-  let type = getType(collection)
-  if (type === 'object') {
-    let result = {}
-    for (let key in collection) {
-      if ({}.hasOwnProperty.call(collection, key)) {
-        result[key] = fn.call(collection, collection[key], key, collection)
-      }
-    }
+module.exports = curry2((fn, collection) => {
+  let arrayLike = isArrayLike(collection)
+  let result = arrayLike ? [] : {}
 
-    return result
-  } else if (isArrayLike(collection)) {
-    let result = []
-    for (let i = 0; i < collection.length; i++) {
-      result.push(fn.call(collection, collection[i], i, collection))
-    }
+  let i = -1
+  each((v, k, o) => {
+    k = arrayLike ? ++i : k
+    result[k] = fn(v, k, o)
+  }, collection)
 
-    if (type === 'string') {
-      return result.join('')
-    }
-
-    return result
-  }
-
-  return collection
-}
+  return typeof collection === 'string'
+    ? result.join('')
+    : result
+})
