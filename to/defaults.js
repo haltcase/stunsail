@@ -1,27 +1,19 @@
 'use strict'
 
-const getType = require('../get-type')
-const isOneOf = require('../is/one-of')
+const curry2 = require('../fn/curry2')
+const isObject = require('../is/object')
+const isIterable = require('../is/iterable')
+const isPrimitive = require('../is/primitive')
 
-module.exports = (object, extension) => {
+const isTraversable = v => isIterable(v) || isObject(v)
+
+module.exports = curry2((object, extension) => {
   object = Object.assign({}, object)
 
   return base(object, extension, (obj, ext, key) => {
     if (!(key in obj)) obj[key] = ext[key]
   })
-}
-
-function isIterable (value) {
-  let type = getType(value)
-  return isOneOf(['array', 'map', 'object'], type)
-}
-
-function isPrimitive (value) {
-  return !value || (
-    typeof value !== 'object' &&
-    typeof value !== 'function'
-  )
-}
+})
 
 function base (object, extension, fn) {
   if (isPrimitive(extension)) return object
@@ -30,7 +22,10 @@ function base (object, extension, fn) {
     if (!{}.hasOwnProperty.call(extension, item)) continue
     if (fn(object, extension, item) === false) break
 
-    if (isIterable(extension[item]) && isIterable(object[item])) {
+    if (
+      isTraversable(extension[item]) &&
+      isTraversable(object[item])
+    ) {
       base(object[item], extension[item], fn)
     }
   }
