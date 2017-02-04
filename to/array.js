@@ -2,7 +2,7 @@
 
 const getType = require('../get-type')
 
-module.exports = (value, slice) => {
+module.exports = (value, begin, end) => {
   let kind = getType(value)
   if (kind === 'undefined') return []
 
@@ -13,7 +13,7 @@ module.exports = (value, slice) => {
     array = Array.of(value)
   }
 
-  return getType(slice) === 'number'
-    ? array.slice(slice)
+  return getType(begin) === 'number'
+    ? array.slice(begin, end)
     : array
 }
