@@ -7,7 +7,8 @@ const toNumber = require('./number')
 module.exports = (value, bound) => {
   if (isObject(value)) {
     let keys = Object.keys(value)
-    return keys[~~(Math.random() * keys.length)]
+    let selected = keys[~~(Math.random() * keys.length)]
+    return value[selected]
   }
 
   if (isArrayLike(value)) {
