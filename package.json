@@ -17,6 +17,16 @@
   "engines": {
     "node": ">=4"
   },
+  "files": [
+    "fn",
+    "is",
+    "to",
+    "util",
+    "async",
+    "index.js",
+    "constants.js",
+    "get-type.js"
+  ],
   "scripts": {
     "lint": "eslint **/*.js",
     "pretest": "npm run lint",
