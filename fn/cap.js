@@ -1,6 +1,8 @@
 'use strict'
 
+const apply = require('./apply')
 const getType = require('../get-type')
+const toArray = require('../to/array')
 const isNumber = require('../is/number')
 
 module.exports = (fn, limit) => {
@@ -8,14 +10,18 @@ module.exports = (fn, limit) => {
     throw new TypeError(`Expected a function.`)
   }
 
-  limit = isNumber(limit) ? limit : fn.length || 0
+  limit = isNumber(limit) ? Math.abs(limit) : fn.length || 0
 
-  switch (limit) {
-    case 1: return a => fn(a)
-    case 2: return (a, b) => fn(a, b)
-    case 3: return (a, b, c) => fn(a, b, c)
-    case 4: return (a, b, c, d) => fn(a, b, c, d)
+  if (
+    ('length' in fn) &&
+    (fn.length < 1 ||
+    (fn.length > 0 && limit >= fn.length))
+  ) {
+    return fn
   }
-
-  return fn
+  
+  return function () {
+    let args = toArray(arguments, 0, limit)
+    return apply(fn, args)
+  }
 }
