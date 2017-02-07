@@ -19,7 +19,7 @@ module.exports = (fn, limit) => {
   ) {
     return fn
   }
-  
+
   return function () {
     let args = toArray(arguments, 0, limit)
     return apply(fn, args)
