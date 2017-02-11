@@ -8,7 +8,7 @@ const isPrimitive = require('../is/primitive')
 const isTraversable = v => isIterable(v) || isObject(v)
 
 module.exports = curry2((object, extension) => {
-  object = Object.assign({}, object)
+  if (isPrimitive(object)) return object
 
   return base(object, extension, (obj, ext, key) => {
     if (!(key in obj)) obj[key] = ext[key]
