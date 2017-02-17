@@ -16,6 +16,6 @@ module.exports = (start, end, step) => {
     result.push(i)
     i += step
   }
-  
+
   return result
 }
