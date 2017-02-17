@@ -1,6 +1,6 @@
 'use strict'
 
-module.exports = function (start, end, step) {
+module.exports = (start, end, step) => {
   if (arguments.length === 0) return []
   if (arguments.length === 1) {
     end = start
@@ -8,5 +8,14 @@ module.exports = function (start, end, step) {
   }
 
   if (typeof step === 'undefined') step = 1
-  return Array.from({ length: (end - start) }, (v, k) => k + step)
+  if (start > end) step = -Math.abs(step)
+
+  let i = start
+  let result = []
+  while (step > 0 ? end >= i : end <= i) {
+    result.push(i)
+    i += step
+  }
+  
+  return result
 }
