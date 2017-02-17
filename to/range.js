@@ -10,6 +10,8 @@ module.exports = (start, end, step) => {
   if (typeof step === 'undefined') step = 1
   if (start > end) step = -Math.abs(step)
 
+  if (step === 0) return [start, end]
+
   let i = start
   let result = []
   while (step > 0 ? end >= i : end <= i) {
