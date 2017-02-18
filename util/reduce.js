@@ -3,7 +3,7 @@
 const each = require('./each')
 const curry3 = require('../fn/curry3')
 
-module.exports = curry3((fn, collection, initial) => {
+module.exports = curry3((fn, initial, collection) => {
   let accumulator = initial
 
   each((v, k, o) => {
