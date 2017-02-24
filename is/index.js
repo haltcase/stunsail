@@ -1,12 +1,8 @@
 'use strict'
 
 const reqAll = require('req-all')
-const isEqual = require('lodash.isequal')
+const equal = require('./equal')
 
-function is (value, compare) {
-  return isEqual(value, compare)
-}
+Object.assign(equal, reqAll())
 
-Object.assign(is, reqAll())
-
-module.exports = is
+module.exports = equal
