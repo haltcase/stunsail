@@ -1,5 +1,5 @@
 import test from 'ava'
-import fn from '../../util/each'
+import fn from '../../col/each'
 
 const object = { one: 1, two: 2, three: 3 }
 const array = [1, 3, 5, 7]

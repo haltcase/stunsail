@@ -1,5 +1,5 @@
 import test from 'ava'
-import fn from '../../util/filter'
+import fn from '../../col/filter'
 
 const object = { one: 1, two: 2, three: 3 }
 const array = [1, 2, 3, 4, 5]
