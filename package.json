@@ -15,7 +15,7 @@
   "homepage": "https://github.com/citycide/stunsail",
   "bugs": "https://github.com/citycide/stunsail/issues",
   "engines": {
-    "node": ">=4"
+    "node": ">=6"
   },
   "files": [
     "fn",
