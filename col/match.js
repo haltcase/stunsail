@@ -12,6 +12,6 @@ module.exports = curry2((compare, object) => {
       return false
     }
   }, compare)
-  
+
   return match
 })
