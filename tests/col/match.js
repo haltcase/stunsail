@@ -3,12 +3,12 @@ import fn from '../../col/match'
 
 test('returns true when specified properties match', t => {
   let obj = { name: 'wishy', color: 'green' }
-  t.true(fn({ color: green }, obj))
+  t.true(fn({ color: 'green' }, obj))
 })
 
 test('returns false when specified properties do not match', t => {
   let obj = { name: 'washy', color: 'red' }
-  t.false(fn({ color: blue }, obj))
+  t.false(fn({ color: 'blue' }, obj))
 })
 
 test('auto-curried at two arguments', t => {
