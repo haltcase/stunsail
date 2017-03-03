@@ -1,22 +1,36 @@
 'use strict'
 
-const isObject = require('./object')
+const isEqual = require('./equal')
+const getType = require('../get-type')
+const curry2 = require('../fn/curry2')
 
-module.exports = (collection, value, from) => {
-  if (Array.isArray(collection) || typeof collection === 'string') {
-    return collection.indexOf(value, from) > -1
-  } else if (isObject(collection)) {
-    let values = Object.keys(collection).map(k => collection[k])
-    let length = values.length
-
-    if (from < 0) {
-      from = Math.max(length + from, 0)
-    }
-
-    return !!length && values.indexOf(value) > -1
-  } else {
-    throw new TypeError(
-      `Expected array, object, or string and got ${typeof collection}`
-    )
+module.exports = curry2((collection, value) => {
+  let inputType = getType(collection)
+  
+  switch (inputType) {
+    case 'string':
+      return collection.indexOf(value) > -1
+    case 'array':
+      return findIndex(collection, value) > -1
+    case 'object':
+      let values = Object.keys(collection).map(k => collection[k])
+      return findIndex(values, value) > -1
+    default:
+      throw new TypeError(
+        `expected array, object, or string and got ${inputType}`
+      )
   }
+})
+
+function findIndex (arr, val) {
+  let i = -1
+  let length = arr.length
+
+  while (++i < length) {
+    if (isEqual(val, arr[i])) {
+      return i
+    }
+  }
+
+  return -1
 }
