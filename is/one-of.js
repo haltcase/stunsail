@@ -6,7 +6,7 @@ const curry2 = require('../fn/curry2')
 
 module.exports = curry2((collection, value) => {
   let inputType = getType(collection)
-  
+
   switch (inputType) {
     case 'string':
       return collection.indexOf(value) > -1
