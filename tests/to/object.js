@@ -8,11 +8,13 @@ test('array: creates an object using array values as its pairs', t => {
 })
 
 test('primitive: creates an object with the input as both key & value', t => {
+  /* eslint-disable object-shorthand */
   t.deepEqual(fn(3), { '3': 3 })
-  t.deepEqual(fn(true), { true: true })
-  t.deepEqual(fn('fly'), { fly: 'fly' })
-  t.deepEqual(fn(null), { null: null })
-  t.deepEqual(fn(undefined), { undefined: undefined })
+  t.deepEqual(fn(true), { 'true': true })
+  t.deepEqual(fn('fly'), { 'fly': 'fly' })
+  t.deepEqual(fn(null), { 'null': null })
+  t.deepEqual(fn(undefined), { 'undefined': undefined })
+  /* eslint-enable object-shorthand */
 })
 
 test('object: returns the input directly', t => {
