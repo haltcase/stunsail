@@ -29,7 +29,7 @@
     "get-type.js"
   ],
   "scripts": {
-    "lint": "eslint **/*.js",
+    "lint": "eslint .",
     "pretest": "npm run lint",
     "test": "ava",
     "test:watch": "ava -w",
