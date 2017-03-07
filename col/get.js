@@ -1,9 +1,9 @@
 'use strict'
 
-const curry2 = require('../fn/curry2')
+const curry = require('../fn/curry')
 const isArrayLike = require('../is/array-like')
 
-module.exports = curry2((path, object) => {
+module.exports = curry(function get (path, object) {
   let keys = path
 
   if (typeof keys === 'string') {

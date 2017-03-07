@@ -1,11 +1,11 @@
 'use strict'
 
-const curry2 = require('../fn/curry2')
+const curry = require('../fn/curry')
 const getType = require('../get-type')
 const isIterable = require('../is/iterable')
 const isArrayLike = require('../is/array-like')
 
-module.exports = curry2((fn, collection) => {
+module.exports = curry(function each (fn, collection) {
   let type = getType(collection)
   if (isIterable(collection)) {
     let i = 0

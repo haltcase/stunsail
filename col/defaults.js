@@ -1,13 +1,13 @@
 'use strict'
 
-const curry2 = require('../fn/curry2')
+const curry = require('../fn/curry')
 const isObject = require('../is/object')
 const isIterable = require('../is/iterable')
 const isPrimitive = require('../is/primitive')
 
 const isTraversable = v => isIterable(v) || isObject(v)
 
-module.exports = curry2((object, extension) => {
+module.exports = curry(function defaults (object, extension) {
   if (isPrimitive(object)) return object
 
   return base(object, extension, (obj, ext, key) => {

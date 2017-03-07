@@ -1,10 +1,10 @@
 'use strict'
 
 const isEqual = require('./equal')
+const curry = require('../fn/curry')
 const getType = require('../get-type')
-const curry2 = require('../fn/curry2')
 
-module.exports = curry2((collection, value) => {
+module.exports = curry((collection, value) => {
   let inputType = getType(collection)
 
   switch (inputType) {

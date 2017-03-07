@@ -1,10 +1,10 @@
 'use strict'
 
 const each = require('./each')
-const curry2 = require('../fn/curry2')
+const curry = require('../fn/curry')
 const isArrayLike = require('../is/array-like')
 
-module.exports = curry2((fn, collection) => {
+module.exports = curry(function map (fn, collection) {
   let arrayLike = isArrayLike(collection)
   let result = arrayLike ? [] : {}
 

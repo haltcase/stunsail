@@ -1,9 +1,9 @@
 'use strict'
 
 const each = require('./each')
-const curry3 = require('../fn/curry3')
+const curry = require('../fn/curry')
 
-module.exports = curry3((fn, initial, collection) => {
+module.exports = curry(function reduce (fn, initial, collection) {
   let accumulator = initial
 
   each((v, k, o) => {

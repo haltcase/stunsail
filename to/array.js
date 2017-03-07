@@ -7,7 +7,9 @@ module.exports = (value, begin, end) => {
   if (kind === 'undefined') return []
 
   let array = []
-  if (kind === 'arguments' || kind === 'array') {
+  if (kind === 'array') {
+    array = value
+  } else if (kind === 'arguments') {
     array = Array.from(value)
   } else {
     array = Array.of(value)

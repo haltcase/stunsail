@@ -1,9 +1,10 @@
 'use strict'
 
+const curry = require('./curry')
 const getType = require('../get-type')
 const toArray = require('../to/array')
 
-module.exports = (fn, args) => {
+module.exports = curry(function apply (fn, args) {
   if (getType(fn) !== 'function') {
     throw new TypeError(`Expected a function.`)
   }
@@ -24,4 +25,4 @@ module.exports = (fn, args) => {
   }
 
   return fn.apply(null, args)
-}
+})
