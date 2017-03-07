@@ -14,7 +14,7 @@ module.exports = fn => {
 
   return function () {
     if (!called) {
-      result = apply(fn, this, arguments)
+      result = apply(fn, arguments)
     }
 
     fn = undefined
