@@ -3,7 +3,7 @@
 const getType = require('../get-type')
 const toArray = require('../to/array')
 
-module.exports = (fn, ctx, args) => {
+module.exports = (fn, args) => {
   if (getType(fn) !== 'function') {
     throw new TypeError(`Expected a function.`)
   }
@@ -12,13 +12,16 @@ module.exports = (fn, ctx, args) => {
     args = toArray(args)
   }
 
-  let [one, two, three, four] = args
+  let [a, b, c, d, e, f] = args
   switch (args.length) {
-    case 1: return fn(one)
-    case 2: return fn(one, two)
-    case 3: return fn(one, two, three)
-    case 4: return fn(one, two, three, four)
+    case 0: return fn()
+    case 1: return fn(a)
+    case 2: return fn(a, b)
+    case 3: return fn(a, b, c)
+    case 4: return fn(a, b, c, d)
+    case 5: return fn(a, b, c, d, e)
+    case 6: return fn(a, b, c, d, e, f)
   }
 
-  return fn.apply(ctx, args)
+  return fn.apply(null, args)
 }
