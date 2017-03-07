@@ -14,8 +14,7 @@ module.exports = (fn, limit) => {
 
   if (
     ('length' in fn) &&
-    (fn.length < 1 ||
-    (fn.length > 0 && limit >= fn.length))
+    (fn.length > 0 && limit >= fn.length)
   ) {
     return fn
   }
