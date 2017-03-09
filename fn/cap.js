@@ -1,26 +1,23 @@
 'use strict'
 
+const curry = require('./curry')
 const apply = require('./apply')
 const getType = require('../get-type')
 const toArray = require('../to/array')
-const isNumber = require('../is/number')
 
-module.exports = (fn, limit) => {
+module.exports = curry(function cap (limit, fn) {
   if (getType(fn) !== 'function') {
     throw new TypeError(`Expected a function.`)
   }
 
-  limit = isNumber(limit) ? Math.abs(limit) : fn.length || 0
-
-  if (
-    ('length' in fn) &&
-    (fn.length > 0 && limit >= fn.length)
-  ) {
-    return fn
+  if (getType(limit) !== 'number') {
+    limit = Number(limit) || 0
   }
+
+  let upper = Math.abs(limit)
 
   return function () {
-    let args = toArray(arguments, 0, limit)
+    let args = toArray(arguments, 0, upper)
     return apply(fn, args)
   }
-}
+})

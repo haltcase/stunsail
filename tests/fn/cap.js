@@ -7,14 +7,14 @@ function target () {
 
 const args = [1, 2, 3, 4, 5, 6]
 
-test('limits arguments of the specified function', t => {
-  let zero = fn(target, 0)
-  let one = fn(target, 1)
-  let two = fn(target, 2)
-  let three = fn(target, 3)
-  let four = fn(target, 4)
-  let five = fn(target, 5)
-  let six = fn(target, 6)
+test('limits maximum number of arguments passed to the function', t => {
+  let zero = fn(0, target)
+  let one = fn(1, target)
+  let two = fn(2, target)
+  let three = fn(3, target)
+  let four = fn(4, target)
+  let five = fn(5, target)
+  let six = fn(6, target)
 
   t.is(zero(...args), 0)
   t.is(one(...args), 1)
