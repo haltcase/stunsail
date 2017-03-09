@@ -1,7 +1,7 @@
 import test from 'ava'
 import fn from '../../fn/once'
 
-test('calls provided function with an array of arguments', t => {
+test('only runs the function once & returns the same value on subsequent calls', t => {
   let target = fn(x => x * 2)
   t.is(target(50), 100)
 
