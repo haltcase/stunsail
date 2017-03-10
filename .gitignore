@@ -4,12 +4,13 @@
 
 # ignore all built *.js files
 *.js
-src/index.js
 
 # re-include these *.js files
 !.eslintrc.js
 !src/**/*.js
 !tests/**/*.js
 
+# but not this index file
+src/index.js
 
 node_modules
