@@ -8,5 +8,8 @@ src/index.js
 
 # re-include these *.js files
 !.eslintrc.js
+!src/**/*.js
+!tests/**/*.js
+
 
 node_modules
