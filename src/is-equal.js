@@ -25,11 +25,14 @@ export default function is (a, b) {
       return a === b
     case 'map':
     case 'set':
-      let aEntries = [...a.entries()]
-      let bEntries = [...b.entries()]
-      return aEntries.length === bEntries.length && is(aEntries, bEntries)
-    // All object types require a deep comparison
+      let aEntries = Array.from(a)
+      let bEntries = Array.from(b)
+      return (
+        aEntries.length === bEntries.length &&
+        isDeep(aEntries, bEntries)
+      )
     default:
+      // all non-primitives require deep comparison
       return isDeep(a, b)
   }
 }
