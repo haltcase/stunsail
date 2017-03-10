@@ -1,6 +1,6 @@
 {
   "name": "stunsail",
-  "version": "1.0.0-alpha.8",
+  "version": "1.0.0-alpha.9",
   "description": "Super opinionated collection of utility functions.",
   "license": "MIT",
   "author": {
@@ -17,24 +17,21 @@
   "engines": {
     "node": ">=6"
   },
-  "files": [
-    "fn",
-    "is",
-    "to",
-    "col",
-    "util",
-    "async",
-    "index.js",
-    "constants.js",
-    "get-type.js"
-  ],
+  "main": "index.js",
+  "module": "es/index.js",
+  "jsnext:main": "es/index.js",
   "scripts": {
-    "lint": "eslint .",
+    "lint": "eslint src tests",
+    "index": "node build/create-index.js",
+    "build": "npm run index && npm run build:es && npm run build:main",
+    "build:es": "cross-env BABEL_ENV=es babel src -d es",
+    "build:main": "cross-env BABEL_ENV=production babel src -d .",
+    "build:watch": "cross-env BABEL_ENV=dev babel src -d . -w",
     "pretest": "npm run lint",
     "test": "ava",
     "test:watch": "ava -w",
     "changelog": "standard-changelog -i CHANGELOG.md -o CHANGELOG.md",
-    "prep": "npm run changelog && npm test",
+    "prep": "npm run changelog && npm test && npm run build",
     "commit": "git-cz"
   },
   "keywords": [
@@ -44,13 +41,16 @@
     "collection",
     "functions"
   ],
-  "dependencies": {
-    "asyncro": "^2.0.1",
-    "req-all": "^1.0.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "ava": "^0.18.2",
+    "babel-cli": "^6.23.0",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-preset-babili": "0.0.12",
+    "babel-preset-env": "^1.2.1",
+    "babel-preset-stage-3": "^6.22.0",
     "commitizen": "^2.9.6",
+    "cross-env": "^3.2.3",
     "cz-conventional-changelog": "^2.0.0",
     "eslint": "^3.16.1",
     "eslint-config-standard": "^6.2.1",

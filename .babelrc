@@ -1,0 +1,57 @@
+{
+  "presets": [],
+  "plugins": [],
+  "env": {
+    "production": {
+      "presets": [
+        [
+          "env",
+          {
+            "targets": {
+              "node": 4.7
+            },
+            "loose": true
+          }
+        ],
+        "stage-3",
+        "babili"
+      ],
+      "plugins": [
+        "add-module-exports"
+      ]
+    },
+    "dev": {
+      "presets": [
+        [
+          "env",
+          {
+            "targets": {
+              "node": 4.7
+            },
+            "loose": true
+          }
+        ],
+        "stage-3"
+      ],
+      "plugins": [
+        "add-module-exports"
+      ]
+    },
+    "es": {
+      "presets": [
+        [
+          "env",
+          {
+            "targets": {
+              "node": 4.7
+            },
+            "modules": false,
+            "loose": true
+          }
+        ],
+        "stage-3"
+      ],
+      "plugins": []
+    }
+  }
+}
