@@ -1,34 +1,42 @@
-const { resolve } = require('path')
-const { writeFileSync, readdirSync } = require('fs')
+const fs = require('fs')
+const path = require('path')
 
-function createIndex () {
-  let src = resolve(__dirname, '..', 'src')
+const src = path.resolve(__dirname, '..', 'src')
+const idx = path.resolve(src, 'index.js')
 
-  let camelize = str =>
-    str.replace(/-(\w)/g, (m, p1) => p1.toUpperCase())
+const camelize = str =>
+  str.replace(/-(\w)/g, (m, p1) => p1.toUpperCase())
 
-  let files = readdirSync(src)
+function getFiles () {
+  return fs.readdirSync(src)
     .filter(file => file.slice(-3) === '.js')
     .filter(file => file !== 'index.js')
+}
 
-  let code = [`let modules = {}\n`]
-  let imports = []
-  let assigns = []
+function createIndex () {
+  let imports = ''
+  let outputs = ''
+  let defaults = 'export default {\n'
+
+  let files = getFiles()
 
   files.forEach(file => {
     let token = camelize(file.slice(0, -3))
     if (token === 'constants') {
-      imports.push(`import * as ${token} from './${file}'`)
+      imports += `import * as ${token} from './${file}'\n`
     } else {
-      imports.push(`import { default as ${token} } from './${file}'`)
+      imports += `import { default as ${token} } from './${file}'\n`
     }
-    assigns.push(`modules['${token}'] = ${token}`)
+    outputs += `export { ${token} }\n`
+    defaults += `  ${token},\n`
   })
 
-  code = code.concat(imports, assigns).join('\n') + '\n\n'
-  code += 'export default modules\n'
+  let code = ''
+  code += imports + '\n'
+  code += outputs + '\n'
+  code += defaults.slice(0, -2) + '\n}\n'
 
-  writeFileSync(resolve(src, 'index.js'), code)
+  fs.writeFileSync(idx, code)
 
   return files.length
 }
