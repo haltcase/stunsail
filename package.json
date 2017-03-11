@@ -32,7 +32,7 @@
     "test": "ava",
     "test:watch": "ava -w",
     "changelog": "standard-changelog -i CHANGELOG.md -o CHANGELOG.md",
-    "prepublish": "npm run changelog && npm test && npm run build",
+    "prepublish": "npm run build && npm test",
     "commit": "git-cz"
   },
   "keywords": [

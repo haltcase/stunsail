@@ -9,6 +9,7 @@ tests
 build
 src
 
+.babelrc
 .travis.yml
 .eslintrc.js
 .gitattributes
