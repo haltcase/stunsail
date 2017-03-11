@@ -1,6 +1,6 @@
 {
   "name": "stunsail",
-  "version": "1.0.0-alpha.9",
+  "version": "1.0.0-alpha.10",
   "description": "Super opinionated collection of utility functions.",
   "license": "MIT",
   "author": {
@@ -32,7 +32,7 @@
     "test": "ava",
     "test:watch": "ava -w",
     "changelog": "standard-changelog -i CHANGELOG.md -o CHANGELOG.md",
-    "prep": "npm run changelog && npm test && npm run build",
+    "prepublish": "npm run changelog && npm test && npm run build",
     "commit": "git-cz"
   },
   "keywords": [
