@@ -1,7 +1,9 @@
 import curry from './curry'
 import getType from './get-type'
 
-export default curry(function is (a, b) {
+export default curry(is)
+
+function is (a, b) {
   // eslint-disable-next-line no-self-compare
   if (a === b || (a !== a && b !== b)) return true
 
@@ -36,7 +38,7 @@ export default curry(function is (a, b) {
       // all non-primitives require deep comparison
       return isDeep(a, b)
   }
-})
+}
 
 function isDeep (a, b) {
   let aKeys = Object.keys(a)
