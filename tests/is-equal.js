@@ -52,3 +52,7 @@ test('works as expected for weird values', t => {
   t.true(fn(NaN, NaN))
   t.true(fn(-0, 0))
 })
+
+test('auto-curried at two arguments', t => {
+  t.is(typeof fn(1), 'function')
+})
