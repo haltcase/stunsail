@@ -1,9 +1,12 @@
 import curry from './curry'
 import getType from './get-type'
+import isPrimitive from './is-primitive'
 
-export default curry(is)
+export default curry(function is (a, b) {
+  return isBase(a, b)
+})
 
-function is (a, b) {
+function isBase (a, b, stack) {
   // eslint-disable-next-line no-self-compare
   if (a === b || (a !== a && b !== b)) return true
 
@@ -21,7 +24,7 @@ function is (a, b) {
   switch (aType) {
     case 'array':
       if (a.length !== b.length) return false
-      return isDeep(a, b)
+      return isDeep(a, b, stack)
     case 'date':
       return a.valueOf() === b.valueOf()
     case 'promise':
@@ -32,24 +35,48 @@ function is (a, b) {
       let bEntries = Array.from(b)
       return (
         aEntries.length === bEntries.length &&
-        isDeep(aEntries, bEntries)
+        isDeep(aEntries, bEntries, stack)
       )
     default:
       // all non-primitives require deep comparison
-      return isDeep(a, b)
+      return isDeep(a, b, stack)
   }
 }
 
-function isDeep (a, b) {
+function isDeep (a, b, stack = new Set()) {
   let aKeys = Object.keys(a)
-  if (aKeys.length !== Object.keys(b).length) return false
-
-  let i = aKeys.length - 1
-  while (i >= 0) {
-    if (!{}.hasOwnProperty.call(b, aKeys[i])) return false
-    let key = aKeys[i]
-    if (!is(a[key], b[key])) return false
-    i -= 1
+  let length = aKeys.length
+  if (length !== Object.keys(b).length) {
+    return false
   }
+
+  let i = -1
+  while (++i < length) {
+    let key = aKeys[i]
+
+    if (!(key in b)) {
+      return false
+    }
+
+    let val = a[key]
+    if (!isPrimitive(val)) {
+      // keep track of objects to handle
+      // circular references, assume equal
+      if (stack.has(val)) continue
+      stack.add(val)
+
+      if (
+        isPrimitive(b[key]) ||
+        !isDeep(val, b[key], stack)
+      ) {
+        return false
+      }
+    }
+
+    if (!isBase(val, b[key], stack)) {
+      return false
+    }
+  }
+
   return true
 }

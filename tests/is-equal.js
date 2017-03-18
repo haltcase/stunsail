@@ -53,6 +53,18 @@ test('works as expected for weird values', t => {
   t.true(fn(-0, 0))
 })
 
+test('handles cyclic dependencies', t => {
+  let o1 = {}
+  let o2 = {}
+
+  o1.x = o2
+  o2.x = o1
+
+  let res
+  t.notThrows(() => { res = fn(o1, o2) })
+  t.true(res)
+})
+
 test('auto-curried at two arguments', t => {
   t.is(typeof fn(1), 'function')
 })
