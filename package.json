@@ -1,6 +1,6 @@
 {
   "name": "stunsail",
-  "version": "1.0.0-alpha.8",
+  "version": "1.0.0-alpha.11",
   "description": "Super opinionated collection of utility functions.",
   "license": "MIT",
   "author": {
@@ -15,26 +15,24 @@
   "homepage": "https://github.com/citycide/stunsail",
   "bugs": "https://github.com/citycide/stunsail/issues",
   "engines": {
-    "node": ">=6"
+    "node": ">=4"
   },
-  "files": [
-    "fn",
-    "is",
-    "to",
-    "col",
-    "util",
-    "async",
-    "index.js",
-    "constants.js",
-    "get-type.js"
-  ],
+  "main": "index.js",
+  "module": "es/index.js",
+  "jsnext:main": "es/index.js",
   "scripts": {
-    "lint": "eslint .",
-    "pretest": "npm run lint",
+    "lint": "eslint src tests",
+    "index": "node build/create-index.js",
+    "prebuild": "trash '*.js' '!.eslintrc.js'",
+    "build": "npm run index && npm run build:es && npm run build:main",
+    "build:es": "cross-env BABEL_ENV=es babel src -d es",
+    "build:main": "cross-env BABEL_ENV=production babel src -d .",
+    "build:watch": "cross-env BABEL_ENV=dev babel src -d . -w",
+    "pretest": "npm run build && npm run lint",
     "test": "ava",
     "test:watch": "ava -w",
     "changelog": "standard-changelog -i CHANGELOG.md -o CHANGELOG.md",
-    "prep": "npm run changelog && npm test",
+    "prepublish": "npm test",
     "commit": "git-cz"
   },
   "keywords": [
@@ -44,24 +42,31 @@
     "collection",
     "functions"
   ],
-  "dependencies": {
-    "asyncro": "^2.0.1",
-    "req-all": "^1.0.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "ava": "^0.18.2",
+    "babel-cli": "^6.23.0",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-preset-babili": "0.0.12",
+    "babel-preset-env": "^1.2.1",
+    "babel-preset-stage-3": "^6.22.0",
     "commitizen": "^2.9.6",
+    "cross-env": "^3.2.3",
     "cz-conventional-changelog": "^2.0.0",
     "eslint": "^3.16.1",
     "eslint-config-standard": "^6.2.1",
     "eslint-plugin-prefer-let": "^0.1.0",
     "eslint-plugin-promise": "^3.4.2",
     "eslint-plugin-standard": "^2.0.1",
-    "standard-changelog": "0.0.1"
+    "standard-changelog": "0.0.1",
+    "trash-cli": "^1.4.0"
   },
   "ava": {
     "files": [
       "tests/**/*.js"
+    ],
+    "source": [
+      "src/**/*.js"
     ]
   },
   "config": {

@@ -1,0 +1,17 @@
+# IDE configurations
+.c9
+.idea
+.vscode
+
+# source files
+node_modules
+tests
+build
+src
+
+.babelrc
+.travis.yml
+.eslintrc.js
+.gitattributes
+
+stunsail-*.tgz

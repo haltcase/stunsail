@@ -12,37 +12,52 @@ $ npm i stunsail
 
 ## usage
 
-While still in early development, here's some basic usage of various
-parts of the library:
+While still in early development, the general idea is _approachable_ functional
+programming and avoiding duplicating code that's easy enough in modern JavaScript.
+Here are some parts of the library while docs are still nowhere to be found:
 
 ```js
-const { is, to, fn } = require('stunsail')
+const {
+  pipe,
+  map,
+  filter,
+  toNumber,
+  isOneOf,
+  clamp,
+  match
+} = require('.')
 
 /**
- * or, more efficiently:
- * const is = require('stunsail/is')
- * const to = require('stunsail/to')
- * const fn = require('stunsail/fn')
+ * or to be more efficient:
  *
- * or even:
- * const toArray = require('stunsail/to/array')
+ * const pipe = require('stunsail/pipe')
+ * const map = require('stunsail/map')
+ * const isString = require('stunsail/is-string')
+ *
+ * ... etc.
  */
 
-to.number('1') // -> 1
-to.clamp(4, 1, 3) // -> 3
-is.object({}) // -> true
-is.object([]) // -> false
-is.oneOf([1, 2, 3], 3) // -> true
+let number = toNumber('8.5') // -> 8.5
+clamp(number, 1, 3)          // -> 3
 
-fn.pipe([
+pipe([
   'hello world',
-  v => v + '!',
-  v => v.toUpperCase()
-  v => Promise.resolve(v)
-]).then(console.log) // -> 'HELLO WORLD!'
+  map(v => `${v.toUpperCase}-`),             // -> 'H-E-L-L-O- -W-O-R-L-D-'
+  filter(isOneOf(['H', 'L', 'W', 'D', '-'])) // -> 'H-L-L-W-L-D-'
+]).then(final => {
+  console.log(`always returns a Promise`)
+  console.log(final === 'H-L-L-W-L-D-')
+  // -> true
+})
 
-// `pipe()` always returns a Promise
-fn.pipe(['hello']).then(console.log) // -> 'hello'
+let characters = [
+  { name: 'Deadpool', weapon: 'swords' },
+  { name: 'Wolverine', weapon: 'claws' },
+  { name: 'Captain America', weapon: 'shield' } // wat
+]
+
+characters.find(match({ weapon: 'shield' }))
+// -> { name: 'Captain America', weapon: 'shield' }
 ```
 
 ## api
