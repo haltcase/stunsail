@@ -9,4 +9,3 @@ export default value => {
     (length === 0 || (length > 0 && (length - 1) in value))
   )
 }
-
