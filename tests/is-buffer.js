@@ -2,7 +2,7 @@ import test from 'ava'
 import fn from '../is-buffer'
 
 test('reports true only for buffer values', t => {
-  t.true(fn(new Buffer('str')))
+  t.true(fn(Buffer.from('str')))
   t.false(fn(false))
   t.false(fn(''))
   t.false(fn([]))
