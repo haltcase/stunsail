@@ -12,6 +12,8 @@ export default curry(function each (fn, collection) {
       if (type === 'map') {
         value = key[1]
         key = key[0]
+      } else if (type === 'set') {
+        value = key
       } else if (isArrayLike(collection)) {
         value = key
         key = i++
