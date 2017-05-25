@@ -7,7 +7,7 @@ const src = path.resolve(__dirname, '..', 'src')
 const idx = path.resolve(src, 'index.js')
 
 const camelize = str =>
-  str.replace(/-(\w)/g, (m, p1) => p1.toUpperCase())
+  str.replace(/[-|\.](\w)/g, (m, p1) => p1.toUpperCase())
 
 function getFiles () {
   return fs.readdirSync(src)
