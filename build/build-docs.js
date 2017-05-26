@@ -2,14 +2,14 @@
 
 const fs = require('fs')
 const path = require('path')
+const dedent = require('dedent')
 
 const src = path.resolve(__dirname, '..', 'src')
-const docDir = path.resolve(__dirname, '..', 'docs-src')
-const templatePath = path.resolve(docDir, 'readme-template.md')
-const outputPath = path.resolve(docDir, 'readme-output.md')
+const docSrc = path.resolve(__dirname, '..', 'docs-src')
+const outputPath = path.resolve(__dirname, '..', 'docs', 'api.md')
 
 const camelize = str =>
-  str.replace(/[-|\.](\w)/g, (m, p1) => p1.toUpperCase())
+  str.replace(/[-|.](\w)/g, (m, p1) => p1.toUpperCase())
 
 function getFiles () {
   return fs.readdirSync(src)
@@ -21,51 +21,86 @@ function markCode (string) {
   return '```js\n' + string + '\n```\n\n'
 }
 
-function buildDocs () {
-  let api = ''
-  let files = getFiles()
+function makePullRequestURL (method) {
+  let base = `https://github.com/citycide/stunsail/new/master`
+  return `${base}?filename=docs-src/${method}`
+}
 
-  files.forEach(file => {
-    let token = camelize(file.slice(0, -3))
-    api += `### ${token}\n\n`
+function buildArgumentTable (parameters) {
+  let heading = '> **Arguments**\n\n'
+  let tableHeader = dedent`
+    | name | type | description |
+    | :--: | :--: | ----------- |
+  `
 
-    let docString = ''
-    let docPath = path.join(docDir, file)
-
-    try {
-      let doc = require(docPath)
-
-      if (doc.header) {
-        docString += markCode(doc.header)
-      }
-
-      if (doc.description) {
-        docString += doc.description + '\n\n'
-      }
-
-      if (doc.returns) {
-        docString += '> **Returns**\n\n' + doc.returns + '\n\n'
-      }
-
-      if (doc.usage) {
-        docString += '> **Usage**\n\n' + markCode(doc.usage)
-      }
-    } catch (e) {
-      if (e.code === 'MODULE_NOT_FOUND') {
-        // TODO: linkify 'contibute this' for easy PRs
-        docString = '> coming soon [_contribute this_]\n\n'
-      } else {
-        throw e
-      }
-    }
-
-    api += docString
+  let tableRows = parameters.map(value => {
+    let [name, type, description] = value
+    return `| ${name} | \`${type}\` | ${description} |`
   })
 
-  let string = fs.readFileSync(templatePath, 'utf-8')
-  let output = string.replace(/{{api}}/, api)
+  let table = tableHeader + '\n' + tableRows.join('\n')
+  return heading + table + '\n\n'
+}
+
+function buildDocString (file) {
+  let string = ''
+
   try {
-    fs.writeFileSync(outputPath, output, 'utf-8')
+    let builder = require(path.join(docSrc, file))
+    let doc = builder({ dedent })
+
+    if (doc.header) {
+      string += markCode(doc.header)
+    }
+
+    string += `- [${doc.curried ? 'X' : ' '}] curried\n\n`
+
+    if (doc.description) {
+      string += doc.description + '\n\n'
+    }
+
+    if (doc.parameters) {
+      string += buildArgumentTable(doc.parameters)
+    }
+
+    if (doc.returns) {
+      string += '> **Returns**\n\n' + doc.returns + '\n\n'
+    }
+
+    if (doc.usage) {
+      string += '> **Usage**\n\n' + markCode(doc.usage)
+    }
+  } catch (e) {
+    if (e.code === 'MODULE_NOT_FOUND') {
+      let url = makePullRequestURL(file)
+      string = `> coming soon [[_contribute this_](${url})]\n\n`
+    } else {
+      throw e
+    }
+  }
+
+  return string
+}
+
+function buildDocs () {
+  let api = ''
+
+  getFiles().forEach(file => {
+    let token = camelize(file.slice(0, -3))
+    api += `### ${token}\n\n`
+    api += buildDocString(file)
+  })
+
+  try {
+    fs.mkdirSync(path.dirname(outputPath))
+  } catch (e) {
+    if (e.code !== 'EEXIST') {
+      throw e
+    }
+  }
+
+  try {
+    fs.writeFileSync(outputPath, api, 'utf-8')
   } catch (e) {}
 }
 
