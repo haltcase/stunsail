@@ -23,7 +23,7 @@
   "scripts": {
     "lint": "eslint src tests",
     "index": "node build/create-index.js",
-    "prebuild": "trash 'babel/*.js' 'lib/*.js' '*.js' '!.eslintrc.js'",
+    "prebuild": "trash \"babel\" \"es\" \"lib\" \"*.js\" \"!.eslintrc.js\"",
     "build": "npm run index && npm run build:es && npm run build:main",
     "build:es": "cross-env BABEL_ENV=es babel src -d es",
     "build:main": "cross-env BABEL_ENV=production babel src -d .",
