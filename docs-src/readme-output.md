@@ -88,7 +88,226 @@ iterables.
 
 > work in progress
 
-{{api}}
+### apply
+
+```js
+apply(fn, args)
+```
+
+Call `fn` using the Array `args` as its arguments.
+Similar to native `Function#apply()` but does not
+set the function's `this` value.
+
+> **Returns**
+
+`any`: result of applying `args` to `fn`
+
+> **Usage**
+
+```js
+const max = apply(Math.max)
+
+max([1, 2, 100, 4])
+// -> 100
+```
+
+### cap
+
+> coming soon [_contribute this_]
+
+### clamp
+
+> coming soon [_contribute this_]
+
+### constants
+
+> coming soon [_contribute this_]
+
+### curry
+
+> coming soon [_contribute this_]
+
+### defaults
+
+> coming soon [_contribute this_]
+
+### each
+
+> coming soon [_contribute this_]
+
+### filter
+
+> coming soon [_contribute this_]
+
+### getOr
+
+> coming soon [_contribute this_]
+
+### getType
+
+> coming soon [_contribute this_]
+
+### get
+
+> coming soon [_contribute this_]
+
+### has
+
+> coming soon [_contribute this_]
+
+### invariant
+
+> coming soon [_contribute this_]
+
+### isArrayLike
+
+> coming soon [_contribute this_]
+
+### isArray
+
+> coming soon [_contribute this_]
+
+### isBoolean
+
+> coming soon [_contribute this_]
+
+### isBuffer
+
+> coming soon [_contribute this_]
+
+### isDate
+
+> coming soon [_contribute this_]
+
+### isEmpty
+
+> coming soon [_contribute this_]
+
+### isEqual
+
+> coming soon [_contribute this_]
+
+### isError
+
+> coming soon [_contribute this_]
+
+### isFunction
+
+> coming soon [_contribute this_]
+
+### isInRange
+
+> coming soon [_contribute this_]
+
+### isIterable
+
+> coming soon [_contribute this_]
+
+### isNan
+
+> coming soon [_contribute this_]
+
+### isNil
+
+> coming soon [_contribute this_]
+
+### isNumber
+
+> coming soon [_contribute this_]
+
+### isNumeric
+
+> coming soon [_contribute this_]
+
+### isObject
+
+> coming soon [_contribute this_]
+
+### isOneOf
+
+> coming soon [_contribute this_]
+
+### isPrimitive
+
+> coming soon [_contribute this_]
+
+### isString
+
+> coming soon [_contribute this_]
+
+### isThenable
+
+> coming soon [_contribute this_]
+
+### isType
+
+> coming soon [_contribute this_]
+
+### kebabCase
+
+> coming soon [_contribute this_]
+
+### map
+
+> coming soon [_contribute this_]
+
+### match
+
+> coming soon [_contribute this_]
+
+### once
+
+> coming soon [_contribute this_]
+
+### partition
+
+> coming soon [_contribute this_]
+
+### pipe
+
+> coming soon [_contribute this_]
+
+### random
+
+> coming soon [_contribute this_]
+
+### range
+
+> coming soon [_contribute this_]
+
+### reduce
+
+> coming soon [_contribute this_]
+
+### set
+
+> coming soon [_contribute this_]
+
+### sleep
+
+> coming soon [_contribute this_]
+
+### toArray
+
+> coming soon [_contribute this_]
+
+### toBoolean
+
+> coming soon [_contribute this_]
+
+### toEmpty
+
+> coming soon [_contribute this_]
+
+### toNumber
+
+> coming soon [_contribute this_]
+
+### toObject
+
+> coming soon [_contribute this_]
+
+
 
 ## babel plugin
 
