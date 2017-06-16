@@ -4,6 +4,8 @@ const fs = require('fs')
 const path = require('path')
 const dedent = require('dedent')
 
+const pkg = require('../package')
+
 const src = path.resolve(__dirname, '..', 'src')
 const docSrc = path.resolve(__dirname, '..', 'docs-src')
 const outputPath = path.resolve(__dirname, '..', 'docs', 'api.md')
@@ -83,7 +85,7 @@ function buildDocString (file) {
 }
 
 function buildDocs () {
-  let api = ''
+  let api = `# stunsail _${pkg.version}_\n\n`
 
   getFiles().forEach(file => {
     let token = camelize(file.slice(0, -3))
