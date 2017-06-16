@@ -1,4 +1,4 @@
-import isObject from './is-object'
+import isEmpty from './is-empty'
 
 export default (value, smart) => {
   // takes care of falsy values
@@ -8,13 +8,12 @@ export default (value, smart) => {
   // returns `value` if it's already a boolean
   if (value === true) return value
 
-  if (typeof value === 'string') {
+  let kind = typeof value
+  if (kind === 'string') {
     if (!smart) return !!value.length
     return value === 'true'
   }
 
-  if (Array.isArray(value)) return !!value.length
-  if (isObject(value)) return !!Object.keys(value).length
-
-  return !!value
+  if (kind === 'number') return !!value
+  return !isEmpty(value)
 }

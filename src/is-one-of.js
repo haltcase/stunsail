@@ -1,5 +1,5 @@
-import isEqual from './is-equal'
 import curry from './curry'
+import isEqual from './is-equal'
 import getType from './get-type'
 
 export default curry((collection, value) => {
@@ -13,9 +13,13 @@ export default curry((collection, value) => {
     case 'object':
       let values = Object.keys(collection).map(k => collection[k])
       return findIndex(values, value) > -1
+    case 'set':
+      return collection.has(value)
+    case 'map':
+      return findIndex(Array.from(collection.values()), value) > -1
     default:
       throw new TypeError(
-        `expected array, object, or string and got ${inputType}`
+        `expected a collection-like object and got ${inputType}`
       )
   }
 })
