@@ -22,6 +22,34 @@ test('object: returns the input directly', t => {
   t.is(fn(input), input)
 })
 
+test('array: converts key / value pair arrays', t => {
+  let input = [['keyOne', 1], ['keyTwo', 2], ['keyThree', 3]]
+  let expected = {
+    keyOne: 1,
+    keyTwo: 2,
+    keyThree: 3
+  }
+
+  t.deepEqual(fn(input), expected)
+})
+
+test('map: creates a plain object from map entries', t => {
+  let input = new Map([['keyOne', 1], ['keyTwo', 2], ['keyThree', 3]])
+  let expected = {
+    keyOne: 1,
+    keyTwo: 2,
+    keyThree: 3
+  }
+
+  t.deepEqual(fn(input), expected)
+})
+
+test('set: creates an object using set entries as its pairs', t => {
+  let input = new Set(['one', 'two', 'three'])
+  let res = { one: 'one', two: 'two', three: 'three' }
+  t.deepEqual(fn(input), res)
+})
+
 test('returns an empty object for unhandled types', t => {
   t.deepEqual(fn(new Date()), {})
 })
