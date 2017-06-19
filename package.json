@@ -22,6 +22,7 @@
   "jsnext:main": "es/index.js",
   "scripts": {
     "lint": "eslint src tests",
+    "docs": "trash \"docs\" && node build/build-docs.js",
     "index": "node build/create-index.js",
     "prebuild": "trash \"babel\" \"es\" \"lib\" \"*.js\" \"!.eslintrc.js\"",
     "build": "npm run index && npm run build:es && npm run build:main",
@@ -29,7 +30,6 @@
     "build:main": "cross-env BABEL_ENV=production babel src -d .",
     "build:watch": "cross-env BABEL_ENV=dev babel src -d . -w",
     "pretest": "npm run build && npm run lint",
-    "docs": "trash \"docs\" && node build/build-docs.js",
     "test": "ava",
     "test:watch": "ava -w",
     "changelog": "standard-changelog -i CHANGELOG.md -o CHANGELOG.md",
