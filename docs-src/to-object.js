@@ -17,7 +17,7 @@ module.exports = ({ dedent: $ }) => {
       toObject(3)
       // -> { '3': 3 }
 
-      toObject(new Map([['keyOne', 'valueOne], ['keyTwo', 'valueTwo']]))
+      toObject(new Map([['keyOne', 'valueOne'], ['keyTwo', 'valueTwo']]))
       // -> { keyOne: 'valueOne', keyTwo: 'valueTwo' }
 
       toObject(true)
