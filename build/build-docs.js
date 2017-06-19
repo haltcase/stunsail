@@ -4,11 +4,8 @@ const fs = require('fs')
 const path = require('path')
 const dedent = require('dedent')
 
-<<<<<<< HEAD
 const pkg = require('../package')
 
-=======
->>>>>>> ae8c18056db54ecdbe7d6c84b460d111755147e5
 const src = path.resolve(__dirname, '..', 'src')
 const docSrc = path.resolve(__dirname, '..', 'docs-src')
 const outputPath = path.resolve(__dirname, '..', 'docs', 'api.md')
