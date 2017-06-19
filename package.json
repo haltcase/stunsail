@@ -29,6 +29,7 @@
     "build:main": "cross-env BABEL_ENV=production babel src -d .",
     "build:watch": "cross-env BABEL_ENV=dev babel src -d . -w",
     "pretest": "npm run build && npm run lint",
+    "docs": "trash \"docs\" && node build/build-docs.js",
     "test": "ava",
     "test:watch": "ava -w",
     "changelog": "standard-changelog -i CHANGELOG.md -o CHANGELOG.md",
