@@ -3,9 +3,11 @@ import filter from '../filter'
 
 let getNamespaces = filter(({ type }) => type === 'ImportSpecifier')
 
-function makeImport (t, name, useRequire) {
+function makeImport (t, name, options) {
+  let { useRequire, useModules } = options
   let file = kebab(name)
-  let path = `stunsail/${file}`
+  let es = !useRequire && useModules ? 'es/' : ''
+  let path = `stunsail/${es}${file}`
 
   if (useRequire) {
     return t.variableDeclaration('const', [
@@ -35,13 +37,14 @@ export default function ({ types: t }) {
         ) return
 
         let parent = path.parentPath.parentPath
+        let options = { useRequire: true, useModules: state.opts.useModules }
 
         let imports = []
         parent.node.declarations.forEach(declaration => {
           if (!t.isObjectPattern(declaration.id)) return
 
           declaration.id.properties.forEach(property => {
-            imports.push(makeImport(t, property.key.name, true))
+            imports.push(makeImport(t, property.key.name, options))
           })
         })
 
@@ -62,7 +65,7 @@ export default function ({ types: t }) {
         namespaces.forEach(namespace => {
           let { imported, local } = namespace
           let name = imported.name || local.name
-          imports.push(makeImport(t, name, state.opts.useRequire))
+          imports.push(makeImport(t, name, state.opts))
         })
 
         if (imports.length > 0) {
