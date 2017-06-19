@@ -1,4 +1,4 @@
-# stunsail _1.0.0-alpha.12_
+# stunsail _1.0.0-alpha.13_
 
 ### apply
 
@@ -316,8 +316,21 @@ returning `defaultValue` if it doesn't exist.
 > **Usage**
 
 ```js
-const result = getOr()
-// -> result
+const object = { attributes: { flammable: true } }
+getOr(false, 'attributes.toxic', object)
+// -> false
+
+getOr(false, 'attributes.flammable', object)
+// -> true
+
+const objectTwo = { array: [1, 2, 3] }
+// these are equivalent
+getOr('item three', 'array[2]', objectTwo)
+getOr('item three', 'array.2', objectTwo)
+// -> 2
+
+getOr('item four', array[3]', objectTwo)
+// -> 'item four'
 ```
 
 ### getType
@@ -385,8 +398,21 @@ returning `undefined` if it doesn't exist.
 > **Usage**
 
 ```js
-const result = get()
-// -> result
+const object = { attributes: { flammable: true } }
+get('attributes.toxic', object)
+// -> undefined
+
+get('attributes.flammable', object)
+// -> true
+
+const objectTwo = { array: [1, 2, 3] }
+// these are equivalent
+get(array[2]', objectTwo)
+get(array.2', objectTwo)
+// -> 2
+
+get(array[3]', objectTwo)
+// -> undefined
 ```
 
 ### has
@@ -1419,21 +1445,49 @@ pipe(input)
 
 - [ ] curried
 
+Run a set of functions in series using the output of each
+as the input to the next. The first value is allowed to be
+of any kind - if it is not a function it is simply passed
+as the argument to the second item. Subsequent non-function
+items are ignored.
+
+Because `pipe` handles Promise-returning functions, it will
+always return a Promise in order to maintain a consistent API
+even if all given functions & values are synchronous.
+
 > **Arguments**
 
 | name | type | description |
 | :--: | :--: | ----------- |
-| input | `` |  |
+| input | `Function[]` | List of functions to pipe through |
 
 > **Returns**
 
-`Promise<>`
+`Promise<any>`
 
 > **Usage**
 
 ```js
-const result = pipe()
-// -> result
+pipe(
+  'hello',
+  str => str.toUpperCase(),
+  str => str.split('').join('-')
+).then(result => {
+  console.log(result)
+  // -> 'H-E-L-L-O'
+})
+
+async function getUserData (name) {
+  return { name, favoriteColor: 'blue' }
+}
+
+pipe(
+  name => getUserData(name),
+  user => user.favoriteColor === 'blue'
+).then(result => {
+  console.log(result)
+  // -> true
+})
 ```
 
 ### random
@@ -1515,7 +1569,40 @@ range(0, 10, 2)
 
 ### reduceWhile
 
-> coming soon [[_contribute this_](https://github.com/citycide/stunsail/new/master?filename=docs-src/reduce-while.js)]
+```js
+reduceWhile(predicate, fn, initial, collection)
+```
+
+- [X] curried
+
+Works just like [`reduce`](#reduce) but short-circuits when
+`predicate` returns a falsy value.
+
+> **Arguments**
+
+| name | type | description |
+| :--: | :--: | ----------- |
+| fn | `Function` | Function that builds the accumulator with each iteration |
+| initial | `any` | Value first passed to `fn` |
+| collection | `Iterable` | Iterable-like object to reduce from |
+
+> **Returns**
+
+`any`
+
+> **Usage**
+
+```js
+const predicate = accumulator => accumulator !== 3
+const reducer = (acc, cur) => acc + cur
+const object = { one: 1, two: 2, three: 3 }
+
+reduce(reducer, 0, object)
+// -> 6
+
+reduceWhile(predicate, reducer, 0, object)
+// -> 3
+```
 
 ### reduce
 
@@ -1851,7 +1938,7 @@ toObject(['one', 'two', 'three'])
 toObject(3)
 // -> { '3': 3 }
 
-toObject(new Map([['keyOne', 'valueOne], ['keyTwo', 'valueTwo']]))
+toObject(new Map([['keyOne', 'valueOne'], ['keyTwo', 'valueTwo']]))
 // -> { keyOne: 'valueOne', keyTwo: 'valueTwo' }
 
 toObject(true)

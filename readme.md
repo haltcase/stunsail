@@ -12,83 +12,60 @@ $ npm i stunsail
 
 ## usage
 
-While still in early development, the general idea is
-_approachable_ functional programming while avoiding
-duplicating code that's easy enough in modern JavaScript.
-Here are some parts of the library while docs are still
-nowhere to be found:
+To import the entire library:
 
 ```js
-const {
-  pipe,
-  map,
-  filter,
-  toNumber,
-  isOneOf,
-  clamp,
-  match,
-  partition
-} = require('stunsail')
+import S from 'stunsail'
 
-let number = toNumber('8.5') // -> 8.5
-clamp(number, 1, 3)          // -> 3
-
-pipe([
-  'hello world',
-  map(v => `${v.toUpperCase}-`),             // -> 'H-E-L-L-O- -W-O-R-L-D-'
-  filter(isOneOf(['H', 'L', 'W', 'D', '-'])) // -> 'H-L-L-W-L-D-'
-]).then(final => {
-  console.log(`pipe allows mixing sync & async functions`)
-  console.log(`it always returns a Promise to stay consistent`)
-  console.log(final === 'H-L-L-W-L-D-')
-  // -> true
-})
-
-let characters = [
-  { name: 'Deadpool', weapon: 'swords' },
-  { name: 'Wolverine', weapon: 'claws' },
-  { name: 'Captain America', weapon: 'shield' } // wat
-]
-
-characters.find(match({ weapon: 'shield' }))
-// -> { name: 'Captain America', weapon: 'shield' }
+// commonjs / ES5
+const S = require('stunsail')
 ```
 
-A secondary goal is to also provide functions that handle
-types as you'd expect, without changing the interface. Take
-`partition()` for example, which other libraries provide
-for working with Arrays. It's the same here:
+A module version is also available if you use ES modules:
 
 ```js
-partition(value => !!value, [true, false, 1, undefined])
-// -> [[true, 1], [false, undefined]]
+import S from 'stunsail/es'
 ```
-
-... but it also works with objects:
-
-```js
-partition((val, key) => val === key, { a: 'a', b: 'c' })
-// -> [{ a: 'a' }, { b: 'c' }]
-```
-
-... and even on strings:
-
-```js
-partition(value => value === ' ', 'a string with spaces in it')
-// -> ['     ', 'astringwithspacesinit']
-```
-
-In fact, `partition()` works with pretty much anything
-you could iterate over, and the same goes for `each()`,
-`map()`, `filter()`, `reduce()` etc. That means Arrays,
-Objects, Array-likes, strings, Sets, Maps, and custom
-iterables.
 
 ## api
 
-> work in progress
+> see the [API docs](docs/api.md)
 
-{{api}}
+## babel plugin
+
+stunsail currently ships with a babel plugin included - though it
+may move to a separate package eventually. It can be used like so:
+
+```json
+{
+  "presets": [],
+  "plugins": [
+    "stunsail/babel"
+  ]
+}
+```
+
+This will allow you to write simpler `import`s but output
+and still benefit from more efficient alternatives, ie:
+
+```js
+import { partition } from 'stunsail'
+
+// commonjs / ES5
+const { partition } = require('stunsail')
+```
+
+... will be compiled to:
+
+```js
+import partition from 'stunsail/partition'
+
+// commonjs / ES5
+const partition = require('stunsail/partition')
+```
+
+`import` statements can optionally be compiled to equivalent `require`
+calls to avoid adding a module plugin separately.
 
 ## babel plugin
 
