@@ -67,19 +67,27 @@ const partition = require('stunsail/partition')
 `import` statements can optionally be compiled to equivalent `require`
 calls to avoid adding a module plugin separately.
 
-## babel plugin
+### configuration
 
-stunsail currently ships with a babel plugin included - though it
-may move to a separate package eventually. It can be used like so:
+Optionally configure the plugin by using an Array of
+`[pluginName, optionsObject]`:
 
 ```json
 {
   "presets": [],
   "plugins": [
-    "stunsail/babel"
+    ["stunsail/babel", {
+      "useRequire": false,
+      "useModules": true
+    }]
   ]
 }
 ```
+
+| property     | type      | default | description |
+| :----------: | :-------: | :-----: | ----------- |
+| `useRequire` | `Boolean` | `false` | Whether to convert `import` statements to `require`s. Has no effect on `require` calls. |
+| `useModules` | `Boolean` | `false` | Redirect `stunsail` imports to `stunsail/es`. Ignored if `useRequire` is set to `true`. |
 
 ## contributing
 
