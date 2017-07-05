@@ -6,14 +6,10 @@ const array = [1, 3, 5, 7]
 const string = 'foobar'
 
 test('iterates over objects', t => {
-  fn((v, k) => t.is(v, object[k]), object)
+  fn(object, (v, k) => t.is(v, object[k]))
 })
 
 test('iterates over arrays & array-likes', t => {
-  fn((v, i) => t.is(v, array[i]), array)
-  fn((v, i) => t.is(v, string[i]), string)
-})
-
-test('auto-curried at two arguments', t => {
-  t.is(typeof fn(() => {}), 'function')
+  fn(array, (v, i) => t.is(v, array[i]))
+  fn(string, (v, i) => t.is(v, string[i]))
 })

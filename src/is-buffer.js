@@ -1,3 +1,5 @@
 import getType from './get-type'
 
-export default value => getType(value) === 'buffer'
+export default function isBuffer (value) {
+  return getType(value) === 'buffer'
+}

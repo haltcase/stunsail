@@ -7,7 +7,7 @@ import {
   BAD_HEX_REGEX
 } from './constants'
 
-export default (value, round) => {
+export default function toNumber (value, round) {
   if (!value) return 0
 
   let inputType = getType(value)

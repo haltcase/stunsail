@@ -1,36 +1,34 @@
 module.exports = ({ dedent: $ }) => {
   return {
-    header: 'each(fn, collection)',
+    header: 'each(collection, fn)',
     description: $`
       Universal version of native \`Array#forEach\` that
       works on pretty much any iterable - Arrays & Array-likes,
       Objects, Sets, Maps, strings, custom iterables, etc.
     `,
     parameters: [
-      ['fn', 'Function', 'Called with each iteration'],
-      ['collection', 'Iterable', 'Iterable-like object to iterate over']
+      ['collection', 'Iterable', 'Iterable-like object to iterate over'],
+      ['fn', 'Function', 'Called with each iteration']
     ],
     returns: '`undefined`',
     usage: $`
-      const iterator = each(v => console.log(v))
-
-      iterator([1, 2, 3])
+      each([1, 2, 3], v => console.log(v))
       // -> 1  2  3
 
-      iterator('string')
+      each('string', v => console.log(v))
       // -> s  t  r  i  n  g
 
-      iterator({ key: 'value', keyTwo: 'valueTwo' })
+      each({ key: 'value', keyTwo: 'valueTwo' }, v => console.log(v))
       // -> 'value'  'valueTwo'
 
-      iterator(new Set([1, 2, 3]))
+      each(new Set([1, 2, 3]), v => console.log(v))
       // -> 1  2  3
 
       const map = new Map()
       map.set('keyOne', 'valueOne')
       map.set('keyTwo', 'valueTwo')
 
-      iterator(map)
+      each(map, v => console.log(v))
       // -> 'value'  'valueTwo'
 
       const obj = {
@@ -41,9 +39,8 @@ module.exports = ({ dedent: $ }) => {
         }
       }
 
-      iterator(obj)
+      each(obj, v => console.log(v))
       // -> 1  2  3
-    `,
-    curried: true
+    `
   }
 }

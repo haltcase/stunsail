@@ -1,6 +1,6 @@
 module.exports = ({ dedent: $ }) => {
   return {
-    header: 'map(fn, collection)',
+    header: 'map(collection, fn)',
     description: $`
       Universal version of native \`Array#map\` that
       works on pretty much any iterable - Arrays & Array-likes,
@@ -11,20 +11,19 @@ module.exports = ({ dedent: $ }) => {
       arguments \`value\`, \`key\`, \`collection\`.
     `,
     parameters: [
-      ['fn', 'Function', 'Callback applied to each item in `collection`'],
-      ['collection', 'Object', 'Iterable-like object to map over, applying `fn` on each iteration']
+      ['collection', 'Object', 'Iterable-like object to map over, applying `fn` on each iteration'],
+      ['fn', 'Function', 'Callback applied to each item in `collection`']
     ],
     returns: '`any`: same type as `collection`',
     usage: $`
-      map(v => v + 1, { one: 1, two: 2, three: 3 })
+      map({ one: 1, two: 2, three: 3 }, v => v + 1)
       // -> { one: 2, two: 3, three: 4 }
 
-      map(v => v * -1, [1, 3, 5, 7])
+      map([1, 3, 5, 7], v => v * -1)
       // -> [-1, -3, -5, -7]
 
-      map(v => v + '-', 'foobar')
+      map('foobar', v => v + '-')
       // -> 'f-o-o-b-a-r-'
-    `,
-    curried: true
+    `
   }
 }

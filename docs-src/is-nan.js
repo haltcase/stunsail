@@ -20,7 +20,6 @@ module.exports = ({ dedent: $ }) => {
 
       isNan({})
       // -> false
-    `,
-    curried: false
+    `
   }
 }

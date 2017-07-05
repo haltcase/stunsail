@@ -7,8 +7,8 @@ module.exports = ({ dedent: $ }) => {
       bracket syntax.
     `,
     parameters: [
-      ['path', 'string, string[]', 'String using dot or bracket syntax, or an array of path segments'],
-      ['object', 'Object', 'Object-like value to access']
+      ['object', 'Object', 'Object-like value to access'],
+      ['path', 'string, string[]', 'String using dot or bracket syntax, or an array of path segments']
     ],
     returns: '`boolean`',
     usage: $`
@@ -18,13 +18,12 @@ module.exports = ({ dedent: $ }) => {
 
       const objectTwo = { array: [1, 2, 3] }
       // these are equivalent
-      has('array[2]', objectTwo)
-      has('array.2', objectTwo)
+      has(objectTwo, 'array[2]')
+      has(objectTwo, 'array.2')
       // -> true
 
-      has('array[3]', objectTwo)
+      has(objectTwo, 'array[3]')
       // -> false
-    `,
-    curried: true
+    `
   }
 }

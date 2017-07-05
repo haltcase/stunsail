@@ -20,7 +20,6 @@ module.exports = ({ dedent: $ }) => {
 
       isEqual(new Set([1, 2]), new Set([9, 10]))
       // -> false
-    `,
-    curried: true
+    `
   }
 }

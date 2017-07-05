@@ -1,6 +1,6 @@
 module.exports = ({ dedent: $ }) => {
   return {
-    header: 'partition(fn, collection)',
+    header: 'partition(collection, fn)',
     description: $`
       Iterate over \`collection\` and apply \`fn\` to each item,
       returning an Array where the first element contains all items
@@ -8,27 +8,25 @@ module.exports = ({ dedent: $ }) => {
       contains all items for which it returned a falsy value.
     `,
     parameters: [
-      ['fn', 'Function', 'Predicate with which to split items'],
-      ['collection', 'Object', 'Object-like value to split']
+      ['collection', 'Object', 'Object-like value to split'],
+      ['fn', 'Function', 'Predicate with which to split items']
     ],
     returns: '`[truthy, falsy]`',
     usage: $`
-      partition(v => v === true, [true, false, true, false])
+      partition([true, false, true, false], v => v === true)
       // -> [[true, true], [false, false]]
 
-      partition(v => v === true, { keyOne: true, keyTwo: false })
+      partition({ keyOne: true, keyTwo: false }, v => v === true)
       // -> [{ keyOne: true }, { keyTwo: false }]
 
-      partition(v => v === ' ', 'some arbitrary string')
+      partition('some arbitrary string', v => v === ' ')
       // -> ['  ', 'somearbitrarystring']
 
-      partition(v => v === true, new Map([['keyOne', true], ['keyTwo', false]]))
+      partition(new Map([['keyOne', true], ['keyTwo', false]]), v => v === true)
       // -> [ Map {'keyOne' => true}, Map {'keyTwo' => false} ]
 
-      partition(v => v.startsWith('J'), new Set(['Joe', 'Jerry', 'Rick', 'Bob']))
+      partition(new Set(['Joe', 'Jerry', 'Rick', 'Bob']), v => v.startsWith('J'))
       // -> [ Set {'Joe', 'Jerry'}, Set {'Rick', 'Bob'} ]
-  ]
-    `,
-    curried: true
+    `
   }
 }

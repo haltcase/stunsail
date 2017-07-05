@@ -1,10 +1,9 @@
-import curry from './curry'
 import getType from './get-type'
 import isPrimitive from './is-primitive'
 
-export default curry(function is (a, b) {
+export default function is (a, b) {
   return isBase(a, b)
-})
+}
 
 function isBase (a, b, stack) {
   // eslint-disable-next-line no-self-compare

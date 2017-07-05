@@ -17,7 +17,6 @@ module.exports = ({ dedent: $ }) => {
 
       isObject(new Map())
       // -> false
-    `,
-    curried: false
+    `
   }
 }

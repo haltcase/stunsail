@@ -1,9 +1,8 @@
-import curry from './curry'
 import getType from './get-type'
 import isIterable from './is-iterable'
 import isArrayLike from './is-array-like'
 
-export default curry(function each (fn, collection) {
+export default function each (collection, fn) {
   let type = getType(collection)
   if (isIterable(collection)) {
     let i = 0
@@ -28,4 +27,4 @@ export default curry(function each (fn, collection) {
       if (fn(value, key, collection) === false) break
     }
   }
-})
+}

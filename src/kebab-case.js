@@ -3,7 +3,7 @@ import {
   UPPERCASE_CHARACTER_REGEX as uppers
 } from './constants'
 
-export default string => {
+export default function kebabCase (string) {
   return string
     .replace(uppers, match => ' ' + (match.toLowerCase() || match))
     .trim()

@@ -1,4 +1,3 @@
-import curry from './curry'
 import reduce from './reduce'
 import getType from './get-type'
 import toEmpty from './to-empty'
@@ -17,13 +16,13 @@ function addTo (type, target, value, key) {
   }
 }
 
-export default curry(function partition (fn, collection) {
+export default function partition (collection, fn) {
   let type = getType(collection)
   let [truthy, falsy] = [toEmpty(type), toEmpty(type)]
 
-  return reduce((accumulator, v, k, o) => {
+  return reduce(collection, (accumulator, v, k, o) => {
     let target = fn(v, k, o) ? 0 : 1
     accumulator[target] = addTo(type, accumulator[target], v, k)
     return accumulator
-  }, [truthy, falsy], collection)
-})
+  }, [truthy, falsy])
+}

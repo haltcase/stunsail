@@ -19,7 +19,6 @@ module.exports = ({ dedent: $ }) => {
 
       isInRange(10, 0, 10)
       // -> true
-    `,
-    curried: false
+    `
   }
 }

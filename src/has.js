@@ -1,11 +1,11 @@
-import curry from './curry'
 import isArrayLike from './is-array-like'
+import normalizePath from './lib/_normalize-path'
 
-export default curry(function has (path, object) {
+export default function has (object, path) {
   let keys = path
 
   if (typeof keys === 'string') {
-    keys = convertBrackets(path).split('.')
+    keys = normalizePath(path).split('.')
   }
 
   if (!isArrayLike(keys)) keys = [keys]
@@ -24,10 +24,4 @@ export default curry(function has (path, object) {
   }
 
   return true
-})
-
-function convertBrackets (path) {
-  return path
-    .replace(/\[([^[\]]+)\]/g, '.$1')
-    .replace(/^[.]*|[.]*$/g, '')
 }

@@ -21,7 +21,6 @@ module.exports = ({ dedent: $ }) => {
       isEmpty([1, 2, 3])
       isEmpty(() => {})
       isEmpty('a value')
-    `,
-    curried: false
+    `
   }
 }

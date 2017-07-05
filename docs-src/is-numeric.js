@@ -28,7 +28,6 @@ module.exports = ({ dedent: $ }) => {
       isNumeric(NaN)
       isNumeric(null)
       isNumeric(undefined)
-    `,
-    curried: false
+    `
   }
 }

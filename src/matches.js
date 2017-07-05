@@ -1,15 +1,14 @@
 import each from './each'
-import curry from './curry'
 import isEqual from './is-equal'
 
-export default curry(function match (compare, object) {
+export default function matches (object, compare) {
   let isMatch = true
-  each((value, key) => {
+  each(compare, (value, key) => {
     if (!isEqual(value, object[key])) {
       isMatch = false
       return false
     }
-  }, compare)
+  })
 
   return isMatch
-})
+}

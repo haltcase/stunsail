@@ -1,5 +1,5 @@
 import test from 'ava'
-import fn from '../is-one-of'
+import fn from '../includes'
 
 const str = 'string'
 const arr = [1, 2, 3, 4, 5]
@@ -8,19 +8,19 @@ const map = new Map([['keyOne', 'aValue'], ['keyTwo', 'otherValue']])
 const _set = new Set([1, 2, 3, 4, 5])
 
 test(`returns true/false based on value's presence in collection`, t => {
-  t.true(fn('r', str))
-  t.true(fn('ng', str))
-  t.false(fn('e', str))
+  t.true(fn(str, 'r'))
+  t.true(fn(str, 'ng'))
+  t.false(fn(str, 'e'))
 
-  t.true(fn(3, arr))
-  t.false(fn(6, arr))
+  t.true(fn(arr, 3))
+  t.false(fn(arr, 6))
 
-  t.true(fn('rap', obj))
-  t.false(fn('folk', obj))
+  t.true(fn(obj, 'rap'))
+  t.false(fn(obj, 'folk'))
 
-  t.true(fn('otherValue', map))
-  t.false(fn('notAValue', map))
+  t.true(fn(map, 'otherValue'))
+  t.false(fn(map, 'notAValue'))
 
-  t.true(fn(2, _set))
-  t.false(fn(6, _set))
+  t.true(fn(_set, 2))
+  t.false(fn(_set, 6))
 })

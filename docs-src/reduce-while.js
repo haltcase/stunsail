@@ -1,14 +1,15 @@
 module.exports = ({ dedent: $ }) => {
   return {
-    header: 'reduceWhile(predicate, fn, initial, collection)',
+    header: 'reduceWhile(collection, predicate, fn, initial)',
     description: $`
       Works just like [\`reduce\`](#reduce) but short-circuits when
       \`predicate\` returns a falsy value.
     `,
     parameters: [
+      ['collection', 'Iterable', 'Iterable-like object to reduce from'],
+      ['predicate', 'Function', 'Function that will stop iteration when returning a falsy value'],
       ['fn', 'Function', 'Function that builds the accumulator with each iteration'],
-      ['initial', 'any', 'Value first passed to `fn`'],
-      ['collection', 'Iterable', 'Iterable-like object to reduce from']
+      ['initial', 'any', 'Value first passed to `fn`']
     ],
     returns: '`any`',
     usage: $`
@@ -16,12 +17,11 @@ module.exports = ({ dedent: $ }) => {
       const reducer = (acc, cur) => acc + cur
       const object = { one: 1, two: 2, three: 3 }
 
-      reduce(reducer, 0, object)
+      reduce(object, reducer, 0)
       // -> 6
 
-      reduceWhile(predicate, reducer, 0, object)
+      reduceWhile(object, predicate, reducer, 0)
       // -> 3
-    `,
-    curried: true
+    `
   }
 }

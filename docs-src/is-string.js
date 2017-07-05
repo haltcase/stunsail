@@ -14,7 +14,6 @@ module.exports = ({ dedent: $ }) => {
 
       isString(400)
       // -> false
-    `,
-    curried: false
+    `
   }
 }

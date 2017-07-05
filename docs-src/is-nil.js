@@ -17,7 +17,6 @@ module.exports = ({ dedent: $ }) => {
 
       isNil(false)
       // -> false
-    `,
-    curried: false
+    `
   }
 }

@@ -1,6 +1,6 @@
 const { toString } = Object.prototype
 
-export default value => {
+export default function getType (value) {
   if (value === null) return 'null'
   let type = typeof value
   if (type === 'object') {

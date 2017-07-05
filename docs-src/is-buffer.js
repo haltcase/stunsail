@@ -14,7 +14,6 @@ module.exports = ({ dedent: $ }) => {
 
       isBuffer('string')
       // -> false
-    `,
-    curried: false
+    `
   }
 }

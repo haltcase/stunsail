@@ -64,7 +64,3 @@ test('handles cyclic dependencies', t => {
   t.notThrows(() => { res = fn(o1, o2) })
   t.true(res)
 })
-
-test('auto-curried at two arguments', t => {
-  t.is(typeof fn(1), 'function')
-})

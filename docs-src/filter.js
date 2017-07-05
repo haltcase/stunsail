@@ -1,6 +1,6 @@
 module.exports = ({ dedent: $ }) => {
   return {
-    header: 'filter(fn, collection)',
+    header: 'filter(collection, fn)',
     description: $`
       Universal version of native \`Array#filter\` that
       works on pretty much any iterable - Arrays & Array-likes,
@@ -11,25 +11,21 @@ module.exports = ({ dedent: $ }) => {
       collection. If the result is falsy, it will be _filtered_.
     `,
     parameters: [
-      ['fn', 'Function', 'Predicate that decides whether to remove the item'],
-      ['collection', 'Iterable', 'Iterable-like object from which to filter items']
+      ['collection', 'Iterable', 'Iterable-like object from which to filter items'],
+      ['fn', 'Function', 'Predicate that decides whether to remove the item']
     ],
     returns: '`any`: same type as `collection`',
     usage: $`
       const object = { one: 1, two: 2, three: 3 }
-      const array = [1, 2, 3, 4, 5]
-
-      const filterer = filter(value => value % 2)
-
-      filterer(object)
+      filter(object, value => value % 2)
       // -> { one: 1, three: 3 }
 
-      filterer(array)
+      const array = [1, 2, 3, 4, 5]
+      filter(array, value => value % 2)
       // -> [1, 3, 5]
 
-      filter(value => value !== 'o', 'foobar')
+      filter('foobar', value => value !== 'o')
       // -> fbar
-    `,
-    curried: true
+    `
   }
 }

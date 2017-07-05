@@ -33,7 +33,6 @@ module.exports = ({ dedent: $ }) => {
       toBoolean(0)
       toBoolean({})
       toBoolean([])
-    `,
-    curried: false
+    `
   }
 }

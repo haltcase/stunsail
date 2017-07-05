@@ -24,7 +24,6 @@ module.exports = ({ dedent: $ }) => {
 
       getType(new RangeError())
       // -> rangeerror
-    `,
-    curried: false
+    `
   }
 }

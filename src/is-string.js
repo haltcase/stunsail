@@ -1,3 +1,5 @@
 import getType from './get-type'
 
-export default value => getType(value) === 'string'
+export default function isString (value) {
+  return getType(value) === 'string'
+}

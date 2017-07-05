@@ -1,1 +1,3 @@
-export default value => value == null
+export default function isNil (value) {
+  return value == null
+}

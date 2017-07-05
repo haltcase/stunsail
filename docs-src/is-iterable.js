@@ -27,7 +27,6 @@ module.exports = ({ dedent: $ }) => {
 
       isIterable(null)
       // -> false
-    `,
-    curried: false
+    `
   }
 }

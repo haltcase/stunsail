@@ -1,8 +1,7 @@
-import curry from './curry'
 import getType from './get-type'
 import toArray from './to-array'
 
-export default curry(function apply (fn, args) {
+export default function apply (fn, args) {
   if (getType(fn) !== 'function') {
     throw new TypeError(`Expected a function.`)
   }
@@ -23,4 +22,4 @@ export default curry(function apply (fn, args) {
   }
 
   return fn.apply(null, args)
-})
+}

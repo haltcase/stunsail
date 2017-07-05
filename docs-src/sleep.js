@@ -21,7 +21,6 @@ module.exports = ({ dedent: $ }) => {
       // -> start
       // ... 5 seconds pass ...
       // -> done
-    `,
-    curried: false
+    `
   }
 }

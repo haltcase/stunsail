@@ -1,3 +1,5 @@
 import getType from './get-type'
 
-export default value => getType(value) === 'number'
+export default function isNumber (value) {
+  return getType(value) === 'number'
+}

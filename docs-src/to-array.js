@@ -8,8 +8,8 @@ module.exports = ({ dedent: $ }) => {
     `,
     parameters: [
       ['value', 'any', 'Value to convert'],
-      ['begin', '', ''],
-      ['end', '', '']
+      ['begin', 'Number', 'Optional index at which to begin a slice'],
+      ['end', 'Number', 'Optional index at which to end a slice']
     ],
     returns: '`any`',
     usage: $`
@@ -42,7 +42,6 @@ module.exports = ({ dedent: $ }) => {
 
         toArray([1, 2, 3, 4, 5], 2, -1)
         // -> [3, 4]
-    `,
-    curried: false
+    `
   }
 }

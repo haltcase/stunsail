@@ -1,7 +1,6 @@
 import get from './get'
-import curry from './curry'
 
-export default curry(function getOr (defaultValue, path, object) {
-  let value = get(path, object)
+export default function getOr (object, path, defaultValue) {
+  let value = get(object, path)
   return typeof value !== 'undefined' ? value : defaultValue
-})
+}

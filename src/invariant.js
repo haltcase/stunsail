@@ -1,4 +1,4 @@
-export default (condition, message) => {
+export default function invariant (condition, message) {
   if (!condition) {
     let error = new Error(message || 'Invariant Violation')
     error.name = 'InvariantError'

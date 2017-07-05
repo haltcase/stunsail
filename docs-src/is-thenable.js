@@ -13,7 +13,6 @@ module.exports = ({ dedent: $ }) => {
       // -> true
 
       isThenable({ then () {} })
-    `,
-    curried: false
+    `
   }
 }

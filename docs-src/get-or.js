@@ -1,33 +1,32 @@
 module.exports = ({ dedent: $ }) => {
   return {
-    header: 'getOr(defaultValue, path, object)',
+    header: 'getOr(object, path, defaultValue)',
     description: $`
       Access a property of \`object\` at \`path\` safely & deeply,
       returning \`defaultValue\` if it doesn't exist.
     `,
     parameters: [
-      ['defaultValue', 'any', 'Value to return if `path` resolves to nil'],
+      ['object', 'Object', 'Object-like value to access'],
       ['path', 'string, string[]', 'String using dot or bracket syntax, or an array of path segments'],
-      ['object', 'Object', 'Object-like value to access']
+      ['defaultValue', 'any', 'Value to return if `path` resolves to nil']
     ],
     returns: '`any`',
     usage: $`
       const object = { attributes: { flammable: true } }
-      getOr(false, 'attributes.toxic', object)
+      getOr(object, 'attributes.toxic', false)
       // -> false
 
-      getOr(false, 'attributes.flammable', object)
+      getOr(object, 'attributes.flammable', false)
       // -> true
 
       const objectTwo = { array: [1, 2, 3] }
       // these are equivalent
-      getOr('item three', 'array[2]', objectTwo)
-      getOr('item three', 'array.2', objectTwo)
+      getOr(objectTwo, 'array[2]', 'item three')
+      getOr(objectTwo, 'array.2', 'item three')
       // -> 2
 
-      getOr('item four', array[3]', objectTwo)
+      getOr(objectTwo, 'array[3]', 'item four')
       // -> 'item four'
-    `,
-    curried: true
+    `
   }
 }

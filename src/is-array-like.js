@@ -1,4 +1,4 @@
-export default value => {
+export default function isArrayLike (value) {
   if (!value) return false
   if (Array.isArray(value) || typeof value === 'string') return true
 

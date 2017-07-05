@@ -1,6 +1,6 @@
 import getType from './get-type'
 
-function toEmpty (type) {
+export default function toEmpty (type) {
   let inputType = getType(type)
 
   if (inputType !== 'string') {
@@ -19,5 +19,3 @@ function toEmpty (type) {
     case 'undefined': return undefined
   }
 }
-
-export default toEmpty
