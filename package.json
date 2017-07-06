@@ -25,7 +25,7 @@
     "docs": "trash \"docs\" && node build/build-docs.js",
     "index": "node build/create-index.js",
     "prebuild": "trash \"babel\" \"es\" \"lib\" \"*.js\" \"!.eslintrc.js\"",
-    "build": "npm run index && npm run build:es && npm run build:main",
+    "build": "npm run index && if-not-ci npm run build:es && npm run build:main",
     "build:es": "cross-env BABEL_ENV=es babel src -d es",
     "build:main": "cross-env BABEL_ENV=production babel src -d .",
     "build:watch": "cross-env BABEL_ENV=dev babel src -d . -w",
@@ -59,6 +59,7 @@
     "eslint-plugin-prefer-let": "^1.0.0",
     "eslint-plugin-promise": "^3.4.2",
     "eslint-plugin-standard": "^3.0.1",
+    "if-ci": "^2.0.1",
     "standard-changelog": "0.0.1",
     "trash-cli": "^1.4.0"
   },
