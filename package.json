@@ -33,8 +33,7 @@
     "test": "ava",
     "test:watch": "ava -w",
     "changelog": "standard-changelog -i CHANGELOG.md -o CHANGELOG.md",
-    "prepublish": "npm test",
-    "commit": "git-cz"
+    "prepublish": "npm test"
   },
   "keywords": [
     "utility",
@@ -51,9 +50,7 @@
     "babel-preset-babili": "0.0.12",
     "babel-preset-env": "^1.3.0",
     "babel-preset-stage-3": "^6.24.1",
-    "commitizen": "^2.9.6",
     "cross-env": "^5.0.0",
-    "cz-conventional-changelog": "^2.0.0",
     "dedent": "^0.7.0",
     "eslint": "^3.19.0",
     "eslint-config-standard": "^10.2.1",
@@ -72,10 +69,5 @@
     "source": [
       "src/**/*.js"
     ]
-  },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
   }
 }
