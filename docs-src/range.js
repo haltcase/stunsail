@@ -21,7 +21,6 @@ module.exports = ({ dedent: $ }) => {
 
       range(0, 10, 2)
       // -> [0, 2, 4, 6, 8, 10]
-    `,
-    curried: false
+    `
   }
 }

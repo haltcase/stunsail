@@ -55,8 +55,6 @@ function buildDocString (file) {
       string += markCode(doc.header)
     }
 
-    string += `- [${doc.curried ? 'X' : ' '}] curried\n\n`
-
     if (doc.description) {
       string += doc.description + '\n\n'
     }

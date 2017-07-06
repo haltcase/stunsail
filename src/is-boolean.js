@@ -1,3 +1,5 @@
 import getType from './get-type'
 
-export default value => getType(value) === 'boolean'
+export default function isBoolean (value) {
+  return getType(value) === 'boolean'
+}

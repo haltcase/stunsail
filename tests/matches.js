@@ -1,18 +1,14 @@
 import test from 'ava'
-import fn from '../match'
+import fn from '../matches'
 
 test('returns true when specified properties match', t => {
   let obj = { name: 'wishy', color: 'green' }
-  t.true(fn({ color: 'green' }, obj))
+  t.true(fn(obj, { color: 'green' }))
 })
 
 test('returns false when specified properties do not match', t => {
   let obj = { name: 'washy', color: 'red' }
-  t.false(fn({ color: 'blue' }, obj))
-})
-
-test('auto-curried at two arguments', t => {
-  t.is(typeof fn({}), 'function')
+  t.false(fn(obj, { color: 'blue' }))
 })
 
 test('effective as a predicate for Array#find()', t => {
@@ -24,9 +20,9 @@ test('effective as a predicate for Array#find()', t => {
     { name: 'washy', color: 'green' }
   ]
 
-  let res1 = arr.find(fn({ color: 'green' }))
-  let res2 = arr.find(fn({ color: 'brown' }))
-  let res3 = arr.find(fn({ color: 'red' }))
+  let res1 = arr.find(o => fn(o, { color: 'green' }))
+  let res2 = arr.find(o => fn(o, { color: 'brown' }))
+  let res3 = arr.find(o => fn(o, { color: 'red' }))
 
   t.is(res1.name, 'washy')
   t.is(res2.name, 'dopey')

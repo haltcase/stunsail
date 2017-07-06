@@ -20,7 +20,6 @@ module.exports = ({ dedent: $ }) => {
       const falsyCondition = null
       const result2 = invariant(truthyCondition, 'No function provided.')
       // -> InvariantError: 'No function provided.'
-    `,
-    curried: false
+    `
   }
 }

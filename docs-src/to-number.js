@@ -29,7 +29,6 @@ module.exports = ({ dedent: $ }) => {
 
       toNumber(39.354, true)
       // -> 39
-    `,
-    curried: false
+    `
   }
 }

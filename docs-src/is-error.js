@@ -17,7 +17,6 @@ module.exports = ({ dedent: $ }) => {
 
       isError({ code: 'ENOENT', message: 'wrong' })
       // -> false
-    `,
-    curried: false
+    `
   }
 }

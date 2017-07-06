@@ -1,15 +1,15 @@
 module.exports = ({ dedent: $ }) => {
   return {
-    header: 'cap(limit, fn)',
+    header: 'cap(fn, limit)',
     description: $`
       Adds a cap on the number of arguments passable to \`fn\`.
       Any arguments beyond \`limit\` will not be passed, which
       is useful for creating functions compatible with currying
-      or as callbacks.
+      or as callbacks / parameters to higher order functions.
     `,
     parameters: [
-      ['limit', 'Array', 'The number of arguments to allow'],
-      ['fn', 'Function', 'Function whose arguments to limit']
+      ['fn', 'Function', 'Function whose arguments to limit'],
+      ['limit', 'Number', 'The number of arguments to allow']
     ],
     returns: '`Function`: new function accepting only `limit` arguments',
     usage: $`
@@ -24,7 +24,6 @@ module.exports = ({ dedent: $ }) => {
       const toInt = cap(parseInt)
       ['1', '2.2', '2.54'].map(toInt)
       // -> [1, 2, 2]
-    `,
-    curried: true
+    `
   }
 }

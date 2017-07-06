@@ -1,3 +1,5 @@
 import getType from './get-type'
 
-export default value => getType(value) === 'array'
+export default function isArray (value) {
+  return getType(value) === 'array'
+}

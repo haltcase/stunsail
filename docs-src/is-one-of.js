@@ -1,21 +1,22 @@
 module.exports = ({ dedent: $ }) => {
   return {
-    header: 'isOneOf(collection, value)',
+    header: 'isOneOf(value, collection)',
     description: $`
       Check whether \`value\` is included in \`collection\`.
+      This is a version of [\`includes()\`](#includes) with the
+      arguments flipped.
     `,
     parameters: [
-      ['collection', 'Object', 'List to check `value` against'],
-      ['value', 'any', 'Value to search for in `collection`']
+      ['value', 'any', 'Value to search for in `collection`'],
+      ['collection', 'Object', 'List to check `value` against']
     ],
     returns: '`boolean`',
     usage: $`
-      isOneOf([1, 2, 3], 2)
+      isOneOf(2, [1, 2, 3])
       // -> true
 
-      isOneOf({ key: 'value' }, 'value')
+      isOneOf('value', { key: 'value' })
       // -> true
-    `,
-    curried: true
+    `
   }
 }

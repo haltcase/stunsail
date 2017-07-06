@@ -15,7 +15,6 @@ module.exports = ({ dedent: $ }) => {
 
       kebabCase('already-kebab-cased')
       // -> 'already-kebab-cased'
-    `,
-    curried: false
+    `
   }
 }

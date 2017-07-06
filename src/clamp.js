@@ -1,4 +1,4 @@
-export default (value, lower, upper) => {
+export default function clamp (value, lower, upper) {
   value = Number(value) || 0
   lower = Number(lower) || value
   upper = Number(upper) || value

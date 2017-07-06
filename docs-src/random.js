@@ -24,7 +24,6 @@ module.exports = ({ dedent: $ }) => {
 
       random(-5, 5)
       // -> randomly chosen number between -5 and 5
-    `,
-    curried: false
+    `
   }
 }

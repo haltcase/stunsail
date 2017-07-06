@@ -22,7 +22,6 @@ module.exports = ({ dedent: $ }) => {
 
       wrapped(93247593475)
       // -> 100
-    `,
-    curried: false
+    `
   }
 }

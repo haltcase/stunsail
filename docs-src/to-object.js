@@ -34,7 +34,6 @@ module.exports = ({ dedent: $ }) => {
 
       toObject(new Date)
       // -> {}
-    `,
-    curried: false
+    `
   }
 }

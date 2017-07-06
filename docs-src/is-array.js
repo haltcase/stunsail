@@ -15,7 +15,6 @@ module.exports = ({ dedent: $ }) => {
 
       isArray({ length: 2, 0: 'foo', 1: 'bar' })
       // -> false
-    `,
-    curried: false
+    `
   }
 }

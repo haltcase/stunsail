@@ -14,7 +14,6 @@ module.exports = ({ dedent: $ }) => {
 
       isDate(Date.now())
       // -> false
-    `,
-    curried: false
+    `
   }
 }

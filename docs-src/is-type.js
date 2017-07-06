@@ -1,33 +1,24 @@
 module.exports = ({ dedent: $ }) => {
   return {
-    header: 'isType(type, value)',
+    header: 'isType(value, type)',
     description: $`
       If \`type\` is a string, check whether \`value\` has that type. Other
       kinds will check that the types of \`type\` and \`value\` match.
-
-      Leaving \`value\` absent is useful to create an function to
-      check for that specific type.
     `,
     parameters: [
-      ['type', 'string, any', ''],
-      ['value', 'any', 'Value to test']
+      ['value', 'any', 'Value to test'],
+      ['type', 'string, any', '']
     ],
     returns: '`boolean`',
     usage: $`
-      isType('string', 'bar')
+      isType('bar', 'string')
       // -> true
 
-      isType('number', '3')
+      isType('3', 'number')
       // -> false
 
-      isType(Date, new Date())
+      isType(new Date(), Date)
       // -> true
-
-      const isArray = isType('array')
-
-      isArray([])
-      // -> true
-    `,
-    curried: true
+    `
   }
 }

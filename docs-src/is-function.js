@@ -27,7 +27,6 @@ module.exports = ({ dedent: $ }) => {
       isFunction(null)
       isFunction(undefined)
       isFunction(1)
-    `,
-    curried: false
+    `
   }
 }

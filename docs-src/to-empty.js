@@ -2,7 +2,8 @@ module.exports = ({ dedent: $ }) => {
   return {
     header: 'toEmpty(type)',
     description: $`
-      Return an empty value matching the kind supplied by \`type\`.
+      Return an empty value matching the kind supplied by \`type\`,
+      which is either a string representing its kind or any object.
     `,
     parameters: [
       ['type', '', '']
@@ -23,7 +24,6 @@ module.exports = ({ dedent: $ }) => {
 
       toEmpty([1, 2, 3, 4])
       // -> []
-    `,
-    curried: false
+    `
   }
 }

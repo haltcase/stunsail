@@ -2,7 +2,7 @@ import toNumber from './to-number'
 import isObject from './is-object'
 import isArrayLike from './is-array-like'
 
-export default (value, bound) => {
+export default function random (value, bound) {
   if (isObject(value)) {
     let keys = Object.keys(value)
     let selected = keys[~~(Math.random() * keys.length)]

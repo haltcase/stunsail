@@ -1,4 +1,4 @@
-export default (start, end, step) => {
+export default function range (start, end, step) {
   if (arguments.length === 0) return []
   if (arguments.length === 1) {
     end = start

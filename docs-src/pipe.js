@@ -37,7 +37,6 @@ module.exports = ({ dedent: $ }) => {
         console.log(result)
         // -> true
       })
-    `,
-    curried: false
+    `
   }
 }

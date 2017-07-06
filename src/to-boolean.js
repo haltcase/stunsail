@@ -1,6 +1,6 @@
 import isEmpty from './is-empty'
 
-export default (value, smart) => {
+export default function toBoolean (value, smart) {
   // takes care of falsy values
   // false || '' || null || undefined || 0 || NaN
   if (!value) return false

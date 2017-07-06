@@ -17,7 +17,6 @@ module.exports = ({ dedent: $ }) => {
 
       isBoolean(0)
       // -> false
-    `,
-    curried: false
+    `
   }
 }

@@ -1,6 +1,6 @@
 import toNumber from './to-number'
 
-export default (value, start, end) => {
+export default function isInRange (value, start, end) {
   start = toNumber(start)
   if (typeof end === 'undefined') {
     end = start

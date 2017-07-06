@@ -1,7 +1,6 @@
-import curry from './curry'
 import getType from './get-type'
 
-export default curry(function isType (type, value) {
+export default function isType (value, type) {
   let assertionType = getType(type)
 
   if (assertionType !== 'string') {
@@ -9,4 +8,4 @@ export default curry(function isType (type, value) {
   }
 
   return getType(value) === type.toLowerCase()
-})
+}

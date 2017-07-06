@@ -24,7 +24,6 @@ module.exports = ({ dedent: $ }) => {
 
       isArrayLike({ length: 2, 0: 'foo', 1: 'bar' })
       // -> true
-    `,
-    curried: false
+    `
   }
 }

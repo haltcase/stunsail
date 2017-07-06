@@ -14,7 +14,6 @@ module.exports = ({ dedent: $ }) => {
 
       isNumber(NaN)
       // -> false
-    `,
-    curried: false
+    `
   }
 }

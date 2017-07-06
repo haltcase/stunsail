@@ -16,7 +16,6 @@ module.exports = ({ dedent: $ }) => {
       const ext = { abc: '999', ghi: '789' }
       const result = defaults(base, ext)
       // -> { abc: '123', def: '456', ghi: '789' }
-    `,
-    curried: true
+    `
   }
 }

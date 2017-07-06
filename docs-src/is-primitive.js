@@ -26,7 +26,6 @@ module.exports = ({ dedent: $ }) => {
       isPrimitive({})
       isPrimitive([])
       isPrimitive(new Date())
-    `,
-    curried: false
+    `
   }
 }

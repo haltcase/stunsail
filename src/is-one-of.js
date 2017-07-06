@@ -1,8 +1,7 @@
-import curry from './curry'
 import isEqual from './is-equal'
 import getType from './get-type'
 
-export default curry((collection, value) => {
+export default function isOneOf (value, collection) {
   let inputType = getType(collection)
 
   switch (inputType) {
@@ -22,7 +21,7 @@ export default curry((collection, value) => {
         `expected a collection-like object and got ${inputType}`
       )
   }
-})
+}
 
 function findIndex (arr, val) {
   let i = -1

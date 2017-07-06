@@ -1,6 +1,6 @@
 import getType from './get-type'
 
-export default (value, begin, end) => {
+export default function toArray (value, begin, end) {
   let kind = getType(value)
   if (kind === 'undefined') return []
 

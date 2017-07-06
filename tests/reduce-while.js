@@ -7,39 +7,33 @@ const string = 'foobar'
 
 test('reduces object inputs while predicate returns true', t => {
   let result = fn(
+    object,
     (acc, val) => acc !== 3,
     (acc, cur) => acc + cur,
-    0,
-    object
+    0
   )
   t.is(result, 3)
 })
 
 test('reduces array-like inputs while predicate returns true', t => {
   let result = fn(
+    array,
     (acc, val) => val < 3,
     (acc, cur) => acc + cur,
-    0,
-    array
+    0
   )
 
   t.is(result, 3)
 
   result = fn(
+    string,
     (acc, val) => val !== 'b',
     (acc, cur) => {
       acc.splice(0, 0, cur)
       return acc
     },
-    [],
-    string
+    []
   )
 
   t.deepEqual(result, ['o', 'o', 'f'])
-})
-
-test('auto-curried at four arguments', t => {
-  t.is(typeof fn(() => {}), 'function')
-  t.is(typeof fn(() => {}, () => {}), 'function')
-  t.is(typeof fn(() => {}, () => {}, []), 'function')
 })

@@ -1,22 +1,22 @@
 module.exports = ({ dedent: $ }) => {
   return {
-    header: 'match(compare, object)',
+    header: 'matches(object, compare)',
     description: $`
       Check that all properties of \`compare\` are deeply
       equal to those same properties of \`object\`.
     `,
     parameters: [
-      ['compare', 'Object', 'Object containing properties to match'],
-      ['object', 'Object', 'Object on which to check for properties of `match`']
+      ['object', 'Object', 'Object on which to check for properties of `compare`'],
+      ['compare', 'Object', 'Object containing properties to match']
     ],
     returns: '`boolean`',
     usage: $`
       const wishy = { name: 'wishy', color: 'green' }
-      match({ color: 'green' }, wishy)
+      matches(wishy, { color: 'green' })
       // -> true
 
       const washy = { name: 'washy', color: 'red' }
-      map({ color: 'blue' }, washy)
+      matches(washy, { color: 'blue' })
       // -> false
 
       const arr = [
@@ -27,15 +27,14 @@ module.exports = ({ dedent: $ }) => {
         { name: 'washy', color: 'green' }
       ]
 
-      arr.find(map({ color: 'green' })
+      arr.find(o => matches(o, { color: 'green' })
       // -> { name: 'washy', color: 'green' }
 
-      arr.find(map({ color: 'brown' })
+      arr.find(o => matches(o, { color: 'brown' })
       // -> { name: 'dopey', color: 'brown' }
 
-      arr.find(map({ color: 'red' })
+      arr.find(o => matches(o, { color: 'red' })
       // -> { name: 'willy', color: 'red' }
-    `,
-    curried: true
+    `
   }
 }

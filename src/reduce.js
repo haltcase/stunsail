@@ -1,12 +1,11 @@
 import each from './each'
-import curry from './curry'
 
-export default curry(function reduce (fn, initial, collection) {
+export default function reduce (collection, fn, initial) {
   let accumulator = initial
 
-  each((v, k, o) => {
+  each(collection, (v, k, o) => {
     accumulator = fn(accumulator, v, k, o)
-  }, collection)
+  })
 
   return accumulator
-})
+}
