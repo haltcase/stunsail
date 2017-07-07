@@ -10,4 +10,3 @@ export default function snakeCase (string) {
     .split(separators)
     .join('_')
 }
-
