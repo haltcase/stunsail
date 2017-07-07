@@ -1,4 +1,4 @@
-# stunsail _1.0.0-alpha.13_
+# stunsail _1.0.0-alpha.14_
 
 ### apply
 
@@ -31,6 +31,35 @@ const max = apply(Math.max)
 
 max([1, 2, 100, 4])
 // -> 100
+```
+
+### camelCase
+
+```js
+camelCase(string)
+```
+
+> **Arguments**
+
+| name | type | description |
+| :--: | :--: | ----------- |
+| string | `string` | Input string to convert to camel-case |
+
+> **Returns**
+
+`any`
+
+> **Usage**
+
+```js
+camelCase('A space separated string')
+// -> 'aSpaceSeparatedString'
+
+camelCase('snake_cased_thing')
+// -> 'snakeCasedThing'
+
+camelCase('alreadyCamelCased')
+// -> 'alreadyCamelCased'
 ```
 
 ### cap
@@ -1344,6 +1373,65 @@ partition(new Set(['Joe', 'Jerry', 'Rick', 'Bob']), v => v.startsWith('J'))
 // -> [ Set {'Joe', 'Jerry'}, Set {'Rick', 'Bob'} ]
 ```
 
+### pathDots
+
+```js
+pathDots(value)
+```
+
+Converts Arrays of object path segments into dot-notated paths.
+If `value` is a string, brackets will be normalized to dots.
+
+> **Arguments**
+
+| name | type | description |
+| :--: | :--: | ----------- |
+| value | `string, string[]` | String using dot or bracket syntax, or an array of path segments |
+
+> **Returns**
+
+`boolean`
+
+> **Usage**
+
+```js
+pathDots(['a', 'b', 'c', '0'])
+// -> 'a.b.c.0'
+
+pathDots('a[1].b.c[0]')
+// -> 'a.1.b.c.0'
+```
+
+### pathLinks
+
+```js
+pathLinks(value)
+```
+
+Convert `value` (a dot or bracket notated string) to an
+Array of object path segments. If it's already an Array it
+will just be returned.
+
+> **Arguments**
+
+| name | type | description |
+| :--: | :--: | ----------- |
+| value | `string, string[]` | String using dot or bracket syntax, or an array of path segments |
+
+> **Returns**
+
+`boolean`
+
+> **Usage**
+
+```js
+pathLinks('a[1].b.c[0]')
+// -> ['a', '1', 'b', 'c', '0']
+
+pathLinks(['a', 'b', 'c', '0'])
+// -> ['a', 'b', 'c', '0']
+```
+
 ### pipe
 
 ```js
@@ -1608,6 +1696,35 @@ foo()
 // -> start
 // ... 5 seconds pass ...
 // -> done
+```
+
+### snakeCase
+
+```js
+snakeCase(string)
+```
+
+> **Arguments**
+
+| name | type | description |
+| :--: | :--: | ----------- |
+| string | `string` | Input string to convert to snake-case |
+
+> **Returns**
+
+`any`
+
+> **Usage**
+
+```js
+snakeCase('A space separated string')
+// -> 'a_space_separated_string'
+
+snakeCase('camelCasedThing')
+// -> 'camel_cased_thing'
+
+snakeCase('already_snake_cased')
+// -> 'already_snake_cased'
 ```
 
 ### toArray
