@@ -2,10 +2,12 @@
 
 const fs = require('fs')
 const path = require('path')
-const camelCase = require('../camel-case')
 
 const src = path.resolve(__dirname, '..', 'src')
 const idx = path.resolve(src, 'index.js')
+
+const camelize = str =>
+  str.replace(/[-|.](\w)/g, (m, p1) => p1.toUpperCase())
 
 function getFiles () {
   return fs.readdirSync(src)
@@ -21,7 +23,7 @@ function createIndex () {
   let files = getFiles()
 
   files.forEach(file => {
-    let token = camelCase(file.slice(0, -3))
+    let token = camelize(file.slice(0, -3))
     if (token === 'constants') {
       imports += `import * as ${token} from './${file}'\n`
     } else {
