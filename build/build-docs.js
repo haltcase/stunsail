@@ -3,15 +3,13 @@
 const fs = require('fs')
 const path = require('path')
 const dedent = require('dedent')
+const camelCase = require('../camel-case')
 
 const pkg = require('../package')
 
 const src = path.resolve(__dirname, '..', 'src')
 const docSrc = path.resolve(__dirname, '..', 'docs-src')
 const outputPath = path.resolve(__dirname, '..', 'docs', 'api.md')
-
-const camelize = str =>
-  str.replace(/[-|.](\w)/g, (m, p1) => p1.toUpperCase())
 
 function getFiles () {
   return fs.readdirSync(src)
@@ -86,7 +84,7 @@ function buildDocs () {
   let api = `# stunsail _${pkg.version}_\n\n`
 
   getFiles().forEach(file => {
-    let token = camelize(file.slice(0, -3))
+    let token = camelCase(file.slice(0, -3))
     api += `### ${token}\n\n`
     api += buildDocString(file)
   })
