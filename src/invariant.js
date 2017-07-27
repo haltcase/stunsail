@@ -1,6 +1,6 @@
-export default function invariant (condition, message) {
+export default function invariant (condition, message = 'Invariant Violation') {
   if (!condition) {
-    let error = new Error(message || 'Invariant Violation')
+    const error = new Error(message)
     error.name = 'InvariantError'
     error.framesToPop = 1
     throw error
