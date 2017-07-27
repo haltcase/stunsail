@@ -15,15 +15,15 @@ export default function defaults (object, extension) {
 function base (object, extension, fn) {
   if (isPrimitive(extension)) return object
 
-  for (let item in extension) {
-    if (!{}.hasOwnProperty.call(extension, item)) continue
-    if (fn(object, extension, item) === false) break
+  const keys = Object.keys(extension)
+  for (const key of keys) {
+    if (fn(object, extension, key) === false) break
 
     if (
-      isTraversable(extension[item]) &&
-      isTraversable(object[item])
+      isTraversable(extension[key]) &&
+      isTraversable(object[key])
     ) {
-      base(object[item], extension[item], fn)
+      base(object[key], extension[key], fn)
     }
   }
 
