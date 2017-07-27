@@ -43,7 +43,7 @@
   ],
   "dependencies": {},
   "devDependencies": {
-    "ava": "^0.19.1",
+    "ava": "^0.21.0",
     "babel-cli": "^6.24.1",
     "babel-plugin-add-module-exports": "^0.2.1",
     "babel-preset-babili": "0.0.12",
