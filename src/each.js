@@ -21,9 +21,9 @@ export default function each (collection, fn) {
       if (fn(value, key, collection) === false) break
     }
   } else if (type === 'object') {
-    for (let key in collection) {
-      if (!{}.hasOwnProperty.call(collection, key)) continue
-      let value = collection[key]
+    const keys = Object.keys(collection)
+    for (const key of keys) {
+      const value = collection[key]
       if (fn(value, key, collection) === false) break
     }
   }
