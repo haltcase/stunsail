@@ -2,8 +2,8 @@ import each from './each'
 import isArrayLike from './is-array-like'
 
 export default function map (collection, fn) {
-  let arrayLike = isArrayLike(collection)
-  let result = arrayLike ? [] : {}
+  const arrayLike = isArrayLike(collection)
+  const result = arrayLike ? [] : {}
 
   let i = -1
   each(collection, (v, k, o) => {

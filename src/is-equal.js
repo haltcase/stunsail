@@ -9,8 +9,8 @@ function isBase (a, b, stack) {
   // eslint-disable-next-line no-self-compare
   if (a === b || (a !== a && b !== b)) return true
 
-  let aType = getType(a)
-  let bType = getType(b)
+  const aType = getType(a)
+  const bType = getType(b)
 
   if (
     aType !== bType ||
@@ -30,8 +30,8 @@ function isBase (a, b, stack) {
       return a === b
     case 'map':
     case 'set':
-      let aEntries = Array.from(a)
-      let bEntries = Array.from(b)
+      const aEntries = Array.from(a)
+      const bEntries = Array.from(b)
       return (
         aEntries.length === bEntries.length &&
         isDeep(aEntries, bEntries, stack)
@@ -43,21 +43,21 @@ function isBase (a, b, stack) {
 }
 
 function isDeep (a, b, stack = new Set()) {
-  let aKeys = Object.keys(a)
-  let length = aKeys.length
+  const aKeys = Object.keys(a)
+  const { length } = aKeys
   if (length !== Object.keys(b).length) {
     return false
   }
 
   let i = -1
   while (++i < length) {
-    let key = aKeys[i]
+    const key = aKeys[i]
 
     if (!(key in b)) {
       return false
     }
 
-    let val = a[key]
+    const val = a[key]
     if (!isPrimitive(val)) {
       // keep track of objects to handle
       // circular references, assume equal

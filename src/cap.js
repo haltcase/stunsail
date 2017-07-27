@@ -14,10 +14,10 @@ export default function cap (fn, limit) {
     }
   }
 
-  let upper = Math.abs(limit)
+  const upper = Math.abs(limit)
 
   return function () {
-    let args = toArray(arguments, 0, upper)
+    const args = toArray(arguments, 0, upper)
     return apply(fn, args)
   }
 }

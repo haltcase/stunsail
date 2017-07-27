@@ -6,7 +6,7 @@ const array = [1, 2, 3, 4, 5]
 const string = 'foobar'
 
 test('reduces object inputs while predicate returns true', t => {
-  let result = fn(
+  const result = fn(
     object,
     (acc, val) => acc !== 3,
     (acc, cur) => acc + cur,

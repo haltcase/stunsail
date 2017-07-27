@@ -2,7 +2,7 @@ export default function isArrayLike (value) {
   if (!value) return false
   if (Array.isArray(value) || typeof value === 'string') return true
 
-  let length = value.length
+  const { length } = value
 
   return (
     (typeof value === 'object' || typeof length === 'number') &&

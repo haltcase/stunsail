@@ -18,7 +18,7 @@ test('returns the expected array value based on input', t => {
 })
 
 test('removes values when provided the slice argument', t => {
-  let input = [1, 2, 3, 4, 5]
+  const input = [1, 2, 3, 4, 5]
   let result = fn(input, 2)
   t.deepEqual(result, [3, 4, 5])
   t.deepEqual(result, input.slice(2))

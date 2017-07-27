@@ -8,7 +8,7 @@ export default function toBoolean (value, smart) {
   // returns `value` if it's already a boolean
   if (value === true) return value
 
-  let kind = typeof value
+  const kind = typeof value
   if (kind === 'string') {
     if (!smart) return !!value.length
     return value === 'true'

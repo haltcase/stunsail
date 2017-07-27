@@ -54,8 +54,8 @@ test('works as expected for weird values', t => {
 })
 
 test('handles cyclic dependencies', t => {
-  let o1 = {}
-  let o2 = {}
+  const o1 = {}
+  const o2 = {}
 
   o1.x = o2
   o2.x = o1

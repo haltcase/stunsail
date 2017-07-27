@@ -2,14 +2,14 @@ import test from 'ava'
 import fn from '../invariant'
 
 test('throws on falsy conditions', t => {
-  let error = t.throws(() => fn(false))
+  const error = t.throws(() => fn(false))
 
   t.is(error.name, 'InvariantError')
   t.is(error.message, 'Invariant Violation')
 })
 
 test('uses provided custom error message', t => {
-  let error = t.throws(() => fn(false, 'Ya dun goofed'))
+  const error = t.throws(() => fn(false, 'Ya dun goofed'))
 
   t.is(error.name, 'InvariantError')
   t.is(error.message, 'Ya dun goofed')

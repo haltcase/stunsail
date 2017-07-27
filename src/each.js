@@ -3,7 +3,7 @@ import isIterable from './is-iterable'
 import isArrayLike from './is-array-like'
 
 export default function each (collection, fn) {
-  let type = getType(collection)
+  const type = getType(collection)
   if (isIterable(collection)) {
     let i = 0
     for (let key of collection) {

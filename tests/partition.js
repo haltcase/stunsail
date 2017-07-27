@@ -37,9 +37,9 @@ test('works for map inputs', t => {
 })
 
 test('works for set inputs', t => {
-  let input = new Set(['Joe', 'Jerry', 'Rick', 'Bob'])
-  let result = fn(input, v => v.startsWith('J'))
-  let expected = [
+  const input = new Set(['Joe', 'Jerry', 'Rick', 'Bob'])
+  const result = fn(input, v => v.startsWith('J'))
+  const expected = [
     new Set(['Joe', 'Jerry']),
     new Set(['Rick', 'Bob'])
   ]

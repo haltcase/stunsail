@@ -2,7 +2,7 @@ import test from 'ava'
 import fn from '../to-number'
 
 test('converts the input to a number value', t => {
-  let now = new Date()
+  const now = new Date()
 
   t.is(fn(1), 1)
   t.is(fn(1.3345), 1.3345)

@@ -1,7 +1,7 @@
 import getType from './get-type'
 
 export default function toEmpty (type) {
-  let inputType = getType(type)
+  const inputType = getType(type)
 
   if (inputType !== 'string') {
     return toEmpty(inputType)

@@ -2,10 +2,10 @@ const { toString } = Object.prototype
 
 export default function getType (value) {
   if (value === null) return 'null'
-  let type = typeof value
+  const type = typeof value
   if (type === 'object') {
-    let kind = toString.call(value).slice(8, -1).toLowerCase()
-    let isObjOrErr = kind === 'object' || kind === 'error'
+    const kind = toString.call(value).slice(8, -1).toLowerCase()
+    const isObjOrErr = kind === 'object' || kind === 'error'
 
     if (isObjOrErr && value.constructor) {
       return value.constructor.name.toLowerCase()

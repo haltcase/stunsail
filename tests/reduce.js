@@ -6,7 +6,7 @@ const array = [1, 2, 3, 4, 5]
 const string = 'foobar'
 
 test('reduces object inputs', t => {
-  let result = fn(object, (acc, cur) => acc + cur, 0)
+  const result = fn(object, (acc, cur) => acc + cur, 0)
   t.is(result, 6)
 })
 

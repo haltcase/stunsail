@@ -11,7 +11,7 @@ export default function range (start, end, step) {
   if (step === 0) return [start, end]
 
   let i = start
-  let result = []
+  const result = []
   while (step > 0 ? end >= i : end <= i) {
     result.push(i)
     i += step

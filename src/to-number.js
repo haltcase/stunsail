@@ -10,7 +10,7 @@ import {
 export default function toNumber (value, round) {
   if (!value) return 0
 
-  let inputType = getType(value)
+  const inputType = getType(value)
 
   let rolling = value
   if (typeof rolling === 'object') {
@@ -28,7 +28,7 @@ export default function toNumber (value, round) {
 
   rolling = rolling.replace(/^\s+|\s+$/g, '')
 
-  let isBinary = BINARY_REGEX.test(rolling)
+  const isBinary = BINARY_REGEX.test(rolling)
   if (isBinary || OCTAL_REGEX.test(rolling)) {
     rolling = parseInt(rolling.slice(2), isBinary ? 2 : 8)
   } else {

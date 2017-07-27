@@ -4,8 +4,8 @@ import isArrayLike from './is-array-like'
 
 export default function random (value, bound) {
   if (isObject(value)) {
-    let keys = Object.keys(value)
-    let selected = keys[~~(Math.random() * keys.length)]
+    const keys = Object.keys(value)
+    const selected = keys[~~(Math.random() * keys.length)]
     return value[selected]
   }
 
@@ -23,7 +23,7 @@ export default function random (value, bound) {
   }
 
   if (value > bound) {
-    let temp = value
+    const temp = value
     value = bound
     bound = temp
   }

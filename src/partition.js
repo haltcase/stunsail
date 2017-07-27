@@ -17,11 +17,11 @@ function addTo (type, target, value, key) {
 }
 
 export default function partition (collection, fn) {
-  let type = getType(collection)
-  let [truthy, falsy] = [toEmpty(type), toEmpty(type)]
+  const type = getType(collection)
+  const [truthy, falsy] = [toEmpty(type), toEmpty(type)]
 
   return reduce(collection, (accumulator, v, k, o) => {
-    let target = fn(v, k, o) ? 0 : 1
+    const target = fn(v, k, o) ? 0 : 1
     accumulator[target] = addTo(type, accumulator[target], v, k)
     return accumulator
   }, [truthy, falsy])

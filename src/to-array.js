@@ -1,7 +1,7 @@
 import getType from './get-type'
 
 export default function toArray (value, begin, end) {
-  let kind = getType(value)
+  const kind = getType(value)
   if (kind === 'undefined') return []
 
   let array = []

@@ -2,7 +2,7 @@ import getType from './get-type'
 import isArrayLike from './is-array-like'
 
 export default function isEmpty (value) {
-  let type = getType(value)
+  const type = getType(value)
 
   switch (type) {
     case 'null':

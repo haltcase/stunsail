@@ -11,7 +11,7 @@ export default function has (object, path) {
   if (!isArrayLike(keys)) keys = [keys]
 
   let i = -1
-  let length = keys.length
+  const { length } = keys
   let result = length ? object : undefined
 
   while (++i < length) {

@@ -6,7 +6,7 @@ test('returns true for iterable objects', t => {
   t.true(fn(new Set([1, 2, 3])))
   t.true(fn(new Map([[1, 2], [3, 4]])))
 
-  let custom = { [Symbol.iterator] () {} }
+  const custom = { [Symbol.iterator] () {} }
   t.true(fn(custom))
 })
 

@@ -2,7 +2,7 @@ import isEqual from './is-equal'
 import getType from './get-type'
 
 export default function isOneOf (value, collection) {
-  let inputType = getType(collection)
+  const inputType = getType(collection)
 
   switch (inputType) {
     case 'string':
@@ -10,7 +10,7 @@ export default function isOneOf (value, collection) {
     case 'array':
       return findIndex(collection, value) > -1
     case 'object':
-      let values = Object.keys(collection).map(k => collection[k])
+      const values = Object.keys(collection).map(k => collection[k])
       return findIndex(values, value) > -1
     case 'set':
       return collection.has(value)
@@ -24,9 +24,9 @@ export default function isOneOf (value, collection) {
 }
 
 function findIndex (arr, val) {
-  let i = -1
-  let length = arr.length
+  const { length } = arr
 
+  let i = -1
   while (++i < length) {
     if (isEqual(val, arr[i])) {
       return i

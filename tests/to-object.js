@@ -2,8 +2,8 @@ import test from 'ava'
 import fn from '../to-object'
 
 test('array: creates an object using array values as its pairs', t => {
-  let input = ['one', 'two', 'three']
-  let res = { one: 'one', two: 'two', three: 'three' }
+  const input = ['one', 'two', 'three']
+  const res = { one: 'one', two: 'two', three: 'three' }
   t.deepEqual(fn(input), res)
 })
 
@@ -18,13 +18,13 @@ test('primitive: creates an object with the input as both key & value', t => {
 })
 
 test('object: returns the input directly', t => {
-  let input = { ultra: 'cool' }
+  const input = { ultra: 'cool' }
   t.is(fn(input), input)
 })
 
 test('array: converts key / value pair arrays', t => {
-  let input = [['keyOne', 1], ['keyTwo', 2], ['keyThree', 3]]
-  let expected = {
+  const input = [['keyOne', 1], ['keyTwo', 2], ['keyThree', 3]]
+  const expected = {
     keyOne: 1,
     keyTwo: 2,
     keyThree: 3
@@ -34,8 +34,8 @@ test('array: converts key / value pair arrays', t => {
 })
 
 test('map: creates a plain object from map entries', t => {
-  let input = new Map([['keyOne', 1], ['keyTwo', 2], ['keyThree', 3]])
-  let expected = {
+  const input = new Map([['keyOne', 1], ['keyTwo', 2], ['keyThree', 3]])
+  const expected = {
     keyOne: 1,
     keyTwo: 2,
     keyThree: 3
@@ -45,8 +45,8 @@ test('map: creates a plain object from map entries', t => {
 })
 
 test('set: creates an object using set entries as its pairs', t => {
-  let input = new Set(['one', 'two', 'three'])
-  let res = { one: 'one', two: 'two', three: 'three' }
+  const input = new Set(['one', 'two', 'three'])
+  const res = { one: 'one', two: 'two', three: 'three' }
   t.deepEqual(fn(input), res)
 })
 

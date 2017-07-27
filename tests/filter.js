@@ -6,7 +6,7 @@ const array = [1, 2, 3, 4, 5]
 const string = 'foobar'
 
 test('filters object inputs', t => {
-  let result = fn(object, value => value % 2)
+  const result = fn(object, value => value % 2)
   t.deepEqual(result, { one: 1, three: 3 })
 })
 

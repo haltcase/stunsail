@@ -22,9 +22,6 @@ test('converts the input to a boolean value', t => {
 })
 
 test('smart mode converts based on a string\'s value', t => {
-  let input = 'true'
-  t.is(fn(input, true), true)
-
-  input = 'false'
-  t.is(fn(input, true), false)
+  t.is(fn('true', true), true)
+  t.is(fn('false', true), false)
 })
