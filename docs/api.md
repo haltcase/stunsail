@@ -925,6 +925,34 @@ isIterable(null)
 // -> false
 ```
 
+### isMap
+
+```js
+isMap(value)
+```
+
+Check whether `value` is a `Map` object.
+
+> **Arguments**
+
+| name | type | description |
+| :--: | :--: | ----------- |
+| value | `any` | Value to test |
+
+> **Returns**
+
+`boolean`
+
+> **Usage**
+
+```js
+isMap(new Map())
+// -> true
+
+isMap({})
+// -> false
+```
+
 ### isNan
 
 ```js
@@ -1160,6 +1188,34 @@ isPrimitive(undefined)
 isPrimitive({})
 isPrimitive([])
 isPrimitive(new Date())
+```
+
+### isSet
+
+```js
+isSet(value)
+```
+
+Check whether `value` is a `Set` object.
+
+> **Arguments**
+
+| name | type | description |
+| :--: | :--: | ----------- |
+| value | `any` | Value to test |
+
+> **Returns**
+
+`boolean`
+
+> **Usage**
+
+```js
+isSet(new Set())
+// -> true
+
+isSet([])
+// -> false
 ```
 
 ### isString
