@@ -8,7 +8,7 @@
           "env",
           {
             "targets": {
-              "node": "4.7.0"
+              "node": 6
             },
             "loose": true
           }
@@ -26,7 +26,7 @@
           "env",
           {
             "targets": {
-              "node": "4.7.0"
+              "node": "current"
             },
             "loose": true
           }
@@ -43,7 +43,7 @@
           "env",
           {
             "targets": {
-              "node": "4.7.0"
+              "node": 6
             },
             "modules": false,
             "loose": true
