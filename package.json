@@ -22,9 +22,8 @@
   "jsnext:main": "es/index.js",
   "scripts": {
     "lint": "standard \"src/**/*.js\" \"tests/**/*.js\" | snazzy",
-    "docs": "trash \"docs\" && node build/build-docs.js",
-    "index": "node build/create-index.js",
-    "prebuild": "trash \"babel\" \"es\" \"lib\" \"*.js\" \"!.eslintrc.js\"",
+    "index": "node script/create-index.js",
+    "prebuild": "trash \"babel\" \"es\" \"lib\" \"*.js\"",
     "build": "npm run index && if-not-ci npm run build:es && npm run build:main",
     "build:es": "cross-env BABEL_ENV=es babel src -d es",
     "build:main": "cross-env BABEL_ENV=production babel src -d .",
