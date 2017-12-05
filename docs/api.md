@@ -1,5 +1,75 @@
 # stunsail _1.0.0-alpha.14_
 
+### all
+
+```js
+all(collection, fn)
+```
+
+Universal version of native `Array#every` that
+works on pretty much any iterable - Arrays & Array-likes,
+Objects, Sets, Maps, strings, custom iterables, etc.
+
+Returns `true` if the result of `fn` is truthy for every item
+in the collection, or stops iteration early and returns `false` if
+some item causes `fn` to return a falsy value.
+
+> **Arguments**
+
+| name | type | description |
+| :--: | :--: | ----------- |
+| collection | `Object` | Iterable-like object to map over, applying `fn` on each iteration |
+| fn | `Function` | Callback applied to each item in `collection` |
+
+> **Returns**
+
+`boolean`: whether all items satisifed the condition
+
+> **Usage**
+
+```js
+all([1, 3, 5, 7], v => v < 10)
+// -> true
+
+all({ one: 1, two: 2, three: 3 }, v => v === 3)
+// -> false
+```
+
+### any
+
+```js
+any(collection, fn)
+```
+
+Universal version of native `Array#some` that
+works on pretty much any iterable - Arrays & Array-likes,
+Objects, Sets, Maps, strings, custom iterables, etc.
+
+Returns `true` if the result of `fn` is truthy for any item
+in the collection, or stops iteration early and returns `false` if
+some item causes `fn` to return a falsy value.
+
+> **Arguments**
+
+| name | type | description |
+| :--: | :--: | ----------- |
+| collection | `Object` | Iterable-like object to map over, applying `fn` on each iteration |
+| fn | `Function` | Callback applied to each item in `collection` |
+
+> **Returns**
+
+`boolean`: whether any item satisifed the condition
+
+> **Usage**
+
+```js
+any({ one: 1, two: 2, three: 3 }, v => v === 3)
+// -> true
+
+any([1, 3, 5, 7], v => v > 10)
+// -> false
+```
+
 ### apply
 
 ```js
