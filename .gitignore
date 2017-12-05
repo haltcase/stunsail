@@ -10,8 +10,7 @@
 !.eslintrc.js
 !src/**/*.js
 !tests/**/*.js
-!build/**/*.js
-!docs-src/**/*.js
+!script/**/*.js
 
 # but not this index file
 src/index.js
