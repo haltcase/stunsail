@@ -334,6 +334,38 @@ filter('foobar', value => value !== 'o')
 // -> fbar
 ```
 
+### first
+
+```js
+first(arrayLike)
+```
+
+Retreive the item at index zero of the given Array-like or `Set` object.
+For `Set`s this is based on insertion order, ie. the first inserted object.
+
+> **Arguments**
+
+| name | type | description |
+| :--: | :--: | ----------- |
+| arrayLike | `Array` | Array-like value to access |
+
+> **Returns**
+
+`any`: first value of the given collection, ie. `array[0]`
+
+> **Usage**
+
+```js
+first([1, 2, 3, 4])
+// -> 1
+
+first(new Set([1, 2, 3, 4]))
+// -> 1
+
+first((function () { return arguments }(1, 2, 3, 4)))
+// -> 1
+```
+
 ### getOr
 
 ```js
@@ -1333,6 +1365,38 @@ kebabCase('camelCasedThing')
 
 kebabCase('already-kebab-cased')
 // -> 'already-kebab-cased'
+```
+
+### last
+
+```js
+last(arrayLike)
+```
+
+Retreive the item at the highest index of the given Array-like or `Set` object.
+For `Set`s this is based on insertion order, ie. the last inserted object.
+
+> **Arguments**
+
+| name | type | description |
+| :--: | :--: | ----------- |
+| arrayLike | `Array` | Array-like value to access |
+
+> **Returns**
+
+`any`: last value of the given collection, ie. `array[array.length - 1]`
+
+> **Usage**
+
+```js
+last([1, 2, 3, 4])
+// -> 4
+
+last(new Set([1, 2, 3, 4]))
+// -> 4
+
+last((function () { return arguments }(1, 2, 3, 4)))
+// -> 4
 ```
 
 ### map
