@@ -31,7 +31,7 @@
     "pretest": "npm run build && npm run lint",
     "test": "ava --concurrency 10",
     "test:watch": "ava -w",
-    "prepublish": "npm test"
+    "prepublishOnly": "npm test"
   },
   "keywords": [
     "utility",
