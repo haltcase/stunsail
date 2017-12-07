@@ -68,3 +68,10 @@ test('works for `Map` and `Set`', t => {
   t.false(mapResult)
   t.is(mapIterations, 1)
 })
+
+test('allows omitting the predicate function', t => {
+  const array = [true, true, true]
+  t.true(fn(array))
+  array.push(false)
+  t.false(fn(array))
+})
