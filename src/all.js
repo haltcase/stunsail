@@ -1,6 +1,6 @@
 import each from './each'
 
-export default (collection, fn) => {
+export default function all (collection, fn = value => !!value) {
   let all = true
   each(collection, (v, k, o) => {
     if (!fn(v, k, o)) {
