@@ -1,6 +1,5 @@
 import apply from './apply'
 import getType from './get-type'
-import toArray from './to-array'
 
 export default function cap (fn, limit) {
   if (getType(fn) !== 'function') {
@@ -16,8 +15,6 @@ export default function cap (fn, limit) {
 
   const upper = Math.abs(limit)
 
-  return function () {
-    const args = toArray(arguments, 0, upper)
-    return apply(fn, args)
-  }
+  return (...args) =>
+    apply(fn, args.slice(0, upper))
 }

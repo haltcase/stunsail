@@ -10,9 +10,9 @@ export default function once (fn) {
   let result
   let called = false
 
-  return function () {
+  return (...args) => {
     if (!called) {
-      result = apply(fn, arguments)
+      result = apply(fn, args)
     }
 
     fn = undefined
