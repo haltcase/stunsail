@@ -33,7 +33,7 @@ export default function toNumber (value, round) {
     rolling = parseInt(rolling.slice(2), isBinary ? 2 : 8)
   } else {
     if (BAD_HEX_REGEX.test(rolling)) {
-      rolling = (0 / 0)
+      rolling = 0 / 0
     }
   }
 
