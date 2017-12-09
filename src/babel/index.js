@@ -68,7 +68,7 @@ export default ({ types: t }) => {
           imports.push(makeImport(t, name, state.opts))
         })
 
-        if (imports.length > 0) {
+        if (imports.length) {
           path.replaceWithMultiple(imports)
         }
       }
