@@ -53,8 +53,6 @@ export default ({ types: t }) => {
         if (imports.length) {
           parent.replaceWithMultiple(imports)
         }
-
-        path.stop()
       },
 
       ImportDeclaration (path, state) {
@@ -73,8 +71,6 @@ export default ({ types: t }) => {
         if (imports.length > 0) {
           path.replaceWithMultiple(imports)
         }
-
-        path.stop()
       }
     }
   }
