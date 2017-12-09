@@ -6,9 +6,7 @@ export default function apply (fn, args) {
     throw new TypeError(`Expected a function.`)
   }
 
-  if (getType(args) !== 'array') {
-    args = toArray(args)
-  }
+  args = toArray(args)
 
   let [a, b, c, d, e, f] = args
   switch (args.length) {
