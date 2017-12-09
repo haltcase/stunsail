@@ -29,7 +29,7 @@
     "build:main": "cross-env BABEL_ENV=production babel src -d .",
     "build:watch": "cross-env BABEL_ENV=dev babel src -d . -w",
     "pretest": "npm run lint && npm run build",
-    "test": "ava --concurrency 10",
+    "test": "ava",
     "test:watch": "ava -w",
     "prepublishOnly": "npm test"
   },
