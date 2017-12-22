@@ -28,6 +28,7 @@
   ],
   "scripts": {
     "lint": "standard \"src/**/*.js\" \"tests/**/*.js\" | snazzy",
+    "docs": "cpy \"*.md\" docs",
     "index": "node script/create-index.js",
     "prebuild": "trash \"babel\" \"prod\" \"es\" \"lib\" \"*.js\"",
     "build": "npm run index && npm run build:prod && if-not-ci npm run build:es",
@@ -60,6 +61,7 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-stage-3": "^6.24.1",
     "butternut": "^0.4.6",
+    "cpy-cli": "^1.0.1",
     "cross-env": "^5.1.1",
     "dedent": "^0.7.0",
     "if-ci": "^2.0.2",
