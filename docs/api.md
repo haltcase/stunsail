@@ -1,6 +1,11 @@
-# stunsail _1.0.0-alpha.16_
+# stunsail &middot; [![Version](https://img.shields.io/npm/v/stunsail.svg?style=flat-square&maxAge=3600)](https://www.npmjs.com/package/stunsail)
 
-### all
+<p class="tip">
+stunsail pairs nicely with [param.macro](https://github.com/citycide/param.macro),
+a Babel plugin for compile-time partial application & lambda parameters
+</p>
+
+## all
 
 ```js
 all(collection, fn)
@@ -38,7 +43,7 @@ all({ one: 1, two: 2, three: 3 }, v => v === 3)
 // -> false
 ```
 
-### any
+## any
 
 ```js
 any(collection, fn)
@@ -76,7 +81,7 @@ any([1, 3, 5, 7], v => v > 10)
 // -> false
 ```
 
-### apply
+## apply
 
 ```js
 apply(fn, args)
@@ -109,7 +114,7 @@ max([1, 2, 100, 4])
 // -> 100
 ```
 
-### camelCase
+## camelCase
 
 ```js
 camelCase(string)
@@ -138,7 +143,7 @@ camelCase('alreadyCamelCased')
 // -> 'alreadyCamelCased'
 ```
 
-### cap
+## cap
 
 ```js
 cap(fn, limit)
@@ -176,7 +181,7 @@ const toInt = cap(parseInt)
 // -> [1, 2, 2]
 ```
 
-### clamp
+## clamp
 
 ```js
 clamp(value, lower, upper)
@@ -211,11 +216,7 @@ clamp(-15, -10, 10)
 // -> -10
 ```
 
-### constants
-
-> coming soon [[_contribute this_](https://github.com/citycide/stunsail/new/master?filename=docs-src/constants.js)]
-
-### defaults
+## defaults
 
 ```js
 defaults(object, extension)
@@ -245,7 +246,7 @@ const result = defaults(base, ext)
 // -> { abc: '123', def: '456', ghi: '789' }
 ```
 
-### each
+## each
 
 ```js
 each(collection, fn)
@@ -300,7 +301,7 @@ each(obj, v => console.log(v))
 // -> 1  2  3
 ```
 
-### filter
+## filter
 
 ```js
 filter(collection, fn)
@@ -340,7 +341,7 @@ filter('foobar', value => value !== 'o')
 // -> fbar
 ```
 
-### first
+## first
 
 ```js
 first(arrayLike)
@@ -372,7 +373,7 @@ first((function () { return arguments }(1, 2, 3, 4)))
 // -> 1
 ```
 
-### getOr
+## getOr
 
 ```js
 getOr(object, path, defaultValue)
@@ -413,7 +414,7 @@ getOr(objectTwo, 'array[3]', 'item four')
 // -> 'item four'
 ```
 
-### getType
+## getType
 
 ```js
 getType(value)
@@ -451,7 +452,7 @@ getType(new RangeError())
 // -> rangeerror
 ```
 
-### get
+## get
 
 ```js
 get(object, path)
@@ -491,7 +492,7 @@ get(objectTwo, 'array[3]')
 // -> undefined
 ```
 
-### has
+## has
 
 ```js
 has(path, object)
@@ -529,7 +530,7 @@ has(objectTwo, 'array[3]')
 // -> false
 ```
 
-### includes
+## includes
 
 ```js
 includes(collection, value)
@@ -560,7 +561,7 @@ includes({ key: 'value' }, 'value')
 // -> true
 ```
 
-### invariant
+## invariant
 
 ```js
 invariant(condition, message)
@@ -594,7 +595,7 @@ const result2 = invariant(truthyCondition, 'No function provided.')
 // -> InvariantError: 'No function provided.'
 ```
 
-### isArrayLike
+## isArrayLike
 
 ```js
 isArrayLike(value)
@@ -632,7 +633,7 @@ isArrayLike({ length: 2, 0: 'foo', 1: 'bar' })
 // -> true
 ```
 
-### isArray
+## isArray
 
 ```js
 isArray(value)
@@ -661,7 +662,7 @@ isArray({ length: 2, 0: 'foo', 1: 'bar' })
 // -> false
 ```
 
-### isBoolean
+## isBoolean
 
 ```js
 isBoolean(value)
@@ -692,7 +693,7 @@ isBoolean(0)
 // -> false
 ```
 
-### isBuffer
+## isBuffer
 
 ```js
 isBuffer(value)
@@ -720,7 +721,7 @@ isBuffer('string')
 // -> false
 ```
 
-### isDate
+## isDate
 
 ```js
 isDate(value)
@@ -748,7 +749,7 @@ isDate(Date.now())
 // -> false
 ```
 
-### isEmpty
+## isEmpty
 
 ```js
 isEmpty(value)
@@ -783,7 +784,7 @@ isEmpty(() => {})
 isEmpty('a value')
 ```
 
-### isEqual
+## isEqual
 
 ```js
 isEqual(a, b)
@@ -817,7 +818,7 @@ isEqual(new Set([1, 2]), new Set([9, 10]))
 // -> false
 ```
 
-### isError
+## isError
 
 ```js
 isError(value)
@@ -848,7 +849,7 @@ isError({ code: 'ENOENT', message: 'wrong' })
 // -> false
 ```
 
-### isFunction
+## isFunction
 
 ```js
 isFunction(value)
@@ -889,7 +890,7 @@ isFunction(undefined)
 isFunction(1)
 ```
 
-### isInRange
+## isInRange
 
 ```js
 isInRange(value, start, end)
@@ -922,7 +923,7 @@ isInRange(10, 0, 10)
 // -> true
 ```
 
-### isIterable
+## isIterable
 
 ```js
 isIterable(value)
@@ -963,7 +964,7 @@ isIterable(null)
 // -> false
 ```
 
-### isMap
+## isMap
 
 ```js
 isMap(value)
@@ -991,7 +992,7 @@ isMap({})
 // -> false
 ```
 
-### isNan
+## isNan
 
 ```js
 isNan(value)
@@ -1025,7 +1026,7 @@ isNan({})
 // -> false
 ```
 
-### isNil
+## isNil
 
 ```js
 isNil(value)
@@ -1056,7 +1057,7 @@ isNil(false)
 // -> false
 ```
 
-### isNumber
+## isNumber
 
 ```js
 isNumber(value)
@@ -1084,7 +1085,7 @@ isNumber(NaN)
 // -> false
 ```
 
-### isNumeric
+## isNumeric
 
 ```js
 isNumeric(value)
@@ -1126,7 +1127,7 @@ isNumeric(null)
 isNumeric(undefined)
 ```
 
-### isObject
+## isObject
 
 ```js
 isObject(value)
@@ -1157,7 +1158,7 @@ isObject(new Map())
 // -> false
 ```
 
-### isOneOf
+## isOneOf
 
 ```js
 isOneOf(value, collection)
@@ -1188,7 +1189,7 @@ isOneOf('value', { key: 'value' })
 // -> true
 ```
 
-### isPrimitive
+## isPrimitive
 
 ```js
 isPrimitive(value)
@@ -1228,7 +1229,7 @@ isPrimitive([])
 isPrimitive(new Date())
 ```
 
-### isSet
+## isSet
 
 ```js
 isSet(value)
@@ -1256,7 +1257,7 @@ isSet([])
 // -> false
 ```
 
-### isString
+## isString
 
 ```js
 isString(value)
@@ -1284,7 +1285,7 @@ isString(400)
 // -> false
 ```
 
-### isThenable
+## isThenable
 
 ```js
 isThenable(value)
@@ -1311,7 +1312,7 @@ isThenable(Promise.resolve())
 isThenable({ then () {} })
 ```
 
-### isType
+## isType
 
 ```js
 isType(value, type)
@@ -1344,7 +1345,7 @@ isType(new Date(), Date)
 // -> true
 ```
 
-### kebabCase
+## kebabCase
 
 ```js
 kebabCase(string)
@@ -1373,7 +1374,7 @@ kebabCase('already-kebab-cased')
 // -> 'already-kebab-cased'
 ```
 
-### last
+## last
 
 ```js
 last(arrayLike)
@@ -1405,7 +1406,7 @@ last((function () { return arguments }(1, 2, 3, 4)))
 // -> 4
 ```
 
-### map
+## map
 
 ```js
 map(collection, fn)
@@ -1443,7 +1444,7 @@ map('foobar', v => v + '-')
 // -> 'f-o-o-b-a-r-'
 ```
 
-### matches
+## matches
 
 ```js
 matches(object, compare)
@@ -1492,7 +1493,7 @@ arr.find(o => matches(o, { color: 'red' })
 // -> { name: 'willy', color: 'red' }
 ```
 
-### once
+## once
 
 ```js
 once(fn)
@@ -1528,7 +1529,7 @@ wrapped(93247593475)
 // -> 100
 ```
 
-### partition
+## partition
 
 ```js
 partition(collection, fn)
@@ -1569,7 +1570,7 @@ partition(new Set(['Joe', 'Jerry', 'Rick', 'Bob']), v => v.startsWith('J'))
 // -> [ Set {'Joe', 'Jerry'}, Set {'Rick', 'Bob'} ]
 ```
 
-### pathDots
+## pathDots
 
 ```js
 pathDots(value)
@@ -1598,7 +1599,7 @@ pathDots('a[1].b.c[0]')
 // -> 'a.1.b.c.0'
 ```
 
-### pathLinks
+## pathLinks
 
 ```js
 pathLinks(value)
@@ -1628,7 +1629,7 @@ pathLinks(['a', 'b', 'c', '0'])
 // -> ['a', 'b', 'c', '0']
 ```
 
-### pipe
+## pipe
 
 ```js
 pipe(input)
@@ -1679,7 +1680,7 @@ pipe(
 })
 ```
 
-### random
+## random
 
 ```js
 random(value, bound)
@@ -1717,7 +1718,7 @@ random(-5, 5)
 // -> randomly chosen number between -5 and 5
 ```
 
-### range
+## range
 
 ```js
 range(start, end, step)
@@ -1752,7 +1753,7 @@ range(0, 10, 2)
 // -> [0, 2, 4, 6, 8, 10]
 ```
 
-### reduceWhile
+## reduceWhile
 
 ```js
 reduceWhile(collection, predicate, fn, initial)
@@ -1788,7 +1789,7 @@ reduceWhile(object, predicate, reducer, 0)
 // -> 3
 ```
 
-### reduce
+## reduce
 
 ```js
 reduce(collection, fn, initial)
@@ -1829,7 +1830,7 @@ fn(collection, (acc, cur) => {
 // -> ['r', 'a', 'b', 'o', 'o', 'f']
 ```
 
-### set
+## set
 
 ```js
 set(object, path, value)
@@ -1859,7 +1860,7 @@ set(object, 'nested.inner.deep', 40)
 // -> { key: 'value', nested: { inner: { deep: 40 } } }
 ```
 
-### sleep
+## sleep
 
 ```js
 sleep(ms)
@@ -1894,7 +1895,7 @@ foo()
 // -> done
 ```
 
-### snakeCase
+## snakeCase
 
 ```js
 snakeCase(string)
@@ -1923,7 +1924,7 @@ snakeCase('already_snake_cased')
 // -> 'already_snake_cased'
 ```
 
-### toArray
+## toArray
 
 ```js
 toArray(value, begin, end)
@@ -1979,7 +1980,7 @@ toArray([1, 2, 3, 4, 5], 2, -1)
 // -> [3, 4]
 ```
 
-### toBoolean
+## toBoolean
 
 ```js
 toBoolean(value, smart)
@@ -2026,7 +2027,7 @@ toBoolean({})
 toBoolean([])
 ```
 
-### toEmpty
+## toEmpty
 
 ```js
 toEmpty(type)
@@ -2064,7 +2065,7 @@ toEmpty([1, 2, 3, 4])
 // -> []
 ```
 
-### toNumber
+## toNumber
 
 ```js
 toNumber(value, round)
@@ -2107,7 +2108,7 @@ toNumber(39.354, true)
 // -> 39
 ```
 
-### toObject
+## toObject
 
 ```js
 toObject(value)
