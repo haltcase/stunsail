@@ -1,5 +1,5 @@
 import test from 'ava'
-import fn from '../to-object'
+import fn from '../prod/to-object'
 
 test('array: creates an object using array values as its pairs', t => {
   const input = ['one', 'two', 'three']

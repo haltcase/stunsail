@@ -1,5 +1,5 @@
 import test from 'ava'
-import fn from '../apply'
+import fn from '../prod/apply'
 
 function target () {
   return arguments.length

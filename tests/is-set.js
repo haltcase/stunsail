@@ -1,5 +1,5 @@
 import test from 'ava'
-import fn from '../is-set'
+import fn from '../prod/is-set'
 
 test('reports true only for `Set` objects', t => {
   t.true(fn(new Set()))

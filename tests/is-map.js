@@ -1,5 +1,5 @@
 import test from 'ava'
-import fn from '../is-map'
+import fn from '../prod/is-map'
 
 test('reports true only for `Map` objects', t => {
   t.true(fn(new Map()))

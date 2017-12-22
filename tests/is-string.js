@@ -1,5 +1,5 @@
 import test from 'ava'
-import fn from '../is-string'
+import fn from '../prod/is-string'
 
 test('reports true only for string values', t => {
   t.true(fn('string'))

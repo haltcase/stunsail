@@ -1,5 +1,5 @@
 import test from 'ava'
-import fn from '../to-array'
+import fn from '../prod/to-array'
 
 const cases = [
   { input: undefined, output: [] },

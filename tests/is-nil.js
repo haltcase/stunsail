@@ -1,5 +1,5 @@
 import test from 'ava'
-import fn from '../is-nil'
+import fn from '../prod/is-nil'
 
 test('reports true only for null & undefined', t => {
   t.true(fn(null))

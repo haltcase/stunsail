@@ -1,5 +1,5 @@
 import test from 'ava'
-import fn from '../defaults'
+import fn from '../prod/defaults'
 
 test('does not overwrite defined keys', t => {
   const object = { one: 1, two: 2 }

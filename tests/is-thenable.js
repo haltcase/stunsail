@@ -1,5 +1,5 @@
 import test from 'ava'
-import fn from '../is-thenable'
+import fn from '../prod/is-thenable'
 
 test('reports true for Promises & other thenables', t => {
   t.true(fn(new Promise((resolve, reject) => {})))

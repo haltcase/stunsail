@@ -1,5 +1,5 @@
 import test from 'ava'
-import fn from '../kebab-case'
+import fn from '../prod/kebab-case'
 
 test('converts input strings to kebab-case', t => {
   t.is(fn('already-kebab-case'), 'already-kebab-case')

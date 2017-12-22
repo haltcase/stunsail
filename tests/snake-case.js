@@ -1,7 +1,7 @@
 import test from 'ava'
-import fn from '../snake-case'
+import fn from '../prod/snake-case'
 
-test('converts input strings to kebab-case', t => {
+test('converts input strings to snake-case', t => {
   t.is(fn('already_snake_case'), 'already_snake_case')
   t.is(fn('Separated&By#$Characters'), 'separated_by_characters')
   t.is(fn('space separated string'), 'space_separated_string')

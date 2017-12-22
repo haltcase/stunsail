@@ -1,5 +1,5 @@
 import test from 'ava'
-import fn from '../is-date'
+import fn from '../prod/is-date'
 
 test('reports true only for date objects', t => {
   t.true(fn(new Date()))

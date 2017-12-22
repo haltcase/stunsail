@@ -1,5 +1,5 @@
 import test from 'ava'
-import fn from '../is-type'
+import fn from '../prod/is-type'
 
 test('returns true if value is the given type', t => {
   t.true(fn('hello, world!', 'string'))

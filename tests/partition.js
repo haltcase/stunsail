@@ -1,5 +1,5 @@
 import test from 'ava'
-import fn from '../partition'
+import fn from '../prod/partition'
 
 test('works for array inputs', t => {
   let input = [true, false, true, false]

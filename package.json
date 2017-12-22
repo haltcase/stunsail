@@ -20,15 +20,21 @@
   "main": "index.js",
   "module": "es/index.js",
   "jsnext:main": "es/index.js",
+  "files": [
+    "*.js",
+    "babel",
+    "es",
+    "lib"
+  ],
   "scripts": {
     "lint": "standard \"src/**/*.js\" \"tests/**/*.js\" | snazzy",
     "index": "node script/create-index.js",
-    "prebuild": "trash \"babel\" \"es\" \"lib\" \"*.js\"",
-    "build": "npm run index && if-not-ci npm run build:es && npm run build:main",
-    "build:es": "cross-env BABEL_ENV=es babel src -d es",
-    "build:main": "cross-env BABEL_ENV=production babel src -d .",
-    "build:watch": "cross-env BABEL_ENV=dev babel src -d . -w",
-    "pretest": "npm run lint && npm run build",
+    "prebuild": "trash \"babel\" \"prod\" \"es\" \"lib\" \"*.js\"",
+    "build": "npm run index && npm run build:prod && if-not-ci npm run build:es",
+    "build:prod": "cross-env NODE_ENV=production babel src -d prod",
+    "build:dev": "babel src -d prod",
+    "build:es": "cross-env NODE_ENV=esm babel src -d prod/es",
+    "pretest": "npm run build:dev",
     "test": "ava",
     "test:watch": "ava -w",
     "prepublishOnly": "npm test"
@@ -42,10 +48,14 @@
   ],
   "dependencies": {},
   "devDependencies": {
+    "@babel/cli": "7.0.0-beta.34",
+    "@babel/core": "7.0.0-beta.34",
+    "@babel/preset-env": "7.0.0-beta.34",
+    "@babel/preset-stage-1": "7.0.0-beta.34",
+    "@citycide/changelog": "^1.0.0",
     "ava": "^0.24.0",
-    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
     "babel-plugin-add-module-exports": "^0.2.1",
-    "babel-preset-babili": "0.0.12",
     "babel-preset-env": "^1.6.1",
     "babel-preset-stage-3": "^6.24.1",
     "cross-env": "^5.1.1",
@@ -56,6 +66,21 @@
     "trash-cli": "^1.4.0"
   },
   "ava": {
+    "babel": {
+      "presets": [
+        [
+          "env",
+          {
+            "targets": {
+              "node": true
+            },
+            "loose": true
+          }
+        ],
+        "stage-3"
+      ],
+      "plugins": []
+    },
     "files": [
       "tests/**/*.js"
     ],

@@ -1,4 +1,8 @@
-# IDE configurations
+# lock files
+yarn.lock
+package-lock.json
+
+# ide configurations
 .c9
 .idea
 .vscode
@@ -7,7 +11,7 @@
 *.js
 
 # re-include these *.js files
-!.eslintrc.js
+!.babelrc.js
 !src/**/*.js
 !tests/**/*.js
 !script/**/*.js
@@ -16,3 +20,5 @@
 src/index.js
 
 node_modules
+
+stunsail-*.tgz

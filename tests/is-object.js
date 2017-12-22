@@ -1,5 +1,5 @@
 import test from 'ava'
-import fn from '../is-object'
+import fn from '../prod/is-object'
 
 test('reports true only for plain objects', t => {
   t.true(fn({}))

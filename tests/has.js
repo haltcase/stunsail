@@ -1,5 +1,5 @@
 import test from 'ava'
-import fn from '../has'
+import fn from '../prod/has'
 
 const object = { key: 'value', nested: { inner: { deep: 'thing' } } }
 
