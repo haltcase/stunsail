@@ -50,16 +50,13 @@
   ],
   "dependencies": {},
   "devDependencies": {
-    "@babel/cli": "7.0.0-beta.34",
-    "@babel/core": "7.0.0-beta.34",
-    "@babel/preset-env": "7.0.0-beta.34",
-    "@babel/preset-stage-1": "7.0.0-beta.34",
+    "@babel/cli": "7.0.0-beta.38",
+    "@babel/core": "7.0.0-beta.38",
+    "@babel/preset-env": "7.0.0-beta.38",
+    "@babel/preset-stage-1": "7.0.0-beta.38",
     "@citycide/changelog": "^1.0.0",
-    "ava": "^0.24.0",
-    "babel-core": "^6.26.0",
+    "ava": "^1.0.0-beta.1",
     "babel-plugin-add-module-exports": "^0.2.1",
-    "babel-preset-env": "^1.6.1",
-    "babel-preset-stage-3": "^6.24.1",
     "butternut": "^0.4.6",
     "cpy-cli": "^1.0.1",
     "cross-env": "^5.1.1",
@@ -70,25 +67,10 @@
     "trash-cli": "^1.4.0"
   },
   "ava": {
-    "babel": {
-      "presets": [
-        [
-          "env",
-          {
-            "targets": {
-              "node": true
-            },
-            "loose": true
-          }
-        ],
-        "stage-3"
-      ],
-      "plugins": []
-    },
     "files": [
       "tests/**/*.js"
     ],
-    "source": [
+    "sources": [
       "src/**/*.js"
     ]
   }
