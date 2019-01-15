@@ -38,7 +38,7 @@
     "build:prod": "cross-env NODE_ENV=production babel src -d prod",
     "build:dev": "babel src -d prod",
     "build:es": "cross-env NODE_ENV=esm babel src -d prod/es",
-    "minify": "squash prod -o .",
+    "minify": "node script/minify.js",
     "pretest": "npm run build:dev",
     "test": "ava",
     "test:watch": "ava -w",
@@ -65,7 +65,6 @@
     "babel-eslint": "^10.0.1",
     "babel-plugin-add-module-exports": "^1.0.0",
     "babel-plugin-macros": "^2.4.5",
-    "butternut": "^0.4.6",
     "cpy-cli": "^2.0.0",
     "cross-env": "^5.2.0",
     "dedent": "^0.7.0",
@@ -77,6 +76,7 @@
     "eslint-plugin-standard": "^4.0.0",
     "if-ci": "^3.0.0",
     "param.macro": "^2.1.0",
+    "terser": "^3.14.1",
     "trash-cli": "^1.4.0"
   }
 }
