@@ -1,15 +1,19 @@
+'use strict'
+
 const { resolve } = require('path')
 const { readdirSync, writeFileSync } = require('fs')
 
 const src = resolve(__dirname, '..', 'src')
 const idx = resolve(src, 'index.js')
 
+const separators = /[-|.](\w)/g
+
 const camelize = str =>
-  str.replace(/[-|.](\w)/g, (m, p1) => p1.toUpperCase())
+  str.replace(separators, (_, p1) => p1.toUpperCase())
 
 const getFiles = () =>
   readdirSync(src).filter(file =>
-    (file.slice(-3) === '.js') && file !== 'index.js'
+    file.slice(-3) === '.js' && file !== 'index.js'
   )
 
 const createIndex = () => {
@@ -22,7 +26,7 @@ const createIndex = () => {
 
       imports += token === 'constants'
         ? `import * as ${token} from './${filename}'\n`
-        : `import { default as ${token} } from './${filename}'\n`
+        : `import ${token} from './${filename}'\n`
 
       outputs += `export { ${token} }\n`
       defaults += `  ${token},\n`
