@@ -17,7 +17,7 @@ export default function set (object, path, value) {
 
   while (++i < length) {
     if (Object(result) !== result) return object
-    let current = keys[i]
+    const current = keys[i]
 
     if (i === length - 1) {
       result[current] = value

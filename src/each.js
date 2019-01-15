@@ -21,8 +21,7 @@ export default function each (collection, fn) {
       if (fn(value, key, collection) === false) break
     }
   } else if (type === 'object') {
-    const keys = Object.keys(collection)
-    for (const key of keys) {
+    for (const key of Object.keys(collection)) {
       const value = collection[key]
       if (fn(value, key, collection) === false) break
     }

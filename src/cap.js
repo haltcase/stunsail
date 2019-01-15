@@ -7,10 +7,7 @@ export default function cap (fn, limit) {
   }
 
   if (getType(limit) !== 'number') {
-    limit = Number(limit) || fn.length
-    if (typeof limit === 'undefined') {
-      limit = 1
-    }
+    limit = (Number(limit) || fn.length) ?? 1
   }
 
   const upper = Math.abs(limit)

@@ -15,8 +15,7 @@ export default function defaults (object, extension) {
 function base (object, extension, fn) {
   if (isPrimitive(extension)) return object
 
-  const keys = Object.keys(extension)
-  for (const key of keys) {
+  for (const key of Object.keys(extension)) {
     if (fn(object, extension, key) === false) break
 
     if (
