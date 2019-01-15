@@ -4,13 +4,10 @@ export default function toArray (value, begin, end) {
   const kind = getType(value)
   if (kind === 'undefined') return []
 
-  let array = []
-  if (kind === 'array') {
-    array = value
-  } else if (kind === 'arguments') {
-    array = Array.from(value)
-  } else {
-    array = Array.of(value)
+  const array = do {
+    if (kind === 'array') value
+    else if (kind === 'arguments') Array.from(value)
+    else Array.of(value)
   }
 
   return getType(begin) === 'number'
