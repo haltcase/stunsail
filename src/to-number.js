@@ -2,6 +2,7 @@ import getType from './get-type'
 import isArrayLike from './is-array-like'
 
 import {
+  LEFT_RIGHT_WHITESPACE_REGEX,
   BINARY_REGEX,
   OCTAL_REGEX,
   BAD_HEX_REGEX
@@ -26,7 +27,7 @@ export default function toNumber (value, round) {
     rolling = String(rolling)
   }
 
-  rolling = rolling.replace(/^\s+|\s+$/g, '')
+  rolling = rolling.replace(LEFT_RIGHT_WHITESPACE_REGEX, '')
 
   const isBinary = BINARY_REGEX.test(rolling)
   if (isBinary || OCTAL_REGEX.test(rolling)) {

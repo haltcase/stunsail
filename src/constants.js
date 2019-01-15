@@ -1,4 +1,8 @@
 export const MAX_SAFE_INTEGER = 9007199254740991
+export const NUMERIC_REGEX = /^((?:\d+)?\.?(?:\d+)?)$/
+export const LEFT_RIGHT_WHITESPACE_REGEX = /^\s+|\s+$/g
+export const LEFT_RIGHT_DOT_REGEX = /^[.]*|[.]*$/g
+export const BRACKETED_REGEX = /\[([^[\]]+)\]/g
 export const OCTAL_REGEX = /^0o[0-7]+$/i
 export const BAD_HEX_REGEX = /^[-+]0x[0-9a-f]+$/i
 export const BINARY_REGEX = /^0b[01]+$/i
