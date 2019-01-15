@@ -7,7 +7,7 @@ const isDev = !isEsm && env !== 'production'
 
 const presets = [
   ['@babel/env', {
-    targets: { node: isDev || 6 },
+    targets: { node: isDev || 8 },
     loose: true,
     modules: isEsm ? false : 'commonjs'
   }]

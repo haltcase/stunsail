@@ -15,7 +15,7 @@
   "homepage": "https://github.com/citycide/stunsail",
   "bugs": "https://github.com/citycide/stunsail/issues",
   "engines": {
-    "node": ">=6"
+    "node": ">=8"
   },
   "main": "index.js",
   "module": "es/index.js",
