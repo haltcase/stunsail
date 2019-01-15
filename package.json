@@ -22,6 +22,9 @@
   "jsnext:main": "es/index.js",
   "files": [
     "*.js",
+    "!.babelrc.js",
+    "!.eslintrc.js",
+    "!ava.config.js",
     "babel",
     "es",
     "lib"
@@ -30,7 +33,7 @@
     "lint": "eslint src tests",
     "docs": "cpy \"*.md\" docs",
     "index": "node script/create-index.js",
-    "prebuild": "trash \"babel\" \"prod\" \"es\" \"lib\" \"*.js\"",
+    "prebuild": "trash \"babel\" \"prod\" \"es\" \"lib\" \"*.js\" \"!ava.config.js\"",
     "build": "npm run index && npm run build:prod && if-not-ci npm run build:es",
     "build:prod": "cross-env NODE_ENV=production babel src -d prod",
     "build:dev": "babel src -d prod",
