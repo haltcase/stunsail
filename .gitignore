@@ -1,17 +1,20 @@
-# lock files
-yarn.lock
-package-lock.json
-
 # ide configurations
 .c9
 .idea
 .vscode
+
+# lock files
+npm-shrinkwrap.json
+package-lock.json
+yarn.lock
 
 # ignore all built *.js files
 *.js
 
 # re-include these *.js files
 !.babelrc.js
+!.eslintrc.js
+!ava.config.js
 !src/**/*.js
 !tests/**/*.js
 !script/**/*.js

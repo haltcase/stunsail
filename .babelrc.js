@@ -10,11 +10,15 @@ const presets = [
     targets: { node: isDev || 6 },
     loose: true,
     modules: isEsm ? false : 'commonjs'
-  }],
-  '@babel/stage-1'
+  }]
 ]
 
-const plugins = []
+const plugins = [
+  'macros',
+  '@babel/plugin-proposal-nullish-coalescing-operator',
+  ['@babel/plugin-proposal-pipeline-operator', { proposal: 'minimal' }],
+  ['@babel/plugin-proposal-optional-chaining', { loose: false }]
+]
 
 if (!isEsm) {
   plugins.push('add-module-exports')
