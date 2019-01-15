@@ -128,7 +128,7 @@ camelCase(string)
 
 > **Returns**
 
-`any`
+`string`
 
 > **Usage**
 
@@ -1359,7 +1359,7 @@ kebabCase(string)
 
 > **Returns**
 
-`any`
+`string`
 
 > **Usage**
 
@@ -1909,7 +1909,7 @@ snakeCase(string)
 
 > **Returns**
 
-`any`
+`string`
 
 > **Usage**
 
@@ -1922,6 +1922,35 @@ snakeCase('camelCasedThing')
 
 snakeCase('already_snake_cased')
 // -> 'already_snake_cased'
+```
+
+## textCase
+
+```js
+textCase(string)
+```
+
+> **Arguments**
+
+| name | type | description |
+| :--: | :--: | ----------- |
+| string | `string` | Input string to convert to text-case |
+
+> **Returns**
+
+`string`
+
+> **Usage**
+
+```js
+textCase('snake-cased-string')
+// -> 'snake cased string'
+
+textCase('camelCasedThing')
+// -> 'camel cased thing'
+
+textCase('already text cased')
+// -> 'already text cased'
 ```
 
 ## toArray
