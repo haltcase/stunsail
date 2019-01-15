@@ -1,9 +1,10 @@
+import { _, it } from 'param.macro'
+
 import kebab from '../kebab-case'
 import each from '../each'
 import filter from '../filter'
 
-const getNamespaces = list =>
-  filter(list, ({ type }) => type === 'ImportSpecifier')
+const getNamespaces = filter(_, it.type === 'ImportSpecifier')
 
 const makeImport = (t, name, options) => {
   const { useRequire, useModules } = options
@@ -46,7 +47,7 @@ export default ({ types: t }) => {
           if (!t.isObjectPattern(declaration.id)) return
 
           each(declaration.id.properties, property => {
-            imports.push(makeImport(t, property.key.name, options))
+            makeImport(t, property.key.name, options) |> imports.push
           })
         })
 
@@ -60,13 +61,14 @@ export default ({ types: t }) => {
         if (source.value !== 'stunsail') return
 
         const imports = []
-        const namespaces = getNamespaces(specifiers)
 
-        each(namespaces, namespace => {
-          const { imported, local } = namespace
-          const name = imported.name || local.name
-          imports.push(makeImport(t, name, state.opts))
-        })
+        specifiers |>
+          getNamespaces |>
+          each(_, namespace => {
+            const { imported, local } = namespace
+            const name = imported.name || local.name
+            makeImport(t, name, state.opts) |> imports.push
+          })
 
         if (imports.length) {
           path.replaceWithMultiple(imports)
