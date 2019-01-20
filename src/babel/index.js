@@ -47,7 +47,7 @@ export default ({ types: t }) => {
           if (!t.isObjectPattern(declaration.id)) return
 
           each(declaration.id.properties, property => {
-            makeImport(t, property.key.name, options) |> imports.push
+            makeImport(t, property.key.value, options) |> imports.push
           })
         })
 
@@ -64,11 +64,9 @@ export default ({ types: t }) => {
 
         specifiers |>
           getNamespaces |>
-          each(_, namespace => {
-            const { imported, local } = namespace
-            const name = imported.name || local.name
-            makeImport(t, name, state.opts) |> imports.push
-          })
+          each(_, namespace =>
+            makeImport(t, namespace.local.name, state.opts) |> imports.push
+          )
 
         if (imports.length) {
           path.replaceWithMultiple(imports)
