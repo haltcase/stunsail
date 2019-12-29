@@ -4,18 +4,13 @@ package-lock.json
 yarn.lock
 
 # ignore all built *.js files
-*.js
+/*.js
+src/index.js
 
 # re-include these *.js files
 !.eslintrc.js
 !ava.config.js
 !babel.config.js
-!src/**/*.js
-!tests/**/*.js
-!script/**/*.js
-
-# but not this index file
-src/index.js
 
 node_modules
 
