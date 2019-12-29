@@ -8,7 +8,7 @@
   "homepage": "https://citycide.github.io/stunsail",
   "bugs": "https://github.com/citycide/stunsail/issues",
   "engines": {
-    "node": ">=8"
+    "node": ">=12"
   },
   "main": "index.js",
   "module": "es/index.js",
