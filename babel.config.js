@@ -15,6 +15,7 @@ const presets = [
 
 const plugins = [
   'macros',
+  '@babel/plugin-syntax-jsx',
   '@babel/plugin-proposal-do-expressions',
   '@babel/plugin-proposal-nullish-coalescing-operator',
   ['@babel/plugin-proposal-pipeline-operator', { proposal: 'minimal' }],

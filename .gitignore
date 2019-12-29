@@ -12,9 +12,9 @@ yarn.lock
 *.js
 
 # re-include these *.js files
-!.babelrc.js
 !.eslintrc.js
 !ava.config.js
+!babel.config.js
 !src/**/*.js
 !tests/**/*.js
 !script/**/*.js
