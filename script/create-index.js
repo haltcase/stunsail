@@ -21,7 +21,7 @@ const createIndex = () => {
 
   const [imports, outputs, defaults] =
     files.reduce(([imports, outputs, defaults], file) => {
-      let filename = file.slice(0, -3)
+      const filename = file.slice(0, -3)
       const token = camelize(filename)
 
       imports += token === 'constants'
