@@ -1,9 +1,16 @@
-# stunsail &middot; [![Version](https://img.shields.io/npm/v/stunsail.svg?style=flat-square&maxAge=3600)](https://www.npmjs.com/package/stunsail)
+---
+id: api
+hide_title: true
+---
 
-<p class="tip">
-stunsail pairs nicely with [param.macro](https://github.com/citycide/param.macro),
-a Babel plugin for compile-time partial application & lambda parameters
-</p>
+import Callout from '@site/src/components/Callout/Callout'
+
+# stunsail &middot; [![Version](https://flat.badgen.net/npm/v/stunsail)](https://www.npmjs.com/package/stunsail)
+
+<Callout type="success">
+  stunsail pairs nicely with <a href="https://github.com/citycide/param.macro">param.macro</a>,
+  a Babel plugin for compile-time partial application & lambda parameters
+</Callout>
 
 ## all
 
@@ -11,22 +18,22 @@ a Babel plugin for compile-time partial application & lambda parameters
 all(collection, fn)
 ```
 
-Universal version of native `Array#every` that
-works on pretty much any iterable - Arrays & Array-likes,
-Objects, Sets, Maps, strings, custom iterables, etc.
+Universal version of native `Array#every` that works on pretty much any
+iterable - arrays & array-likes, objects, Sets, Maps, strings, custom
+iterables, etc.
 
-Returns `true` if the result of `fn` is truthy for every item
-in the collection, or stops iteration early and returns `false` if
-some item causes `fn` to return a falsy value.
+Returns `true` if the result of `fn` is truthy for every item in the
+collection, or stops iteration early and returns `false` if some item
+causes `fn` to return a falsy value.
 
-`fn` defaults to `value => !!value` so that `collection` can quickly
-be tested for truthiness throughout.
+`fn` defaults to `value => !!value` so that `collection` can quickly be
+tested for truthiness throughout.
 
 > **Arguments**
 
 | name | type | description |
 | :--: | :--: | ----------- |
-| collection | `Object` | Iterable-like object to map over, applying `fn` on each iteration |
+| collection | `object` | Iterable-like object to map over, applying `fn` on each iteration |
 | fn | `Function` | Callback applied to each item in `collection` |
 
 > **Returns**
@@ -43,28 +50,32 @@ all({ one: 1, two: 2, three: 3 }, v => v === 3)
 // -> false
 ```
 
+> **See also**
+
+* [`any`](#any)
+
 ## any
 
 ```js
 any(collection, fn)
 ```
 
-Universal version of native `Array#some` that
-works on pretty much any iterable - Arrays & Array-likes,
-Objects, Sets, Maps, strings, custom iterables, etc.
+Universal version of native `Array#some` that works on pretty much any
+iterable - arrays & array-likes, objects, Sets, Maps, strings, custom
+iterables, etc.
 
-Returns `true` if the result of `fn` is truthy for any item
-in the collection, or stops iteration early and returns `false` if
-some item causes `fn` to return a falsy value.
+Returns `true` if the result of `fn` is truthy for any item in the
+collection, or stops iteration early and returns `false` if some item
+causes `fn` to return a falsy value.
 
-`fn` defaults to `val => !!val` so that `collection` can quickly
-be tested for truthiness throughout.
+`fn` defaults to `val => !!val` so that `collection` can quickly be tested
+for truthiness throughout.
 
 > **Arguments**
 
 | name | type | description |
 | :--: | :--: | ----------- |
-| collection | `Object` | Iterable-like object to map over, applying `fn` on each iteration |
+| collection | `object` | Iterable-like object to map over, applying `fn` on each iteration |
 | fn | `Function` | Callback applied to each item in `collection` |
 
 > **Returns**
@@ -81,22 +92,25 @@ any([1, 3, 5, 7], v => v > 10)
 // -> false
 ```
 
+> **See also**
+
+* [`all`](#all)
+
 ## apply
 
 ```js
 apply(fn, args)
 ```
 
-Call `fn` using the Array `args` as its arguments.
-Similar to native `Function#apply()` but does not
-set the function's `this` value.
+Call `fn` using the array `args` as its arguments. Similar to native
+`Function#apply()` but does not set the function's `this` value.
 
 > **Arguments**
 
 | name | type | description |
 | :--: | :--: | ----------- |
 | fn | `Function` | Function to which `args` will be applied |
-| args | `Array` | Array of arguments to apply to `fn` |
+| args | `array` | Array of arguments to apply to `fn` |
 
 > **Returns**
 
@@ -119,6 +133,8 @@ max([1, 2, 100, 4])
 ```js
 camelCase(string)
 ```
+
+Convert the given string to `camelCase`.
 
 > **Arguments**
 
@@ -143,16 +159,22 @@ camelCase('alreadyCamelCased')
 // -> 'alreadyCamelCased'
 ```
 
+> **See also**
+
+* [`kebabCase`](#kebabcase)
+* [`snakeCase`](#snakecase)
+* [`textCase`](#textcase)
+
 ## cap
 
 ```js
 cap(fn, limit)
 ```
 
-Adds a cap on the number of arguments passable to `fn`.
-Any arguments beyond `limit` will not be passed, which
-is useful for creating functions compatible with currying
-or as callbacks / parameters to higher order functions.
+ * Add a cap on the number of arguments passable to `fn`. Any arguments beyond
+ * `limit` will not be passed, which is useful for creating functions
+ * compatible with currying or as callbacks / parameters to higher order
+ * functions.
 
 > **Arguments**
 
@@ -187,12 +209,10 @@ const toInt = cap(parseInt)
 clamp(value, lower, upper)
 ```
 
-Ensures that a number `value` is between bounds
-`lower` and `upper`.
+Ensures that a number `value` is between bounds `lower` and `upper`.
 
-If `value` is not a number it's assumed to be 0,
-while `lower` and `upper` are set to `value`
-when they aren't numbers (or aren't provided).
+If `value` is not a number it's assumed to be 0, while `lower` and
+`upper` are set to `value` when they aren't numbers (or aren't provided).
 
 > **Arguments**
 
@@ -222,20 +242,19 @@ clamp(-15, -10, 10)
 defaults(object, extension)
 ```
 
-Sets own properties from `extension` on
-`object` if any of them are not present
-on `object`.
+Sets own properties from `extension` on `object` if any of them are not
+present on `object`.
 
 > **Arguments**
 
 | name | type | description |
 | :--: | :--: | ----------- |
-| object | `Object` | Base object to extend |
-| extension | `Object` | Object containing default properties |
+| object | `object` | Base object to extend |
+| extension | `object` | Object containing default properties |
 
 > **Returns**
 
-`Object`
+`object`
 
 > **Usage**
 
@@ -252,9 +271,9 @@ const result = defaults(base, ext)
 each(collection, fn)
 ```
 
-Universal version of native `Array#forEach` that
-works on pretty much any iterable - Arrays & Array-likes,
-Objects, Sets, Maps, strings, custom iterables, etc.
+Universal version of native `Array#forEach` that works on pretty much any
+iterable - arrays & array-likes, objects, Sets, Maps, strings, custom
+iterables, etc.
 
 > **Arguments**
 
@@ -301,19 +320,25 @@ each(obj, v => console.log(v))
 // -> 1  2  3
 ```
 
+> **See also**
+
+* [`filter`](#filter)
+* [`map`](#map)
+* [`reduce`](#reduce)
+
 ## filter
 
 ```js
 filter(collection, fn)
 ```
 
-Universal version of native `Array#filter` that
-works on pretty much any iterable - Arrays & Array-likes,
-Objects, Sets, Maps, strings, custom iterables, etc.
+Universal version of native `Array#filter` that works on pretty much any
+iterable - arrays & array-likes, objects, Sets, Maps, strings, custom
+iterables, etc.
 
-`fn` is called with arguments `value`, `key`, `collection`.
-If the result is truthy, the element will be present in the resulting
-collection. If the result is falsy, it will be _filtered_.
+`fn` is called with arguments `value`, `key`, `collection`. If the result
+is truthy, the element will be present in the resulting collection. If the
+result is falsy, it will be _filtered_.
 
 > **Arguments**
 
@@ -341,20 +366,26 @@ filter('foobar', value => value !== 'o')
 // -> fbar
 ```
 
+> **See also**
+
+* [`each`](#each)
+* [`map`](#map)
+* [`reduce`](#reduce)
+
 ## first
 
 ```js
 first(arrayLike)
 ```
 
-Retreive the item at index zero of the given Array-like or `Set` object.
+Retrieve the item at index zero of the given array-like or `Set` object.
 For `Set`s this is based on insertion order, ie. the first inserted object.
 
 > **Arguments**
 
 | name | type | description |
 | :--: | :--: | ----------- |
-| arrayLike | `Array` | Array-like value to access |
+| arrayLike | `array` | Array-like value to access |
 
 > **Returns**
 
@@ -373,20 +404,24 @@ first((function () { return arguments }(1, 2, 3, 4)))
 // -> 1
 ```
 
+> **See also**
+
+* [`last`](#last)
+
 ## getOr
 
 ```js
 getOr(object, path, defaultValue)
 ```
 
-Access a property of `object` at `path` safely & deeply,
-returning `defaultValue` if it doesn't exist.
+Access a property of `object` at `path` safely & deeply, returning
+`defaultValue` if it doesn't exist.
 
 > **Arguments**
 
 | name | type | description |
 | :--: | :--: | ----------- |
-| object | `Object` | Object-like value to access |
+| object | `object` | Object-like value to access |
 | path | `string, string[]` | String using dot or bracket syntax, or an array of path segments |
 | defaultValue | `any` | Value to return if `path` resolves to nil |
 
@@ -414,14 +449,20 @@ getOr(objectTwo, 'array[3]', 'item four')
 // -> 'item four'
 ```
 
+> **See also**
+
+* [`get`](#get)
+* [`set`](#set)
+* [`has`](#has)
+
 ## getType
 
 ```js
 getType(value)
 ```
 
-Alternative to the builtin `typeof` operator that returns a
-more accurate type string.
+Alternative to the builtin `typeof` operator that returns a more accurate
+type string.
 
 > **Arguments**
 
@@ -452,20 +493,24 @@ getType(new RangeError())
 // -> rangeerror
 ```
 
+> **See also**
+
+* [`isType`](#istype)
+
 ## get
 
 ```js
 get(object, path)
 ```
 
-Access a property of `object` at `path` safely & deeply,
-returning `undefined` if it doesn't exist.
+Access a property of `object` at `path` safely & deeply, returning
+`undefined` if it doesn't exist.
 
 > **Arguments**
 
 | name | type | description |
 | :--: | :--: | ----------- |
-| object | `Object` | Object-like value to access |
+| object | `object` | Object-like value to access |
 | path | `string, string[]` | String using dot or bracket syntax, or an array of path segments |
 
 > **Returns**
@@ -492,21 +537,24 @@ get(objectTwo, 'array[3]')
 // -> undefined
 ```
 
+* [`get`](#get)
+* [`getOr`](#getor)
+* [`has`](#has)
+
 ## has
 
 ```js
 has(path, object)
 ```
 
-Alternative to the builtin `Object#hasOwnProperty` function
-with support for deep-property access using both dot and
-bracket syntax.
+Alternative to the builtin `Object#hasOwnProperty` function with support
+for deep-property access using both dot and bracket syntax.
 
 > **Arguments**
 
 | name | type | description |
 | :--: | :--: | ----------- |
-| object | `Object` | Object-like value to access |
+| object | `object` | Object-like value to access |
 | path | `string, string[]` | String using dot or bracket syntax, or an array of path segments |
 
 > **Returns**
@@ -530,21 +578,24 @@ has(objectTwo, 'array[3]')
 // -> false
 ```
 
+* [`get`](#get)
+* [`getOr`](#getor)
+* [`set`](#set)
+
 ## includes
 
 ```js
 includes(collection, value)
 ```
 
-Check whether `value` is included in `collection`.
-This is a version of [`isOneOf()`](#isoneof) with the
-arguments flipped.
+Check whether `value` is included in `collection`. This is a version of
+[`isOneOf()`](#isoneof) with the arguments flipped.
 
 > **Arguments**
 
 | name | type | description |
 | :--: | :--: | ----------- |
-| collection | `Object` | List to check `value` against |
+| collection | `object` | List to check `value` against |
 | value | `any` | Value to search for in `collection` |
 
 > **Returns**
@@ -560,6 +611,10 @@ includes([1, 2, 3], 2)
 includes({ key: 'value' }, 'value')
 // -> true
 ```
+
+> **See also**
+
+* [`isOneOf`](#isoneof)
 
 ## invariant
 
@@ -601,7 +656,7 @@ const result2 = invariant(truthyCondition, 'No function provided.')
 isArrayLike(value)
 ```
 
-Check whether `value` is an Array or an object with a `length`
+Check whether `value` is an array or an object with a `length`
 property and that it also has a property at `length - 1`.
 
 > **Arguments**
@@ -639,7 +694,7 @@ isArrayLike({ length: 2, 0: 'foo', 1: 'bar' })
 isArray(value)
 ```
 
-Check whether `value` is an Array, like the built-in
+Check whether `value` is an array, like the built-in
 `Array.isArray()` method.
 
 > **Arguments**
@@ -755,8 +810,8 @@ isDate(Date.now())
 isEmpty(value)
 ```
 
-Check whether `value` is an empty version of its type,
-ie. `{}` for Objects, `[]` for Arrays, etc.
+Check whether `value` is an empty version of its type, ie. `{}` for objects,
+`[]` for arrays, etc.
 
 > **Arguments**
 
@@ -790,9 +845,8 @@ isEmpty('a value')
 isEqual(a, b)
 ```
 
-Check whether two values `a` and `b` are deeply equal.
-Works on almost any object - including plain Objects, Arrays,
-Maps, Sets, and Dates.
+Check whether two values `a` and `b` are deeply equal. Works on almost any
+object - including plain objects, arrays, Maps, Sets, and Dates.
 
 > **Arguments**
 
@@ -923,14 +977,18 @@ isInRange(10, 0, 10)
 // -> true
 ```
 
+> **See also**
+
+* [`range`](#range)
+
 ## isIterable
 
 ```js
 isIterable(value)
 ```
 
-Check whether `value` is an iterable object, ie. its
-`[Symbol.iterator]` property is set as a function.
+Check whether `value` is an iterable object, ie. its `[Symbol.iterator]`
+property is set as a function.
 
 > **Arguments**
 
@@ -1091,8 +1149,8 @@ isNumber(NaN)
 isNumeric(value)
 ```
 
-Check whether `value` is a number or a string that appears
-to be a number, including integers & decimals in strings.
+Check whether `value` is a number or a string that appears to be a number,
+including integers & decimals in strings.
 
 > **Arguments**
 
@@ -1164,16 +1222,15 @@ isObject(new Map())
 isOneOf(value, collection)
 ```
 
-Check whether `value` is included in `collection`.
-This is a version of [`includes()`](#includes) with the
-arguments flipped.
+Check whether `value` is included in `collection`. This is a version of
+[`includes()`](#includes) with the arguments flipped.
 
 > **Arguments**
 
 | name | type | description |
 | :--: | :--: | ----------- |
 | value | `any` | Value to search for in `collection` |
-| collection | `Object` | List to check `value` against |
+| collection | `object` | List to check `value` against |
 
 > **Returns**
 
@@ -1189,6 +1246,10 @@ isOneOf('value', { key: 'value' })
 // -> true
 ```
 
+> **See also**
+
+* [`includes`](#includes)
+
 ## isPrimitive
 
 ```js
@@ -1197,11 +1258,11 @@ isPrimitive(value)
 
 Check whether `value` is a primitive, ie. one of:
 
-- `null`
-- `string`
-- `number`
-- `boolean`
-- `undefined`
+* `null`
+* `string`
+* `number`
+* `boolean`
+* `undefined`
 
 > **Arguments**
 
@@ -1318,8 +1379,8 @@ isThenable({ then () {} })
 isType(value, type)
 ```
 
-If `type` is a string, check whether `value` has that type. Other
-kinds will check that the types of `type` and `value` match.
+If `type` is a string, check whether `value` has that type. Other kinds will
+check that the types of `type` and `value` match.
 
 > **Arguments**
 
@@ -1345,11 +1406,17 @@ isType(new Date(), Date)
 // -> true
 ```
 
+> **See also**
+
+* [`getType`](#gettype)
+
 ## kebabCase
 
 ```js
 kebabCase(string)
 ```
+
+Convert the given string to `kebab-case`.
 
 > **Arguments**
 
@@ -1374,20 +1441,26 @@ kebabCase('already-kebab-cased')
 // -> 'already-kebab-cased'
 ```
 
+> **See also**
+
+* [`camelCase`](#camelcase)
+* [`snakeCase`](#snakecase)
+* [`textCase`](#textcase)
+
 ## last
 
 ```js
 last(arrayLike)
 ```
 
-Retreive the item at the highest index of the given Array-like or `Set` object.
+Retreive the item at the highest index of the given array-like or `Set` object.
 For `Set`s this is based on insertion order, ie. the last inserted object.
 
 > **Arguments**
 
 | name | type | description |
 | :--: | :--: | ----------- |
-| arrayLike | `Array` | Array-like value to access |
+| arrayLike | `array` | Array-like value to access |
 
 > **Returns**
 
@@ -1406,25 +1479,29 @@ last((function () { return arguments }(1, 2, 3, 4)))
 // -> 4
 ```
 
+> **See also**
+
+* [`first`](#first)
+
 ## map
 
 ```js
 map(collection, fn)
 ```
 
-Universal version of native `Array#map` that
-works on pretty much any iterable - Arrays & Array-likes,
-Objects, Sets, Maps, strings, custom iterables, etc.
+Universal version of native `Array#map` that works on pretty much any
+iterable - arrays & array-likes, objects, Sets, Maps, strings, custom
+iterables, etc.
 
-The return value will be `collection` but each value will
-be the result of applying `fn` at each iteration to the
-arguments `value`, `key`, `collection`.
+The return value will be `collection` but each value will be the result
+of applying `fn` at each iteration to the arguments `value`, `key`,
+`collection`.
 
 > **Arguments**
 
 | name | type | description |
 | :--: | :--: | ----------- |
-| collection | `Object` | Iterable-like object to map over, applying `fn` on each iteration |
+| collection | `object` | Iterable-like object to map over, applying `fn` on each iteration |
 | fn | `Function` | Callback applied to each item in `collection` |
 
 > **Returns**
@@ -1444,21 +1521,27 @@ map('foobar', v => v + '-')
 // -> 'f-o-o-b-a-r-'
 ```
 
+> **See also**
+
+* [`each`](#each)
+* [`filter`](#filter)
+* [`reduce`](#reduce)
+
 ## matches
 
 ```js
 matches(object, compare)
 ```
 
-Check that all properties of `compare` are deeply
-equal to those same properties of `object`.
+Check that all properties of `compare` are deeply equal to those same
+properties of `object`.
 
 > **Arguments**
 
 | name | type | description |
 | :--: | :--: | ----------- |
-| object | `Object` | Object on which to check for properties of `compare` |
-| compare | `Object` | Object containing properties to match |
+| object | `object` | Object on which to check for properties of `compare` |
+| compare | `object` | Object containing properties to match |
 
 > **Returns**
 
@@ -1536,7 +1619,7 @@ partition(collection, fn)
 ```
 
 Iterate over `collection` and apply `fn` to each item,
-returning an Array where the first element contains all items
+returning an array where the first element contains all items
 for which `fn` returned a truthy value, and the second element
 contains all items for which it returned a falsy value.
 
@@ -1544,7 +1627,7 @@ contains all items for which it returned a falsy value.
 
 | name | type | description |
 | :--: | :--: | ----------- |
-| collection | `Object` | Object-like value to split |
+| collection | `object` | Object-like value to split |
 | fn | `Function` | Predicate with which to split items |
 
 > **Returns**
@@ -1576,7 +1659,7 @@ partition(new Set(['Joe', 'Jerry', 'Rick', 'Bob']), v => v.startsWith('J'))
 pathDots(value)
 ```
 
-Converts Arrays of object path segments into dot-notated paths.
+Converts arrays of object path segments into dot-notated paths.
 If `value` is a string, brackets will be normalized to dots.
 
 > **Arguments**
@@ -1599,15 +1682,18 @@ pathDots('a[1].b.c[0]')
 // -> 'a.1.b.c.0'
 ```
 
+> **See also**
+
+* [`pathLinks`](#pathlinks)
+
 ## pathLinks
 
 ```js
 pathLinks(value)
 ```
 
-Convert `value` (a dot or bracket notated string) to an
-Array of object path segments. If it's already an Array it
-will just be returned.
+Convert `value` (a dot or bracket notated string) to an array of object path
+segments. If it's already an array it will just be returned.
 
 > **Arguments**
 
@@ -1628,6 +1714,10 @@ pathLinks('a[1].b.c[0]')
 pathLinks(['a', 'b', 'c', '0'])
 // -> ['a', 'b', 'c', '0']
 ```
+
+> **See also**
+
+* [`pathDots`](#pathdots)
 
 ## pipe
 
@@ -1686,16 +1776,15 @@ pipe(
 random(value, bound)
 ```
 
-If `value` is an Array or Object, return a random value.
-If it's a number and `bound` is absent, return a random
-number between 0 and `value`. If `bound` is provided,
-return a random value between `value` and `bound`.
+If `value` is an array or object, return a random value. If it's a number
+and `bound` is absent, return a random number between 0 and `value`. If
+`bound` is provided, return a random value between `value` and `bound`.
 
 > **Arguments**
 
 | name | type | description |
 | :--: | :--: | ----------- |
-| value | `Array, Object, number` | Collection to sample or a bounding number |
+| value | `array` `object` `number` | Collection to sample or a bounding number |
 | bound | `number` | Used as the upper bound when `value` is a number |
 
 > **Returns**
@@ -1706,10 +1795,10 @@ return a random value between `value` and `bound`.
 
 ```js
 random([1, 2, 3])
-// -> randomly chosen element from the Array
+// -> randomly chosen element from the array
 
 random({ one: 1, two: 2, three: 3 })
-// -> value from a randomly chosen key in the Object
+// -> value from a randomly chosen key in the object
 
 random(10)
 // -> randomly chosen number between 0 and 10
@@ -1724,11 +1813,11 @@ random(-5, 5)
 range(start, end, step)
 ```
 
-Create an Array of numbers beginning at and including `start`
+Create an array of numbers beginning at and including `start`
 through and including `end`.
 
 If `step` is provided, it is used as the increment between
-each element of the resulting Array. This can affect the number
+each element of the resulting array. This can affect the number
 of values in the result.
 
 > **Arguments**
@@ -1752,6 +1841,10 @@ range(0, 10)
 range(0, 10, 2)
 // -> [0, 2, 4, 6, 8, 10]
 ```
+
+> **See also**
+
+* [`isInRange`](#isinrange)
 
 ## reduceWhile
 
@@ -1789,15 +1882,19 @@ reduceWhile(object, predicate, reducer, 0)
 // -> 3
 ```
 
+> **See also**
+
+* [`reduce`](#reduce)
+
 ## reduce
 
 ```js
 reduce(collection, fn, initial)
 ```
 
-Universal version of native `Array#reduce` that
-works on pretty much any iterable - Arrays & Array-likes,
-Objects, Sets, Maps, strings, custom iterables, etc.
+Universal version of native `Array#reduce` that works on pretty much any
+iterable - arrays & array-likes, objects, Sets, Maps, strings, custom
+iterables, etc.
 
 > **Arguments**
 
@@ -1830,6 +1927,10 @@ fn(collection, (acc, cur) => {
 // -> ['r', 'a', 'b', 'o', 'o', 'f']
 ```
 
+> **See also**
+
+* [`reduceWhile`](#reducewhile)
+
 ## set
 
 ```js
@@ -1838,19 +1939,19 @@ set(object, path, value)
 
 Sets the key at `path` to `value` on `object` and returns
 the object. Deep property access is supported using both dot and
-bracket syntax or an Array of path segments.
+bracket syntax or an array of path segments.
 
 > **Arguments**
 
 | name | type | description |
 | :--: | :--: | ----------- |
-| object | `Object` | Object-like value to access |
-| path | `string, string[]` | String using dot or bracket syntax, or an Array of path segments |
+| object | `object` | Object-like value to access |
+| path | `string, string[]` | String using dot or bracket syntax, or an array of path segments |
 | value | `any` | Value to which `path` will be set |
 
 > **Returns**
 
-`Object`
+`object`
 
 > **Usage**
 
@@ -1859,6 +1960,12 @@ const object = { key: 'value', nested: { inner: { deep: 'thing' } } }
 set(object, 'nested.inner.deep', 40)
 // -> { key: 'value', nested: { inner: { deep: 40 } } }
 ```
+
+> **See also**
+
+* [`get`](#get)
+* [`getOr`](#getor)
+* [`has`](#has)
 
 ## sleep
 
@@ -1901,6 +2008,8 @@ foo()
 snakeCase(string)
 ```
 
+Convert the given string to `snake_case`.
+
 > **Arguments**
 
 | name | type | description |
@@ -1924,11 +2033,19 @@ snakeCase('already_snake_cased')
 // -> 'already_snake_cased'
 ```
 
+> **See also**
+
+* [`camelCase`](#camelcase)
+* [`kebabCase`](#kebabcase)
+* [`textCase`](#textcase)
+
 ## textCase
 
 ```js
 textCase(string)
 ```
+
+Convert the given string to `text case`.
 
 > **Arguments**
 
@@ -1953,6 +2070,12 @@ textCase('already text cased')
 // -> 'already text cased'
 ```
 
+> **See also**
+
+* [`camelCase`](#camelcase)
+* [`kebabCase`](#kebabcase)
+* [`snakeCase`](#snakecase)
+
 ## toArray
 
 ```js
@@ -1960,8 +2083,8 @@ toArray(value, begin, end)
 ```
 
 Alternative to the `[].slice.call()` method of converting
-values to Arrays. It will convert Array-like Objects and
-wrap values in an Array that don't coerce.
+values to arrays. It will convert array-like objects and
+wrap values in an array that don't coerce.
 
 > **Arguments**
 
@@ -2100,6 +2223,10 @@ toEmpty([1, 2, 3, 4])
 toNumber(value, round)
 ```
 
+Convert the given `value` to a number. For example, this function applied to
+a collection of almost any kind will return the number of elements in the
+collection.
+
 > **Arguments**
 
 | name | type | description |
@@ -2143,9 +2270,9 @@ toNumber(39.354, true)
 toObject(value)
 ```
 
-Ensure an Object is returned, by converting `value` if possible
-or by returning an empty Object otherwise. If `value` is already
-an Object it is simply returned.
+Ensure an object is returned, by converting `value` if possible
+or by returning an empty object otherwise. If `value` is already
+an object it is simply returned.
 
 > **Arguments**
 
@@ -2155,7 +2282,7 @@ an Object it is simply returned.
 
 > **Returns**
 
-`Object`
+`object`
 
 > **Usage**
 
@@ -2184,4 +2311,3 @@ toObject(undefined)
 toObject(new Date)
 // -> {}
 ```
-

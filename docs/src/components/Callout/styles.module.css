@@ -1,0 +1,98 @@
+.callout {
+  margin: 1em 0;
+  position: relative;
+  border-radius: 2px;
+  border-left: 4px solid;
+  padding: 2rem 0.5rem 0.5rem 1rem;
+}
+
+.callout-primary {
+  composes: callout;
+  background-color: rgba(154, 188, 242, 0.5);
+  border-left-color: rgb(53, 120, 229);
+}
+
+.callout-secondary {
+  composes: callout;
+  background-color: rgba(245, 246, 248, 0.5);
+  border-left-color: rgb(164, 166, 168);
+}
+
+.callout-success {
+  composes: callout;
+  background-color: rgba(128, 210, 128, 0.25);
+  border-left-color: rgb(0, 139, 0);
+}
+
+.callout-info {
+  composes: callout;
+  background-color: rgba(170, 227, 246, 0.5);
+  border-left-color: rgb(84, 199, 236);
+}
+
+.callout-warning {
+  composes: callout;
+  background-color: rgba(255, 221, 128, 0.25);
+  border-left-color: rgb(230, 167, 0);
+}
+
+.callout-danger {
+  composes: callout;
+  background-color: rgba(253, 156, 159, 0.25);
+  border-left-color: rgb(213, 48, 53);
+}
+
+.callout-no-title {
+  padding-top: 0.5rem;
+}
+
+.callout .title {
+  position: absolute;
+  top: 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.callout-icon {
+  position: absolute;
+  top: 0.75rem;
+  left: -0.75rem;
+  color: #fff;
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 100%;
+  text-align: center;
+  line-height: 1.25rem;
+  font-weight: 700;
+  font-family: Dosis, 'Source Sans Pro', 'Helvetica Neue', Arial, sans-serif;
+}
+
+.callout-icon-primary {
+  composes: callout-icon;
+  background-color: rgb(53, 120, 229);
+}
+
+.callout-icon-secondary {
+  composes: callout-icon;
+  background-color: rgb(164, 166, 168);
+}
+
+.callout-icon-success {
+  composes: callout-icon;
+  background-color: rgb(0, 139, 0);
+}
+
+.callout-icon-info {
+  composes: callout-icon;
+  background-color: rgb(84, 199, 236);
+}
+
+.callout-icon-warning {
+  composes: callout-icon;
+  background-color: rgb(230, 167, 0);
+}
+
+.callout-icon-danger {
+  composes: callout-icon;
+  background-color: rgb(213, 48, 53);
+}
