@@ -29,13 +29,14 @@ function isBase (a, b, stack) {
     case 'promise':
       return a === b
     case 'map':
-    case 'set':
+    case 'set': {
       const aEntries = Array.from(a)
       const bEntries = Array.from(b)
       return (
         aEntries.length === bEntries.length &&
         isDeep(aEntries, bEntries, stack)
       )
+    }
     default:
       // all non-primitives require deep comparison
       return isDeep(a, b, stack)

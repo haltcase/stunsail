@@ -7,7 +7,7 @@ const obj = { name: 'shady', genre: 'rap' }
 const map = new Map([['keyOne', 'aValue'], ['keyTwo', 'otherValue']])
 const _set = new Set([1, 2, 3, 4, 5])
 
-test(`returns true/false based on value's presence in collection`, t => {
+test('returns true/false based on value\'s presence in collection', t => {
   t.true(fn('r', str))
   t.true(fn('ng', str))
   t.false(fn('e', str))

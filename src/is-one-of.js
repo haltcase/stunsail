@@ -9,9 +9,10 @@ export default function isOneOf (value, collection) {
       return collection.indexOf(value) > -1
     case 'array':
       return findIndex(collection, value) > -1
-    case 'object':
+    case 'object': {
       const values = Object.keys(collection).map(k => collection[k])
       return findIndex(values, value) > -1
+    }
     case 'set':
       return collection.has(value)
     case 'map':

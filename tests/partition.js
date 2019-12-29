@@ -2,33 +2,33 @@ import test from 'ava'
 import fn from '../prod/partition'
 
 test('works for array inputs', t => {
-  let input = [true, false, true, false]
-  let result = fn(input, v => v === true)
-  let expected = [[true, true], [false, false]]
+  const input = [true, false, true, false]
+  const result = fn(input, v => v === true)
+  const expected = [[true, true], [false, false]]
 
   t.deepEqual(result, expected)
 })
 
 test('works for object inputs', t => {
-  let input = { keyOne: true, keyTwo: false }
-  let result = fn(input, v => v === true)
-  let expected = [{ keyOne: true }, { keyTwo: false }]
+  const input = { keyOne: true, keyTwo: false }
+  const result = fn(input, v => v === true)
+  const expected = [{ keyOne: true }, { keyTwo: false }]
 
   t.deepEqual(result, expected)
 })
 
 test('works for string inputs', t => {
-  let input = 'some arbitrary string'
-  let result = fn(input, v => v === ' ')
-  let expected = ['  ', 'somearbitrarystring']
+  const input = 'some arbitrary string'
+  const result = fn(input, v => v === ' ')
+  const expected = ['  ', 'somearbitrarystring']
 
   t.deepEqual(result, expected)
 })
 
 test('works for map inputs', t => {
-  let input = new Map([['keyOne', true], ['keyTwo', false]])
-  let result = fn(input, v => v === true)
-  let expected = [
+  const input = new Map([['keyOne', true], ['keyTwo', false]])
+  const result = fn(input, v => v === true)
+  const expected = [
     new Map([['keyOne', true]]),
     new Map([['keyTwo', false]])
   ]

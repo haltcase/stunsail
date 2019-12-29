@@ -8,7 +8,7 @@ export default function apply (fn, args) {
 
   args = toArray(args)
 
-  let [a, b, c, d, e, f] = args
+  const [a, b, c, d, e, f] = args
   switch (args.length) {
     case 0: return fn()
     case 1: return fn(a)
