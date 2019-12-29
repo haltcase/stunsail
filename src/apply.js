@@ -2,8 +2,9 @@ import getType from './get-type'
 import toArray from './to-array'
 
 export default function apply (fn, args) {
-  if (getType(fn) !== 'function') {
-    throw new TypeError(`Expected a function.`)
+  const type = getType(fn)
+  if (type !== 'function') {
+    throw new TypeError(`Expected a function, got ${type}`)
   }
 
   args = toArray(args)

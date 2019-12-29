@@ -2,8 +2,9 @@ import apply from './apply'
 import getType from './get-type'
 
 export default function cap (fn, limit) {
-  if (getType(fn) !== 'function') {
-    throw new TypeError(`Expected a function.`)
+  const type = getType(fn)
+  if (type !== 'function') {
+    throw new TypeError(`Expected a function, got ${type}`)
   }
 
   if (getType(limit) !== 'number') {
