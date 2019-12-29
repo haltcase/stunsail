@@ -1,4 +1,3 @@
-<a name="1.0.0-rc.2"></a>
 ### [`1.0.0-rc.2`](https://github.com/citycide/stunsail/compare/v1.0.0-rc.1...1.0.0-rc.2) (2019-01-15)
 
 
@@ -17,7 +16,6 @@
 
 ---
 
-<a name="1.0.0-rc.1"></a>
 ### `1.0.0-rc.1` (2017-12-22)
 
 Initial release candidate.
