@@ -41,7 +41,7 @@ const { defaults, kebabCase, matches, toArray } = require('stunsail')
 
 ## api
 
-See the [documentation here](https://citycide.github.io/stunsail/docs/api)
+See the [documentation here](https://stunsail.netlify.com/docs/api)
 for a more complete reference.
 
 ### overview
