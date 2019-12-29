@@ -25,3 +25,9 @@ $ yarn build
 
 This command generates static content into the `build` directory and can be
 served using any static contents hosting service.
+
+## deploy
+
+These docs are automatically deployed on each push to Netlify at:
+
+https://stunsail.netlify.com
