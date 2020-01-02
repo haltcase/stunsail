@@ -8,19 +8,20 @@ const docs = resolve(root, 'docs', 'docs')
 
 const getHeader = id => `\
 ---
-id: ${id}
+id: ${id.replace('.md', '')}
 hide_title: true
 ---
 
 `
 
 const targets = [
-  { src: 'readme', dest: 'quick-start' },
-  { src: 'changelog', dest: 'changelog' }
+  { src: 'readme.md', dest: 'quick-start.md' },
+  { src: 'changelog.md', dest: 'changelog.md' },
+  { src: 'license', dest: 'license.md' }
 ]
 
 targets.forEach(({ src, dest }) => {
-  const contents = readFileSync(resolve(root, src + '.md'))
-  const target = resolve(docs, dest + '.md')
+  const contents = readFileSync(resolve(root, src))
+  const target = resolve(docs, dest)
   writeFileSync(target, getHeader(dest) + contents, { flag: 'w' })
 })
