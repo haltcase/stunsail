@@ -5,6 +5,7 @@ const { readdirSync, writeFileSync } = require('fs')
 
 const src = resolve(__dirname, '..', 'src')
 const idx = resolve(src, 'index.js')
+const def = resolve(src, 'index.d.ts')
 
 const separators = /[-|.](\w)/g
 
@@ -40,6 +41,7 @@ const createIndex = () => {
     defaults.slice(0, -2) + '\n}\n'
 
   writeFileSync(idx, code)
+  writeFileSync(def, code)
 
   return files.length
 }
