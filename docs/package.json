@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "copy-docs": "node ../script/copy-docs.js",
+    "prestart": "npm run copy-docs",
     "start": "docusaurus start",
     "prebuild": "npm run copy-docs",
     "build": "docusaurus build",
