@@ -4,14 +4,12 @@
 
 ## installation
 
-```console
-$ npm i stunsail
-```
+```sh
+# using yarn:
+yarn add stunsail
 
-or
-
-```console
-$ yarn add stunsail
+# or npm:
+npm i stunsail
 ```
 
 ## usage
