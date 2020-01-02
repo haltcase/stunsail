@@ -1,3 +1,26 @@
+## [`1.0.0-rc.3`](https://github.com/citycide/stunsail/compare/v1.0.0-rc.2...v1.0.0-rc.3) (2020-01-02)
+
+
+###### BUG FIXES
+
+* **babel:** use local names for generated imports ([f6c5f1e](https://github.com/citycide/stunsail/commit/f6c5f1e))
+
+
+###### FEATURES
+
+* **apply,cap:** report what type was received in TypeError ([c3d1848](https://github.com/citycide/stunsail/commit/c3d1848))
+* **pipe:** change pipe to accept an argument list instead of array ([6d317e2](https://github.com/citycide/stunsail/commit/6d317e2))
+* add TypeScript definitions ([a8c09cc](https://github.com/citycide/stunsail/commit/a8c09cc))
+* require node 12 ([5a80774](https://github.com/citycide/stunsail/commit/5a80774))
+
+
+###### BREAKING CHANGES
+
+* **pipe:** `pipe` now accepts multiple arguments rather than a single array.
+* Support for Node < 12 has been dropped.
+
+---
+
 ### [`1.0.0-rc.2`](https://github.com/citycide/stunsail/compare/v1.0.0-rc.1...1.0.0-rc.2) (2019-01-15)
 
 
