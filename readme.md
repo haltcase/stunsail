@@ -1,4 +1,4 @@
-# stunsail &middot; [![Version](https://img.shields.io/npm/v/stunsail.svg?style=flat-square&maxAge=3600)](https://www.npmjs.com/package/stunsail) [![License](https://img.shields.io/npm/l/stunsail.svg?style=flat-square&maxAge=3600)](https://www.npmjs.com/package/stunsail) [![Travis CI](https://img.shields.io/travis/citycide/stunsail.svg?style=flat-square&maxAge=3600)](https://travis-ci.org/citycide/stunsail) [![JavaScript Standard Style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat-square&maxAge=3600)](https://standardjs.com)
+# stunsail &middot; [![Version](https://flat.badgen.net/npm/v/stunsail)](https://www.npmjs.com/package/stunsail) [![License](https://flat.badgen.net/npm/license/stunsail)](https://www.npmjs.com/package/stunsail) [![Travis CI](https://flat.badgen.net/travis/citycide/stunsail)](https://travis-ci.org/citycide/stunsail) [![JavaScript Standard Style](https://flat.badgen.net/badge/code%20style/standard/green)](https://standardjs.com)
 
 > Super opinionated, functional utility collection.
 
