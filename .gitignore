@@ -6,6 +6,13 @@ yarn.lock
 # ignore all built *.js files
 /*.js
 src/index.js
+/babel
+/es
+/prod
+/lib
+
+# ignore built type definitions
+/*.d.ts
 
 # re-include these *.js files
 !.eslintrc.js
