@@ -1,4 +1,9 @@
 /**
  * Convert the given string to `camelCase`.
  */
-export default function camelCase(string: string): string;
+interface CamelCase {
+  (string: string): string
+}
+
+declare const camelCase: CamelCase
+export default camelCase

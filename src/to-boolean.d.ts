@@ -1,4 +1,4 @@
-import { Falsy } from './types';
+import { Falsy } from './types'
 
 /**
  * Return a boolean based on `value` - the usual falsy values
@@ -9,5 +9,10 @@ import { Falsy } from './types';
  * be checked for the strings 'true' and 'false' and coerced to
  * a boolean accordingly.
  */
-export default function toBoolean(value: true, smart?: boolean): true;
-export default function toBoolean(value: Falsy, smart?: boolean): false;
+interface ToBoolean {
+  (value: true, smart?: boolean): true
+  (value: Falsy, smart?: boolean): false
+}
+
+declare const toBoolean: ToBoolean
+export default toBoolean

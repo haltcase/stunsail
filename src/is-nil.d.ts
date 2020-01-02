@@ -1,4 +1,9 @@
 /**
  * Check whether `value` is `null` or `undefined`.
  */
-export default function isNil(value: unknown): value is null | void;
+interface IsNil {
+  (value: unknown): value is null | void
+}
+
+declare const isNil: IsNil
+export default isNil

@@ -1,4 +1,9 @@
 /**
  * Convert the given string to `text case`.
  */
-export default function textCase(string: string): string;
+interface TextCase {
+  (string: string): string
+}
+
+declare const textCase: TextCase
+export default textCase

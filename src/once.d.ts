@@ -3,4 +3,9 @@
  * a single time. Further calls to the wrapped function will return
  * the value from the original call.
  */
-export default function once<T extends (...args: any[]) => any>(fn: T): (...args: any[]) => ReturnType<T>;
+interface Once {
+  <T extends (...args: any[]) => any> (fn: T): (...args: any[]) => ReturnType<T>
+}
+
+declare const once: Once
+export default once

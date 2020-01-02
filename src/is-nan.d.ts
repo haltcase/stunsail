@@ -1,4 +1,9 @@
 /**
  * Check whether `value` is `NaN`.
  */
-export default function isNan(value: unknown): boolean;
+interface IsNan {
+  (value: unknown): boolean
+}
+
+declare const isNan: IsNan
+export default isNan

@@ -1,4 +1,9 @@
 /**
  * Convert the given string to `snake_case`.
  */
-export default function snakeCase(string: string): string;
+interface SnakeCase {
+  (string: string): string
+}
+
+declare const snakeCase: SnakeCase
+export default snakeCase

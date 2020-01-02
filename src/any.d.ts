@@ -1,4 +1,4 @@
-import { ArrayIterator, MapIterator, ObjectIterator, SetIterator, StringIterator } from './types';
+import { ArrayIterator, MapIterator, ObjectIterator, SetIterator, StringIterator } from './types'
 
 /**
  * Universal version of native `Array#some` that works on pretty much any
@@ -12,8 +12,13 @@ import { ArrayIterator, MapIterator, ObjectIterator, SetIterator, StringIterator
  * `fn` defaults to `val => !!val` so that `collection` can quickly be tested
  * for truthiness throughout.
  */
-export default function any<T extends string>(collection: T, fn?: StringIterator<boolean>): boolean;
-export default function any<T>(collection: T[], fn?: ArrayIterator<T, boolean>): boolean;
-export default function any<K, V>(collection: Map<K, V>, fn?: MapIterator<K, V, boolean>): boolean;
-export default function any<T>(collection: Set<T>, fn?: SetIterator<T, boolean>): boolean;
-export default function any<T extends object>(collection: T, fn?: ObjectIterator<T, boolean>): boolean;
+interface Any {
+  <T extends string> (collection: T, fn?: StringIterator<boolean>): boolean
+  <T> (collection: T[], fn?: ArrayIterator<T, boolean>): boolean
+  <K, V> (collection: Map<K, V>, fn?: MapIterator<K, V, boolean>): boolean
+  <T> (collection: Set<T>, fn?: SetIterator<T, boolean>): boolean
+  <T extends object> (collection: T, fn?: ObjectIterator<T, boolean>): boolean
+}
+
+declare const any: Any
+export default any

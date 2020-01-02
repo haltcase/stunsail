@@ -6,4 +6,9 @@
  * each element of the resulting Array. This can affect the number
  * of values in the result.
  */
-export default function range(...args: [number, number?, number?]): number[];
+interface Range {
+  (...args: [number, number?, number?]): number[]
+}
+
+declare const range: Range
+export default range

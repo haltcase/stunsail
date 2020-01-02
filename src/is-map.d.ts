@@ -1,4 +1,9 @@
 /**
  * Check whether `value` is a `Map` object.
  */
-export default function isMap(value: unknown): value is Map<unknown, unknown>;
+interface IsMap {
+  (value: unknown): value is Map<unknown, unknown>
+}
+
+declare const isMap: IsMap
+export default isMap

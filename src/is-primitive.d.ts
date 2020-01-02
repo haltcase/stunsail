@@ -1,4 +1,5 @@
-import { Primitive } from './types';
+import { Primitive } from './types'
+
 /**
  * Check whether `value` is a primitive, ie. one of:
  *
@@ -8,4 +9,9 @@ import { Primitive } from './types';
  * * `boolean`
  * * `undefined`
  */
-export default function isPrimitive(value: unknown): value is Primitive;
+interface IsPrimitive {
+  (value: unknown): value is Primitive
+}
+
+declare const isPrimitive: IsPrimitive
+export default isPrimitive

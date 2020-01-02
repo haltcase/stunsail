@@ -1,4 +1,9 @@
 /**
  * Check whether `value` is a plain object.
  */
-export default function isObject(value: any): value is object;
+interface IsObject {
+  (value: any): value is object
+}
+
+declare const isObject: IsObject
+export default isObject

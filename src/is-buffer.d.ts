@@ -2,4 +2,9 @@
 /**
  * Check whether `value` is a Buffer.
  */
-export default function isBuffer(value: unknown): value is Buffer;
+interface IsBuffer {
+  (value: unknown): value is Buffer
+}
+
+declare const isBuffer: IsBuffer
+export default isBuffer

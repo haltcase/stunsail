@@ -3,4 +3,9 @@
  * a collection of almost any kind will return the number of elements in the
  * collection.
  */
-export default function toNumber(value: unknown, round?: boolean): number;
+interface ToNumber {
+  (value: unknown, round?: boolean): number
+}
+
+declare const toNumber: ToNumber
+export default toNumber

@@ -1,4 +1,9 @@
-import { PipeFunction } from './types';
+import { PipeFunction, Then } from './types'
+
+type Initial <T> =
+  T extends (...args: any[]) => infer A
+    ? Then<A>
+    : T
 
 /**
  * Run a set of functions in series using the output of each
@@ -11,11 +16,19 @@ import { PipeFunction } from './types';
  * always return a Promise in order to maintain a consistent API
  * even if all given functions & values are synchronous.
  */
-export default function pipe<A, B>(value: A, fn1: PipeFunction<A, B>): Promise<B>;
-export default function pipe<A, B, C>(value: A, fn1: PipeFunction<A, B>, fn2: PipeFunction<B, C>): Promise<C>;
-export default function pipe<A, B, C, D>(value: A, fn1: PipeFunction<A, B>, fn2: PipeFunction<B, C>, fn3: PipeFunction<C, D>): Promise<D>;
-export default function pipe<A, B, C, D, E>(value: A, fn1: PipeFunction<A, B>, fn2: PipeFunction<B, C>, fn3: PipeFunction<C, D>, fn4: PipeFunction<D, E>): Promise<E>;
-export default function pipe<A, B, C, D, E, F>(value: A, fn1: PipeFunction<A, B>, fn2: PipeFunction<B, C>, fn3: PipeFunction<C, D>, fn4: PipeFunction<D, E>, fn5: PipeFunction<E, F>): Promise<F>;
-export default function pipe<A, B, C, D, E, F, G>(value: A, fn1: PipeFunction<A, B>, fn2: PipeFunction<B, C>, fn3: PipeFunction<C, D>, fn4: PipeFunction<D, E>, fn5: PipeFunction<E, F>, fn6: PipeFunction<F, G>): Promise<G>;
-export default function pipe<A, B, C, D, E, F, G, H>(value: A, fn1: PipeFunction<A, B>, fn2: PipeFunction<B, C>, fn3: PipeFunction<C, D>, fn4: PipeFunction<D, E>, fn5: PipeFunction<E, F>, fn6: PipeFunction<F, G>, fn7: PipeFunction<G, H>): Promise<H>;
-export default function pipe<A, B, C, D, E, F, G, H, I>(value: A, fn1: PipeFunction<A, B>, fn2: PipeFunction<B, C>, fn3: PipeFunction<C, D>, fn4: PipeFunction<D, E>, fn5: PipeFunction<E, F>, fn6: PipeFunction<F, G>, fn7: PipeFunction<G, H>, fn8: PipeFunction<H, I>): Promise<I>;
+interface Pipe {
+  <A, B> (a: A, b: PipeFunction<Initial<A>, B>): Promise<B>
+  <A, B, C> (a: A, b: PipeFunction<Initial<A>, B>, c: PipeFunction<B, C>): Promise<C>
+  <A, B, C, D> (a: A, b: PipeFunction<Initial<A>, B>, c: PipeFunction<B, C>, d: PipeFunction<C, D>): Promise<D>
+  <A, B, C, D, E> (a: A, b: PipeFunction<Initial<A>, B>, c: PipeFunction<B, C>, d: PipeFunction<C, D>, e: PipeFunction<D, E>): Promise<E>
+  <A, B, C, D, E, F> (a: A, b: PipeFunction<Initial<A>, B>, c: PipeFunction<B, C>, d: PipeFunction<C, D>, e: PipeFunction<D, E>, f: PipeFunction<E, F>): Promise<F>
+  <A, B, C, D, E, F, G> (a: A, b: PipeFunction<Initial<A>, B>, c: PipeFunction<B, C>, d: PipeFunction<C, D>, e: PipeFunction<D, E>, f: PipeFunction<E, F>, g: PipeFunction<F, G>): Promise<G>
+  <A, B, C, D, E, F, G, H> (a: A, b: PipeFunction<Initial<A>, B>, c: PipeFunction<B, C>, d: PipeFunction<C, D>, e: PipeFunction<D, E>, f: PipeFunction<E, F>, g: PipeFunction<F, G>, h: PipeFunction<G, H>): Promise<H>
+  <A, B, C, D, E, F, G, H, I> (a: A, b: PipeFunction<Initial<A>, B>, c: PipeFunction<B, C>, d: PipeFunction<C, D>, e: PipeFunction<D, E>, f: PipeFunction<E, F>, g: PipeFunction<F, G>, h: PipeFunction<G, H>, i: PipeFunction<H, I>): Promise<I>
+
+  // type-unsafe fallback
+  <T = unknown> (...args: PipeFunction<any, unknown>[]): Promise<T>
+}
+
+declare const pipe: Pipe
+export default pipe

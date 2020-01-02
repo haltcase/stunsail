@@ -1,4 +1,9 @@
 /**
  * Check whether `value` is a number.
  */
-export default function isNumber(value: unknown): value is number;
+interface IsNumber {
+  (value: unknown): value is number
+}
+
+declare const isNumber: IsNumber
+export default isNumber

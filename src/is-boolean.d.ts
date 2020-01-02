@@ -1,4 +1,9 @@
 /**
  * Check whether `value` is a boolean.
  */
-export default function isBoolean(value: unknown): value is boolean;
+interface IsBoolean {
+  (value: unknown): value is boolean
+}
+
+declare const isBoolean: IsBoolean
+export default isBoolean

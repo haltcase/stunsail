@@ -1,4 +1,4 @@
-import { Falsy } from './types';
+import { Falsy } from './types'
 
 /**
  * Test that `condition` is truthy and return its value,
@@ -6,5 +6,10 @@ import { Falsy } from './types';
  *
  * `message` defaults to 'Invariant Violation'.
  */
-export default function invariant(condition: Falsy, message?: string): never;
-export default function invariant<T>(condition: T, message?: string): T | never;
+interface Invariant {
+  (condition: Falsy, message?: string): never
+  <T> (condition: T, message?: string): T | never
+}
+
+declare const invariant: Invariant
+export default invariant

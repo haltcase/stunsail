@@ -1,4 +1,9 @@
 /**
  * Check whether `value` is between `start` and `end`, inclusively.
  */
-export default function isInRange(value: number, start: number, end?: number): boolean;
+interface IsInRange {
+  (value: number, start: number, end?: number): boolean
+}
+
+declare const isInRange: IsInRange
+export default isInRange

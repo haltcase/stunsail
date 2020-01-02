@@ -1,4 +1,9 @@
 /**
  * Check whether `value` is a string.
  */
-export default function isString(value: unknown): value is string;
+interface IsString {
+  (value: unknown): value is string
+}
+
+declare const isString: IsString
+export default isString

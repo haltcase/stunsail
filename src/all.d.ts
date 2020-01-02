@@ -1,4 +1,5 @@
-import { ArrayIterator, MapIterator, ObjectIterator, SetIterator, StringIterator } from './types';
+import { ArrayIterator, MapIterator, ObjectIterator, SetIterator, StringIterator } from './types'
+
 /**
  * Universal version of native `Array#every` that works on pretty much any
  * iterable - Arrays & Array-likes, Objects, Sets, Maps, strings, custom
@@ -11,8 +12,13 @@ import { ArrayIterator, MapIterator, ObjectIterator, SetIterator, StringIterator
  * `fn` defaults to `value => !!value` so that `collection` can quickly be
  * tested for truthiness throughout.
  */
-export default function all<T extends string>(collection: T, fn?: StringIterator<boolean>): boolean;
-export default function all<T>(collection: T[], fn?: ArrayIterator<T, boolean>): boolean;
-export default function all<K, V>(collection: Map<K, V>, fn?: MapIterator<K, V, boolean>): boolean;
-export default function all<T>(collection: Set<T>, fn?: SetIterator<T, boolean>): boolean;
-export default function all<T extends object>(collection: T, fn?: ObjectIterator<T, boolean>): boolean;
+interface All {
+  <T extends string> (collection: T, fn?: StringIterator<boolean>): boolean
+  <T> (collection: T[], fn?: ArrayIterator<T, boolean>): boolean
+  <K, V> (collection: Map<K, V>, fn?: MapIterator<K, V, boolean>): boolean
+  <T> (collection: Set<T>, fn?: SetIterator<T, boolean>): boolean
+  <T extends object> (collection: T, fn?: ObjectIterator<T, boolean>): boolean
+}
+
+declare const all: All
+export default all

@@ -1,4 +1,9 @@
 /**
  * Convert the given string to `kebab-case`.
  */
-export default function kebabCase(string: string): string;
+interface KebabCase {
+  (string: string): string
+}
+
+declare const kebabCase: KebabCase
+export default kebabCase
