@@ -1,3 +1,13 @@
+## [`1.0.0-rc.4`](https://github.com/citycide/stunsail/compare/v1.0.0-rc.3...v1.0.0-rc.4) (2020-01-02)
+
+
+###### BUG FIXES
+
+* **types:** create index for type definitions ([58ee0cd](https://github.com/citycide/stunsail/commit/58ee0cd))
+
+
+---
+
 ## [`1.0.0-rc.3`](https://github.com/citycide/stunsail/compare/v1.0.0-rc.2...v1.0.0-rc.3) (2020-01-02)
 
 
