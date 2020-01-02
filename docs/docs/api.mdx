@@ -1722,7 +1722,7 @@ pathLinks(['a', 'b', 'c', '0'])
 ## pipe
 
 ```js
-pipe(input)
+pipe(...inputs)
 ```
 
 Run a set of functions in series using the output of each
@@ -1739,11 +1739,11 @@ even if all given functions & values are synchronous.
 
 | name | type | description |
 | :--: | :--: | ----------- |
-| input | `Function[]` | List of functions to pipe through |
+| ...inputs | `Function[]` | Set of functions to pipe through |
 
 > **Returns**
 
-`Promise<any>`
+`Promise`
 
 > **Usage**
 
