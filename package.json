@@ -28,7 +28,11 @@
     "copy-docs": "node script/copy-docs.js",
     "copy-types": "node script/copy-types.js",
     "index": "node script/create-index.js",
-    "prebuild": "trash \"babel\" \"prod\" \"es\" \"lib\" \"*.{d.ts,js}\" \"!babel.config.js\" \"!ava.config.js\"",
+    "clean": "npm run clean:types && npm run clean:dirs && npm run clean:js",
+    "clean:types": "del-cli \"*.d.ts\"",
+    "clean:dirs": "del-cli \"babel\" \"prod\" \"es\" \"lib\"",
+    "clean:js": "del-cli \"*.js\" \"!babel.config.js\" \"!ava.config.js\"",
+    "prebuild": "npm run clean",
     "build": "npm run index && npm run build:prod && if-not-ci npm run build:es",
     "build:prod": "cross-env NODE_ENV=production babel src -d prod",
     "build:dev": "babel src -d prod",
@@ -64,6 +68,7 @@
     "cpy-cli": "^3.0.0",
     "cross-env": "^6.0.3",
     "dedent": "^0.7.0",
+    "del-cli": "^3.0.0",
     "eslint": "^6.8.0",
     "eslint-config-standard": "^14.1.0",
     "eslint-plugin-import": "^2.19.1",
@@ -73,7 +78,6 @@
     "eslint-plugin-standard": "^4.0.1",
     "if-ci": "^3.0.0",
     "param.macro": "^3.2.1",
-    "terser": "^4.4.3",
-    "trash-cli": "^3.0.0"
+    "terser": "^4.4.3"
   }
 }
