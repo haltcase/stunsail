@@ -57,14 +57,14 @@ import {
   toNumber
 } from 'stunsail'
 
-const number = pipe([
+const number = pipe(
   '36',
   num => toNumber(num),      // -> 36
   num => clamp(num, 10, 30), // -> 30
   num => console.log(num)    // -> 'number = 30'
-])
+)
 
-const found = pipe([
+const found = pipe(
   map([1, 2, 3, 4, 5], num => ({ value: num * 2 })),
   // -> [{ value: 2 }, { value: 4 }, ... ]
   objects => filter(objects, obj => matches(obj, { value: 6 })),
@@ -73,7 +73,7 @@ const found = pipe([
   // -> { value: 6 }
   obj => console.log(obj.value)
   // -> 6
-])
+)
 ```
 
 ### with `param.macro`
@@ -94,19 +94,19 @@ import {
   toNumber
 } from 'stunsail'
 
-const number = pipe([
+const number = pipe(
   '36',
   toNumber(_),
   clamp(_, 10, 30),
   console.log(`number = ${_}`)
-])
+)
 
-const found = pipe([
+const found = pipe(
   map([1, 2, 3, 4, 5], { value: it * 2 }),
   filter(_, matches(_, { value: 6 })),
   first(_),
   console.log(_.value)
-])
+)
 ```
 
 This combo allows you to use stunsail like you would lodash/fp or Ramda,
