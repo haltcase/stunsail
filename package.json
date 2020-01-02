@@ -15,6 +15,7 @@
   "jsnext:main": "es/index.js",
   "files": [
     "*.js",
+    "*.d.ts",
     "!.eslintrc.js",
     "!ava.config.js",
     "!babel.config.js",
