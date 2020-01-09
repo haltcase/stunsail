@@ -6,6 +6,7 @@ type Initial <T> =
     : T
 
 /**
+ * @description
  * Run a set of functions in series using the output of each
  * as the input to the next. The first value is allowed to be
  * of any kind - if it is not a function it is simply passed
@@ -15,6 +16,35 @@ type Initial <T> =
  * Because `pipe` handles Promise-returning functions, it will
  * always return a Promise in order to maintain a consistent API
  * even if all given functions & values are synchronous.
+ *
+ * @parameters
+ * | name | type | description |
+ * | :--: | :--: | ----------- |
+ * | ...inputs | `Function[]` | Set of functions to pipe through |
+ *
+ * @returns `Promise`
+ *
+ * @example
+ * pipe(
+ *   'hello',
+ *   str => str.toUpperCase(),
+ *   str => str.split('').join('-')
+ * ).then(result => {
+ *   console.log(result)
+ *   // -> 'H-E-L-L-O'
+ * })
+ *
+ * async function getUserData (name) {
+ *   return { name, favoriteColor: 'blue' }
+ * }
+ *
+ * pipe(
+ *   name => getUserData(name),
+ *   user => user.favoriteColor === 'blue'
+ * ).then(result => {
+ *   console.log(result)
+ *   // -> true
+ * })
  */
 interface Pipe {
   <A, B> (a: A, b: PipeFunction<Initial<A>, B>): Promise<B>

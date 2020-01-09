@@ -1,3 +1,5 @@
+const { resolve } = require('path')
+
 module.exports = {
   title: 'stunsail',
   tagline: 'the functional-ish javascript utility library',
@@ -90,5 +92,10 @@ module.exports = {
         }
       }
     ]
+  ],
+  plugins: [
+    [resolve(__dirname, './src/plugins/typedoc.js'), {
+      paths: ['../src']
+    }]
   ]
 }

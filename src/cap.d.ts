@@ -1,10 +1,32 @@
 import * as t from './types'
 
 /**
+ * @description
  * Add a cap on the number of arguments passable to `fn`. Any arguments beyond
  * `limit` will not be passed, which is useful for creating functions
  * compatible with currying or as callbacks / parameters to higher order
  * functions.
+ *
+ * @parameters
+ * | name | type | description |
+ * | :--: | :--: | ----------- |
+ * | fn | `Function` | Function whose arguments to limit |
+ * | limit | `Number` | The number of arguments to allow (default = 1) |
+ *
+ * @returns `Function` &ndash; new function accepting only `limit` arguments
+ *
+ * @example
+ * const log = cap(console.log, 2)
+ *
+ * log(1, 2, 3)
+ * // -> [ 1, 2 ]
+ *
+ * ;['1', '2.2', '2.54'].map(parseInt)
+ * // -> [ 1, NaN, NaN ]
+ *
+ * const toInt = cap(parseInt)
+ * ;['1', '2.2', '2.54'].map(toInt)
+ * // -> [ 1, 2, 2 ]
  */
 interface Cap {
   <F extends t.Callable, T1 = t.Param1<F>> (fn: F): (arg: T1) => ReturnType<F>

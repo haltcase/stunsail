@@ -1,0 +1,7 @@
+.marginBottomLeading {
+  margin-bottom: var(--ifm-leading);
+}
+
+.borderBottomContents {
+  border-bottom: 1px solid var(--ifm-contents-border-color);
+}

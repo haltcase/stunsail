@@ -7,6 +7,7 @@
 # generated files
 .docusaurus
 .cache-loader
+docs.json
 
 # docs copied from root
 /docs/changelog.md

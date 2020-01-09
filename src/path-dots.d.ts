@@ -1,8 +1,25 @@
 import { PathLinks } from './types.js'
 
 /**
- * Converts Arrays of object path segments into dot-notated paths.
+ * @description
+ * Converts arrays of object path segments into dot-notated paths.
  * If `value` is a string, brackets will be normalized to dots.
+ *
+ * @parameters
+ * | name | type | description |
+ * | :--: | :--: | ----------- |
+ * | value | `string, string[]` | String using dot or bracket syntax, or an array of path segments |
+ *
+ * @returns `boolean`
+ *
+ * @example
+ * pathDots(['a', 'b', 'c', '0'])
+ * // -> 'a.b.c.0'
+ *
+ * pathDots('a[1].b.c[0]')
+ * // -> 'a.1.b.c.0'
+ *
+ * @see pathLinks
  */
 interface PathDots {
   (value: string | PathLinks): string

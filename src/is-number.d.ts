@@ -1,5 +1,20 @@
 /**
+ * @description
  * Check whether `value` is a number.
+ *
+ * @parameters
+ * | name | type | description |
+ * | :--: | :--: | ----------- |
+ * | value | `any` | Value to test |
+ *
+ * @returns `boolean`
+ *
+ * @example
+ * isNumber(4)
+ * // -> true
+ *
+ * isNumber(NaN)
+ * // -> false
  */
 interface IsNumber {
   (value: unknown): value is number

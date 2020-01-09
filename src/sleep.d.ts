@@ -1,7 +1,27 @@
 /**
+ * @description
  * Similar to the built-in `setTimeout` but does not receive
  * a function to run when the time expires. Simply returns a
  * Promise that resolves after `ms`. Pairs well with `await`.
+ *
+ * @parameters
+ * | name | type | description |
+ * | :--: | :--: | ----------- |
+ * | ms | `number` | Amount of time to wait |
+ *
+ * @returns `any`
+ *
+ * @example
+ * async function foo () {
+ *   console.log('start')
+ *   await sleep(5000)
+ *   console.log('done')
+ * }
+ *
+ * foo()
+ * // -> start
+ * // ... 5 seconds pass ...
+ * // -> done
  */
 interface Sleep {
   (ms: number): Promise<void>

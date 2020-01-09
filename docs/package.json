@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "copy-docs": "node ../script/copy-docs.js",
+    "typedoc": "typedoc --options typedoc.json ../src",
     "prestart": "npm run copy-docs",
     "start": "docusaurus start",
     "prebuild": "npm run copy-docs",
@@ -15,8 +16,15 @@
     "@docusaurus/core": "^2.0.0-alpha.40",
     "@docusaurus/preset-classic": "^2.0.0-alpha.40",
     "classnames": "^2.2.6",
+    "prism-react-renderer": "^1.0.2",
+    "prop-types": "^15.7.2",
     "react": "^16.8.4",
-    "react-dom": "^16.8.4"
+    "react-collapsible": "^2.6.2",
+    "react-dom": "^16.8.4",
+    "remark": "*",
+    "remark-html": "*",
+    "typedoc": "^0.15.6",
+    "typescript": "^3.7.4"
   },
   "browserslist": {
     "production": [

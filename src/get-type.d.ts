@@ -1,6 +1,32 @@
 /**
+ * @description
  * Alternative to the builtin `typeof` operator that returns a more accurate
  * type string.
+ *
+ * @parameters
+ * | name | type | description |
+ * | :--: | :--: | ----------- |
+ * | value | `any` |  |
+ *
+ * @returns `string`
+ *
+ * @example
+ * getType('hi!')
+ * // -> string
+ *
+ * getType({})
+ * // -> object
+ *
+ * getType([])
+ * // -> array
+ *
+ * getType(null)
+ * // -> null
+ *
+ * getType(new RangeError())
+ * // -> rangeerror
+ *
+ * @see isType
  */
 interface GetType {
   (value: unknown): string

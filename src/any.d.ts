@@ -1,8 +1,9 @@
 import { ArrayIterator, MapIterator, ObjectIterator, SetIterator, StringIterator } from './types'
 
 /**
+ * @description
  * Universal version of native `Array#some` that works on pretty much any
- * iterable - Arrays & Array-likes, Objects, Sets, Maps, strings, custom
+ * iterable - arrays & array-likes, objects, Sets, Maps, strings, custom
  * iterables, etc.
  *
  * Returns `true` if the result of `fn` is truthy for any item in the
@@ -11,6 +12,23 @@ import { ArrayIterator, MapIterator, ObjectIterator, SetIterator, StringIterator
  *
  * `fn` defaults to `val => !!val` so that `collection` can quickly be tested
  * for truthiness throughout.
+ *
+ * @parameters
+ * | name | type | description |
+ * | :--: | :--: | ----------- |
+ * | collection | `object` | Iterable-like object to map over, applying `fn` on each iteration |
+ * | fn | `Function` | Callback applied to each item in `collection` |
+ *
+ * @returns `boolean` &ndash; whether any item satisifed the condition
+ *
+ * @example
+ * any({ one: 1, two: 2, three: 3 }, v => v === 3)
+ * // -> true
+ *
+ * any([1, 3, 5, 7], v => v > 10)
+ * // -> false
+ *
+ * @see all
  */
 interface Any {
   <T extends string> (collection: T, fn?: StringIterator<boolean>): boolean

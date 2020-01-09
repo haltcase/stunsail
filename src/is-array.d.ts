@@ -1,6 +1,21 @@
 /**
- * Check whether `value` is an Array, like the built-in
+ * @description
+ * Check whether `value` is an array, like the built-in
  * `Array.isArray()` method.
+ *
+ * @parameters
+ * | name | type | description |
+ * | :--: | :--: | ----------- |
+ * | value | `any` | Value to test |
+ *
+ * @returns `boolean`
+ *
+ * @example
+ * isArray([1, 2, 3])
+ * // -> true
+ *
+ * isArray({ length: 2, 0: 'foo', 1: 'bar' })
+ * // -> false
  */
 interface IsArray {
   (value: unknown): value is unknown[]
