@@ -78,6 +78,7 @@
     "eslint-plugin-standard": "^4.0.1",
     "if-ci": "^3.0.0",
     "param.macro": "^3.2.1",
-    "terser": "^4.4.3"
+    "terser": "^4.4.3",
+    "typescript": "^3.8.0-dev.20200108"
   }
 }
