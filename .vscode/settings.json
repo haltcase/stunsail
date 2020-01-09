@@ -1,5 +1,8 @@
 {
   "css.lint.validProperties": [
     "composes"
-  ]
+  ],
+  "search.exclude": {
+    "docs/{.docusaurus,build}/**": true
+  }
 }
