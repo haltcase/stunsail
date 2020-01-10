@@ -18,10 +18,10 @@ import { IterableValue, Primitive, MapKey, MapValue } from './types'
  * @returns `object`
  *
  * @example
- * toObject(['one', 'two', 'three'], value => value)
+ * toObjectWith(['one', 'two', 'three'], value => value)
  * // -> { one: 'one', two: 'two', three: 'three' }
  *
- * toObject(['one', 'two', 'three'], value => {
+ * toObjectWith(['one', 'two', 'three'], value => {
  *   switch (value) {
  *     case 'one': return [1]
  *     case 'two': return [2]
@@ -32,12 +32,12 @@ import { IterableValue, Primitive, MapKey, MapValue } from './types'
  *
  * @see toObject
  */
-interface ToObject {
+interface ToObjectWith {
   <T extends Map<any, any>, U extends any> (value: T, fn: (value: MapValue<T>) => U): Record<MapKey<T>, U>
   <T extends Iterable<any>, U extends any> (value: T, fn: (value: IterableValue<T>) => U): Record<IterableValue<T>, U>
   <T extends Primitive, U extends any> (value: T, fn: (value: T) => U): Record<Extract<T, PropertyKey>, U>
   <T extends Record<any, any>> (value: T, fn: (...args: any[]) => any): T
 }
 
-declare const toObject: ToObject
-export default toObject
+declare const toObjectWith: ToObjectWith
+export default toObjectWith
