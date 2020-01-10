@@ -37,6 +37,8 @@ import { IterableValue, Primitive, MapKey, MapValue } from './types'
  *
  * toObject(new Date)
  * // -> {}
+ *
+ * @see toObjectWith
  */
 interface ToObject {
   <T extends Map<any, any>> (value: T): Record<MapKey<T>, MapValue<T>>
