@@ -22,13 +22,17 @@ module.exports = (context, options) => {
         excludeNonExported: true,
         excludePrivate: true,
         excludeProtected: true,
-        readme: 'none',
-        logger: 'none'
+        readme: 'none'
       })
 
       const inputs = resolveInputs(context, options.paths)
       const files = app.expandInputFiles(inputs)
       const project = app.convert(files)
+
+      if (!project) {
+        throw new Error('typedoc-provider encountered errors')
+      }
+
       const data = app.serializer.projectToObject(project)
       return JSON.stringify(data, null, 2)
     },

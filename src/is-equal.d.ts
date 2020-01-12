@@ -20,6 +20,10 @@
  *
  * isEqual(new Set([1, 2]), new Set([9, 10]))
  * // -> false
+ *
+ * @since v1.0.0
+ * @tag types
+ * @tag logic
  */
 interface Is {
   <T> (a: T, b: T): boolean

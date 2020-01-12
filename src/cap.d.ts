@@ -27,6 +27,9 @@ import * as t from './types'
  * const toInt = cap(parseInt)
  * ;['1', '2.2', '2.54'].map(toInt)
  * // -> [ 1, 2, 2 ]
+ *
+ * @since v1.0.0
+ * @tag functions
  */
 interface Cap {
   <F extends t.Callable, T1 = t.Param1<F>> (fn: F): (arg: T1) => ReturnType<F>

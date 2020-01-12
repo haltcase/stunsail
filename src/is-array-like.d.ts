@@ -25,6 +25,10 @@
  *
  * isArrayLike({ length: 2, 0: 'foo', 1: 'bar' })
  * // -> true
+ *
+ * @since v1.0.0
+ * @tag types
+ * @tag logic
  */
 interface IsArrayLike {
   (value: unknown): value is ArrayLike<unknown>

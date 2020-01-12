@@ -45,6 +45,9 @@ type Initial <T> =
  *   console.log(result)
  *   // -> true
  * })
+ *
+ * @since v1.0.0
+ * @tag functions
  */
 interface Pipe {
   <A, B> (a: A, b: PipeFunction<Initial<A>, B>): Promise<B>

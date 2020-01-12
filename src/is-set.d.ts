@@ -15,6 +15,10 @@
  *
  * isSet([])
  * // -> false
+ *
+ * @since v1.0.0
+ * @tag types
+ * @tag logic
  */
 interface IsSet {
   (value: unknown): value is Set<unknown>

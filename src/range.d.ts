@@ -24,6 +24,8 @@
  * // -> [0, 2, 4, 6, 8, 10]
  *
  * @see isInRange
+ * @since v1.0.0
+ * @tag numbers
  */
 interface Range {
   (...args: [number, number?, number?]): number[]

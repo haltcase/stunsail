@@ -29,6 +29,12 @@
  * isNumeric(NaN)
  * isNumeric(null)
  * isNumeric(undefined)
+ *
+ * @since v1.0.0
+ * @tag types
+ * @tag logic
+ * @tag strings
+ * @tag numbers
  */
 interface IsNumeric {
   <T> (value: T): T extends number ? true : T extends string ? boolean : false

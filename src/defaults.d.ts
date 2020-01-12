@@ -18,6 +18,9 @@ import { Primitive } from './types'
  * const ext = { abc: '999', ghi: '789' }
  * const result = defaults(base, ext)
  * // -> { abc: '123', def: '456', ghi: '789' }
+ *
+ * @since v1.0.0
+ * @tag objects
  */
 interface Defaults {
   <T extends Primitive> (object: T, extension: any): T

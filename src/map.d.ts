@@ -31,6 +31,8 @@ import { ArrayIterator, MapIterator, ObjectIterator, SetIterator, StringIterator
  * @see each
  * @see filter
  * @see reduce
+ * @since v1.0.0
+ * @tag collections
  */
 interface StunsailMap {
   <T extends string> (collection: T, fn: StringIterator<T>): T

@@ -18,6 +18,10 @@
  *
  * isBuffer('string')
  * // -> false
+ *
+ * @since v1.0.0
+ * @tag types
+ * @tag logic
  */
 interface IsBuffer {
   (value: unknown): value is Buffer

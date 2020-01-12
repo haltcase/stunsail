@@ -10,7 +10,7 @@ import { PathLinks } from './types'
  * | name | type | description |
  * | :--: | :--: | ----------- |
  * | object | `object` | Object-like value to access |
- * | path | `string, string[]` | String using dot or bracket syntax, or an array of path segments |
+ * | path | `string` &#124; `string[]` | String using dot or bracket syntax, or an array of path segments |
  * | value | `any` | Value to which `path` will be set |
  *
  * @returns `object`
@@ -23,6 +23,8 @@ import { PathLinks } from './types'
  * @see get
  * @see getOr
  * @see has
+ * @since v1.0.0
+ * @tag objects
  */
 interface StunsailSet {
   <K extends string | number | symbol, V> (object: Record<K, V>, path: string | PathLinks, value: V): Record<K, V>

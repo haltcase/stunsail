@@ -33,6 +33,8 @@ import { ArrayIterator, MapIterator, ObjectIterator, SetIterator, StringIterator
  * @see each
  * @see map
  * @see reduce
+ * @since v1.0.0
+ * @tag collections
  */
 interface Filter {
   <T extends string> (collection: string, fn: StringIterator<boolean>): string

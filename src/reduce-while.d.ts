@@ -27,6 +27,8 @@ import { ArrayAccumulator, MapAccumulator, ObjectAccumulator, SetAccumulator, St
  * // -> 3
  *
  * @see reduce
+ * @since v1.0.0
+ * @tag collections
  */
 interface ReduceWhile {
   <T extends string, U = string> (collection: T, predicate: (accumulator: T, value: U) => boolean, fn: StringAccumulator<T, U>, initial?: U): U

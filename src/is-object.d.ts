@@ -18,6 +18,10 @@
  *
  * isObject(new Map())
  * // -> false
+ *
+ * @since v1.0.0
+ * @tag types
+ * @tag logic
  */
 interface IsObject {
   (value: any): value is object

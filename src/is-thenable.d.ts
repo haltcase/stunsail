@@ -14,6 +14,10 @@
  * // -> true
  *
  * isThenable({ then () {} })
+ *
+ * @since v1.0.0
+ * @tag types
+ * @tag logic
  */
 interface IsThenable {
   (value: unknown): value is PromiseLike<unknown>

@@ -7,7 +7,7 @@
  * @parameters
  * | name | type | description |
  * | :--: | :--: | ----------- |
- * | value | `array` `object` `number` | Collection to sample or a bounding number |
+ * | value | `array` &#124; `object` &#124; `number` | Collection to sample or a bounding number |
  * | bound | `number` | Used as the upper bound when `value` is a number |
  *
  * @returns `any`
@@ -24,6 +24,10 @@
  *
  * random(-5, 5)
  * // -> randomly chosen number between -5 and 5
+ *
+ * @since v1.0.0
+ * @tag numbers
+ * @tag collections
  */
 interface Random {
   (value: number, bound?: number): number

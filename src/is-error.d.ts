@@ -18,6 +18,10 @@
  *
  * isError({ code: 'ENOENT', message: 'wrong' })
  * // -> false
+ *
+ * @since v1.0.0
+ * @tag types
+ * @tag logic
  */
 interface IsError {
   (value: unknown): value is Error

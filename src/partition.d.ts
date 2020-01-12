@@ -30,6 +30,9 @@ import { ArrayIterator, MapIterator, ObjectIterator, SetIterator, StringIterator
  *
  * partition(new Set(['Joe', 'Jerry', 'Rick', 'Bob']), v => v.startsWith('J'))
  * // -> [ Set {'Joe', 'Jerry'}, Set {'Rick', 'Bob'} ]
+ *
+ * @since v1.0.0
+ * @tag collections
  */
 interface Partition {
   <T extends string> (collection: T, fn: StringIterator<boolean>): Tuple<string>

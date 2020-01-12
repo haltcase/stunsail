@@ -32,6 +32,9 @@ import { IterableValue, Primitive, MapKey, MapValue, ValidPropertyKey } from './
  * // -> { one: [1], two: [2], three: [3] }
  *
  * @see toObject
+ * @since v1.0.0
+ * @tag utilities
+ * @tag collections
  */
 interface ToObjectWith {
   (value: null | undefined, fn: (value: never) => any): {}

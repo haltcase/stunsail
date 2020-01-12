@@ -36,6 +36,10 @@ import { Falsy } from './types'
  * toBoolean(0)
  * toBoolean({})
  * toBoolean([])
+ *
+ * @since v1.0.0
+ * @tag utilities
+ * @tag logic
  */
 interface ToBoolean {
   (value: true, smart?: boolean): true

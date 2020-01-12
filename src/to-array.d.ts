@@ -43,6 +43,10 @@
  *
  * toArray([1, 2, 3, 4, 5], 2, -1)
  * // -> [3, 4]
+ *
+ * @since v1.0.0
+ * @tag utilities
+ * @tag collections
  */
 interface ToArray {
   <T> (value: T[], begin?: number, end?: number): T[]

@@ -22,6 +22,9 @@
  * // -> start
  * // ... 5 seconds pass ...
  * // -> done
+ *
+ * @since v1.0.0
+ * @tag utilities
  */
 interface Sleep {
   (ms: number): Promise<void>

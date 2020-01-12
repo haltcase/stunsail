@@ -15,6 +15,10 @@
  *
  * isString(400)
  * // -> false
+ *
+ * @since v1.0.0
+ * @tag types
+ * @tag logic
  */
 interface IsString {
   (value: unknown): value is string

@@ -1,6 +1,6 @@
 /**
  * @description
- * Check whether `value` is an iterable object, ie. its `[Symbol.iterator]`
+ * Check whether `value` is an iterable object, i.e. its `[Symbol.iterator]`
  * property is set as a function.
  *
  * @parameters
@@ -28,6 +28,10 @@
  *
  * isIterable(null)
  * // -> false
+ *
+ * @since v1.0.0
+ * @tag types
+ * @tag logic
  */
 interface IsIterable {
   (value: unknown): value is Iterable<unknown>

@@ -34,6 +34,10 @@
  *
  * toNumber(39.354, true)
  * // -> 39
+ *
+ * @since v1.0.0
+ * @tag utilities
+ * @tag numbers
  */
 interface ToNumber {
   (value: unknown, round?: boolean): number

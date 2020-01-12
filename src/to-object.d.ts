@@ -40,6 +40,9 @@ import { IterableValue, Primitive, MapKey, MapValue, ValidPropertyKey } from './
  * // -> {}
  *
  * @see toObjectWith
+ * @since v1.0.0
+ * @tag utilities
+ * @tag collections
  */
 interface ToObject {
   (value: null | undefined): {}

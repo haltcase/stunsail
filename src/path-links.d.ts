@@ -8,7 +8,7 @@ import { PathLinks } from './types.js'
  * @parameters
  * | name | type | description |
  * | :--: | :--: | ----------- |
- * | value | `string, string[]` | String using dot or bracket syntax, or an array of path segments |
+ * | value | `string` &#124; `string[]` | String using dot or bracket syntax, or an array of path segments |
  *
  * @returns `boolean`
  *
@@ -20,6 +20,8 @@ import { PathLinks } from './types.js'
  * // -> ['a', 'b', 'c', '0']
  *
  * @see pathDots
+ * @since v1.0.0
+ * @tag utilities
  */
 interface PathLinksFn {
   (value: string | PathLinks): PathLinks

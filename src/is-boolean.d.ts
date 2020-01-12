@@ -18,6 +18,10 @@
  *
  * isBoolean(0)
  * // -> false
+ *
+ * @since v1.0.0
+ * @tag types
+ * @tag logic
  */
 interface IsBoolean {
   (value: unknown): value is boolean

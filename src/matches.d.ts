@@ -36,6 +36,10 @@
  *
  * arr.find(o => matches(o, { color: 'red' })
  * // -> { name: 'willy', color: 'red' }
+ *
+ * @since v1.0.0
+ * @tag objects
+ * @tag logic
  */
 interface Matches {
   <T extends object> (object: T, compare: object): boolean

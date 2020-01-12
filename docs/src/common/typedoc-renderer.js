@@ -3,6 +3,9 @@ import { camelize, md } from './utils'
 export const getName = node =>
   camelize(node.sources[0].fileName.replace('.d.ts', ''))
 
+export const hasTag = (node, tagName) =>
+  node.comment && node.comment.tags && node.comment.tags.some(it => it.tag === tagName)
+
 export const getTag = (node, tagName) => {
   if (!node.comment || !node.comment.tags) return {}
   return node.comment.tags.find(it => it.tag === tagName) || {}
@@ -48,6 +51,9 @@ export const getTypedSignature = ({ parameters = [], typeParameter = [], type },
     ${name}${typeParams} (${params})${returnToken}${returns}
   `.trim()
 }
+
+export const isAsync = node =>
+  node.signatures && node.signatures.some(sig => sig.type.name === 'Promise')
 
 export const stringifyType = node => {
   const { type, kindString, name, typeArguments = [], types = [] } = node

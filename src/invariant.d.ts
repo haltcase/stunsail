@@ -23,6 +23,9 @@ import { Falsy } from './types'
  * const falsyCondition = null
  * const result2 = invariant(truthyCondition, 'No function provided.')
  * // -> InvariantError: 'No function provided.'
+ *
+ * @since v1.0.0
+ * @tag logic
  */
 interface Invariant {
   (condition: Falsy, message?: string): never

@@ -21,6 +21,8 @@ import { GenericCollection } from './types'
  * // -> true
  *
  * @see isOneOf
+ * @since v1.0.0
+ * @tag collections
  */
 interface Includes {
   <T> (value: T, collection: GenericCollection<T>): boolean

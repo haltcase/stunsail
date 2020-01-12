@@ -1,6 +1,6 @@
 /**
  * @description
- * Check whether `value` is an empty version of its type, ie. `{}` for objects,
+ * Check whether `value` is an empty version of its type, i.e. `{}` for objects,
  * `[]` for arrays, etc.
  *
  * @parameters
@@ -22,6 +22,10 @@
  * isEmpty([1, 2, 3])
  * isEmpty(() => {})
  * isEmpty('a value')
+ *
+ * @since v1.0.0
+ * @tag types
+ * @tag logic
  */
 interface IsEmpty {
   (value: unknown): boolean

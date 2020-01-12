@@ -22,6 +22,9 @@
  * // -> true
  *
  * @see range
+ * @since v1.0.0
+ * @tag types
+ * @tag logic
  */
 interface IsInRange {
   (value: number, start: number, end?: number): boolean

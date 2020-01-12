@@ -16,6 +16,10 @@
  *
  * isArray({ length: 2, 0: 'foo', 1: 'bar' })
  * // -> false
+ *
+ * @since v1.0.0
+ * @tag types
+ * @tag logic
  */
 interface IsArray {
   (value: unknown): value is unknown[]

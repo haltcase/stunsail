@@ -23,6 +23,9 @@
  *
  * wrapped(93247593475)
  * // -> 100
+ *
+ * @since v1.0.0
+ * @tag functions
  */
 interface Once {
   <T extends (...args: any[]) => any> (fn: T): (...args: any[]) => ReturnType<T>

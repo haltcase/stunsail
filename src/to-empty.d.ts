@@ -25,6 +25,9 @@
  *
  * toEmpty([1, 2, 3, 4])
  * // -> []
+ *
+ * @since v1.0.0
+ * @tag utilities
  */
 interface ToEmpty {
   <T> (type: T[]): T[]

@@ -1,3 +1,21 @@
+.functionHeader {
+  display: flex;
+  justify-content: space-between;
+}
+
+.functionHeaderName {
+  order: -1;
+}
+
+.functionHeaderTags {
+  opacity: 1;
+}
+
+.functionHeaderTag {
+  margin-left: 0.5rem;
+  font-size: 65%;
+}
+
 .marginBottomLeading {
   margin-bottom: var(--ifm-leading);
 }

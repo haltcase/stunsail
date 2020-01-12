@@ -1,5 +1,6 @@
 import React from 'react'
 import Collapsible from 'react-collapsible'
+import classes from 'classnames'
 import CodeBlock from '@theme/CodeBlock'
 import Heading from '@theme/Heading'
 
@@ -43,13 +44,42 @@ const FunctionHeader = Heading('h2')
 export default ({ element }) => {
   const name = t.getName(element)
   const usage = t.getTag(element, 'example').text
+  const since = t.getTag(element, 'since').text
   const refs = t.getTags(element, 'see')
   const returns = t.getReturns(element)
   const params = t.getParams(element)
+  const badges = t.getTags(element, 'tag').map(it => it.text)
 
   return (
     <>
-      <FunctionHeader id={name}>{name}</FunctionHeader>
+      <FunctionHeader id={name} className={styles.functionHeader}>
+        <span className={styles.functionHeaderName}>{name}</span>
+        <span className={styles.functionHeaderTags}>
+          {t.isAsync(element) &&
+            <span
+              className={classes(styles.functionHeaderTag, 'badge', 'badge--primary')}
+              title="This function returns a Promise.">
+              async
+            </span>}
+          {Boolean(badges.length) && badges.map(text =>
+            <span
+              className={classes(styles.functionHeaderTag, 'badge', 'badge--info')}>
+              {text}
+            </span>)}
+          {t.hasTag(element, 'deprecated') &&
+            <span
+              className={classes(styles.functionHeaderTag, 'badge', 'badge--warning')}
+              title={t.getTag(element, 'deprecated').text}>
+              deprecated
+            </span>
+          }
+          {since &&
+            <span
+              className={classes(styles.functionHeaderTag, 'badge', 'badge--secondary')}
+              title={`Added in ${since}`}>{since}</span>
+          }
+        </span>
+      </FunctionHeader>
       <Code>{t.getSignature(element, name)}</Code>
       <SignatureCollapsible name={name} element={element} />
 

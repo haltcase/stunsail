@@ -2,7 +2,7 @@ import { Primitive } from './types'
 
 /**
  * @description
- * Check whether `value` is a primitive, ie. one of:
+ * Check whether `value` is a primitive, i.e. one of:
  *
  * * `null`
  * * `string`
@@ -29,6 +29,10 @@ import { Primitive } from './types'
  * isPrimitive({})
  * isPrimitive([])
  * isPrimitive(new Date())
+ *
+ * @since v1.0.0
+ * @tag types
+ * @tag logic
  */
 interface IsPrimitive {
   (value: unknown): value is Primitive

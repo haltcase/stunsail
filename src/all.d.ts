@@ -29,6 +29,9 @@ import { ArrayIterator, MapIterator, ObjectIterator, SetIterator, StringIterator
  * | fn | `Function` | Callback applied to each item in `collection` |
  *
  * @see any
+ * @since v1.0.0
+ * @tag collections
+ * @tag logic
  */
 interface All {
   <T extends string> (collection: T, fn?: StringIterator<boolean>): boolean

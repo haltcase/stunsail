@@ -28,6 +28,10 @@
  * isFunction(null)
  * isFunction(undefined)
  * isFunction(1)
+ *
+ * @since v1.0.0
+ * @tag types
+ * @tag logic
  */
 interface IsFunction {
   (value: unknown): value is Function

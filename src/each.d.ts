@@ -48,6 +48,8 @@ import { ArrayIterator, MapIterator, ObjectIterator, SetIterator, StringIterator
  * @see filter
  * @see map
  * @see reduce
+ * @since v1.0.0
+ * @tag collections
  */
 interface Each {
   <T extends string> (collection: T, fn: StringIterator<any>): void

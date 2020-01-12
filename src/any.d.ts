@@ -29,6 +29,9 @@ import { ArrayIterator, MapIterator, ObjectIterator, SetIterator, StringIterator
  * // -> false
  *
  * @see all
+ * @since v1.0.0
+ * @tag collections
+ * @tag logic
  */
 interface Any {
   <T extends string> (collection: T, fn?: StringIterator<boolean>): boolean

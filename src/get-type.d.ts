@@ -27,6 +27,8 @@
  * // -> rangeerror
  *
  * @see isType
+ * @since v1.0.0
+ * @tag types
  */
 interface GetType {
   (value: unknown): string

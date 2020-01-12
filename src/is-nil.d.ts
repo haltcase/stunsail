@@ -18,6 +18,10 @@
  *
  * isNil(false)
  * // -> false
+ *
+ * @since v1.0.0
+ * @tag types
+ * @tag logic
  */
 interface IsNil {
   (value: unknown): value is null | void

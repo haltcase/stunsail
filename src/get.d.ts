@@ -9,7 +9,7 @@ import { PathLinks } from './types'
  * | name | type | description |
  * | :--: | :--: | ----------- |
  * | object | `object` | Object-like value to access |
- * | path | `string, string[]` | String using dot or bracket syntax, or an array of path segments |
+ * | path | `string` &#124; `string[]` | String using dot or bracket syntax, or an array of path segments |
  *
  * @returns `any`
  *
@@ -33,6 +33,8 @@ import { PathLinks } from './types'
  * @see get
  * @see getOr
  * @see has
+ * @since v1.0.0
+ * @tag objects
  */
 interface Get {
   <K extends string | number | symbol, V> (object: Record<K, V>, path: string | PathLinks): V | undefined

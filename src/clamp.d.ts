@@ -20,6 +20,9 @@
  *
  * clamp(-15, -10, 10)
  * // -> -10
+ *
+ * @since v1.0.0
+ * @tag numbers
  */
 interface Clamp {
   (value: number, lower?: number, upper?: number): number

@@ -7,7 +7,7 @@
  * | name | type | description |
  * | :--: | :--: | ----------- |
  * | value | `any` | Value to test |
- * | type | `string, any` |  |
+ * | type | `any` | Type string or a value whose type will be checked against that of `value` |
  *
  * @returns `boolean`
  *
@@ -22,9 +22,12 @@
  * // -> true
  *
  * @see getType
+ * @since v1.0.0
+ * @tag types
+ * @tag logic
  */
 interface IsType {
-  (value: unknown, type: string): boolean
+  (value: unknown, type: any): boolean
 }
 
 declare const isType: IsType

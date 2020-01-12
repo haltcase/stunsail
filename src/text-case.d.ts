@@ -22,6 +22,8 @@
  * @see camelCase
  * @see kebabCase
  * @see snakeCase
+ * @since v1.0.0
+ * @tag strings
  */
 interface TextCase {
   (string: string): string

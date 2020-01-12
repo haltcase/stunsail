@@ -19,6 +19,9 @@
  *
  * max([1, 2, 100, 4])
  * // -> 100
+ *
+ * @since v1.0.0
+ * @tag functions
  */
 interface Apply {
   <T, F extends (...args: T[]) => any> (fn: F, args: T[]): ReturnType<F>

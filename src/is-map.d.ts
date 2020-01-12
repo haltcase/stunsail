@@ -15,6 +15,10 @@
  *
  * isMap({})
  * // -> false
+ *
+ * @since v1.0.0
+ * @tag types
+ * @tag logic
  */
 interface IsMap {
   (value: unknown): value is Map<unknown, unknown>

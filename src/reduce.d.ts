@@ -32,6 +32,8 @@ import { ArrayAccumulator, MapAccumulator, ObjectAccumulator, SetAccumulator, St
  * // -> ['r', 'a', 'b', 'o', 'o', 'f']
  *
  * @see reduceWhile
+ * @since v1.0.0
+ * @tag collections
  */
 interface Reduce {
   <T extends string, U = string> (collection: T, fn: StringAccumulator<T, U>, initial?: U): U
