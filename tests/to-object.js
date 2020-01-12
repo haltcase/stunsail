@@ -1,5 +1,5 @@
 import test from 'ava'
-import fn from '../prod/to-object'
+import fn from '../src/to-object'
 
 test('array: creates an object using array values as its pairs', t => {
   const input = ['one', 'two', 'three']
@@ -7,13 +7,16 @@ test('array: creates an object using array values as its pairs', t => {
   t.deepEqual(fn(input), res)
 })
 
+test('null/undefined: returns an empty object', t => {
+  t.deepEqual(fn(null), {})
+  t.deepEqual(fn(undefined), {})
+})
+
 test('primitive: creates an object with the input as both key & value', t => {
   /* eslint-disable object-shorthand */
   t.deepEqual(fn(3), { 3: 3 })
   t.deepEqual(fn(true), { true: true })
   t.deepEqual(fn('fly'), { fly: 'fly' })
-  t.deepEqual(fn(null), { null: null })
-  t.deepEqual(fn(undefined), { undefined: undefined })
   /* eslint-enable object-shorthand */
 })
 

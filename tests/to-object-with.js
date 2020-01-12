@@ -18,12 +18,16 @@ test('array: callback receives each element', t => {
   t.true(run(['one', 'two', 'three']))
 })
 
+test('null/undefined: callback is not called', t => {
+  let flag = true
+  fn(null, () => (flag = false))
+  t.true(flag)
+})
+
 test('primitive: callback receives the primitive', t => {
   t.true(run([3], 3))
   t.true(run([true], true))
   t.true(run(['fly'], 'fly'))
-  t.true(run([null], null))
-  t.true(run([undefined], undefined))
 })
 
 test('object: callback receives each value', t => {

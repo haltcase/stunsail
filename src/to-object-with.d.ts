@@ -1,10 +1,11 @@
-import { IterableValue, Primitive, MapKey, MapValue } from './types'
+import { IterableValue, Primitive, MapKey, MapValue, ValidPropertyKey } from './types'
 
 /**
  * @description
  * Ensure an object is returned, by converting `value` if possible
  * or by returning an empty object otherwise. If `value` is already
- * an object it is simply returned.
+ * an object it is simply returned. `null` & `undefined` will produce
+ * an empty object.
  *
  * Works just like [`toObject`](#toObject), but receives a function
  * that allows for transforming the values of the resulting object.
@@ -33,9 +34,10 @@ import { IterableValue, Primitive, MapKey, MapValue } from './types'
  * @see toObject
  */
 interface ToObjectWith {
+  (value: null | undefined, fn: (value: never) => any): {}
+  <T extends Primitive, U extends any> (value: T, fn: (value: T) => U): Record<ValidPropertyKey<T>, U>
   <T extends Map<any, any>, U extends any> (value: T, fn: (value: MapValue<T>) => U): Record<MapKey<T>, U>
   <T extends Iterable<any>, U extends any> (value: T, fn: (value: IterableValue<T>) => U): Record<IterableValue<T>, U>
-  <T extends Primitive, U extends any> (value: T, fn: (value: T) => U): Record<Extract<T, PropertyKey>, U>
   <T extends Record<any, any>> (value: T, fn: (...args: any[]) => any): T
 }
 

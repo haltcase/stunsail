@@ -8,6 +8,7 @@ export default function toObjectWith (value, fn) {
     throw new TypeError(`Expected a function, got ${fnType}`)
   }
 
+  if (value == null) return {}
   if (isPrimitive(value)) return { [value]: fn(value) }
 
   let inputType = getType(value)

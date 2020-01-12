@@ -56,6 +56,9 @@ export type ElementType <
   K extends keyof T | number
 > = T[K]
 
+export type ValidPropertyKey <T> =
+  T extends PropertyKey ? T : string
+
 export type ParamType <F extends Callable, P extends number> =
   ElementType<Parameters<F>, P>
 
