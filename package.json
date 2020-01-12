@@ -37,11 +37,9 @@
     "build:prod": "cross-env NODE_ENV=production babel src -d prod",
     "build:dev": "babel src -d prod",
     "build:es": "cross-env NODE_ENV=esm babel src -d prod/es",
-    "minify": "node script/minify.js && npm run copy-types",
-    "pretest": "npm run build:dev",
+    "build:pkg": "node script/minify.js && npm run copy-types",
     "test": "ava",
-    "test:watch": "ava -w",
-    "prepublishOnly": "npm run lint && npm run build && ava && npm run minify"
+    "prepublishOnly": "npm run lint && npm run build && ava && npm run build:pkg"
   },
   "keywords": [
     "utility",
