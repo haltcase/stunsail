@@ -1,5 +1,5 @@
 import test from 'ava'
-import fn from '../prod/map'
+import fn from '../src/map'
 
 const object = { one: 1, two: 2, three: 3 }
 const array = [1, 3, 5, 7]

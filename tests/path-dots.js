@@ -1,5 +1,5 @@
 import test from 'ava'
-import fn from '../prod/path-dots'
+import fn from '../src/path-dots'
 
 test('converts input arrays to dot paths', t => {
   t.is(fn(['a', 'b', 'c', '0']), 'a.b.c.0')

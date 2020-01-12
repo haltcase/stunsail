@@ -1,5 +1,5 @@
 import test from 'ava'
-import fn from '../prod/is-buffer'
+import fn from '../src/is-buffer'
 
 test('reports true only for buffer values', t => {
   t.true(fn(Buffer.from('str')))

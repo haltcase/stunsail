@@ -1,5 +1,5 @@
 import test from 'ava'
-import fn from '../prod/is-type'
+import fn from '../src/is-type'
 
 test('returns true if value is the given type', t => {
   t.true(fn('hello, world!', 'string'))
@@ -27,7 +27,7 @@ test('returns false if value is not the given type', t => {
   t.false(fn(4, 'nan'))
 })
 
-test('matches types if first argument is not a string', t => {
+test('matches types if second argument is not a string (or not a type string)', t => {
   t.true(fn([], []))
   t.true(fn(3, 1))
   t.false(fn([], {}))

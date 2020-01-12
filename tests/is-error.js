@@ -1,5 +1,5 @@
 import test from 'ava'
-import fn from '../prod/is-error'
+import fn from '../src/is-error'
 
 test('correctly identifies errors', t => {
   t.true(fn(new TypeError()))

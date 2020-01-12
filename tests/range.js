@@ -1,5 +1,5 @@
 import test from 'ava'
-import fn from '../prod/range'
+import fn from '../src/range'
 
 test('returns an array containing numbers from start to end', t => {
   t.deepEqual(fn(0, 10), [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10])

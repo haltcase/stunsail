@@ -1,5 +1,5 @@
 import test from 'ava'
-import fn from '../prod/camel-case'
+import fn from '../src/camel-case'
 
 test('converts input strings to camel-case', t => {
   t.is(fn('alreadyCamelCase'), 'alreadyCamelCase')

@@ -1,5 +1,5 @@
 import test from 'ava'
-import fn from '../prod/to-number'
+import fn from '../src/to-number'
 
 test('converts the input to a number value', t => {
   const now = new Date()

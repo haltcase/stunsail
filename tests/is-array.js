@@ -1,5 +1,5 @@
 import test from 'ava'
-import fn from '../prod/is-array'
+import fn from '../src/is-array'
 
 test('reports true only for array values', t => {
   t.true(fn([]))

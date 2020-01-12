@@ -1,5 +1,5 @@
 import test from 'ava'
-import fn from '../prod/path-links'
+import fn from '../src/path-links'
 
 test('converts string inputs to an array of path links', t => {
   t.deepEqual(fn('a.b.c[0]'), ['a', 'b', 'c', '0'])

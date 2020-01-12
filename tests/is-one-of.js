@@ -1,5 +1,5 @@
 import test from 'ava'
-import fn from '../prod/is-one-of'
+import fn from '../src/is-one-of'
 
 const str = 'string'
 const arr = [1, 2, 3, 4, 5]

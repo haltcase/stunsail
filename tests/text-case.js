@@ -1,5 +1,5 @@
 import test from 'ava'
-import fn from '../prod/text-case'
+import fn from '../src/text-case'
 
 test('converts input strings to text-case', t => {
   t.is(fn('already text case'), 'already text case')

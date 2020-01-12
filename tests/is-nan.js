@@ -1,5 +1,5 @@
 import test from 'ava'
-import fn from '../prod/is-nan'
+import fn from '../src/is-nan'
 
 test('reports true only for NaN', t => {
   t.true(fn(NaN))

@@ -1,5 +1,5 @@
 import test from 'ava'
-import fn from '../prod/is-iterable'
+import fn from '../src/is-iterable'
 
 test('returns true for iterable objects', t => {
   t.true(fn([]))

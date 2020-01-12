@@ -1,5 +1,5 @@
 import test from 'ava'
-import fn from '../prod/is-in-range'
+import fn from '../src/is-in-range'
 
 test('true cases', t => {
   t.true(fn(3, 1, 4))

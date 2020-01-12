@@ -1,5 +1,5 @@
 import test from 'ava'
-import fn from '../prod/is-array-like'
+import fn from '../src/is-array-like'
 
 function getArguments () { return arguments }
 

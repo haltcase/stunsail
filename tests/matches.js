@@ -1,5 +1,5 @@
 import test from 'ava'
-import fn from '../prod/matches'
+import fn from '../src/matches'
 
 test('returns true when specified properties match', t => {
   const obj = { name: 'wishy', color: 'green' }

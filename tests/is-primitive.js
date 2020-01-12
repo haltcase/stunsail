@@ -1,5 +1,5 @@
 import test from 'ava'
-import fn from '../prod/is-primitive'
+import fn from '../src/is-primitive'
 
 test('returns true for primitive values', t => {
   t.true(fn(1))
