@@ -1,3 +1,18 @@
+## [`1.0.0-rc.5`](https://github.com/citycide/stunsail/compare/v1.0.0-rc.4...v1.0.0-rc.5) (2020-01-12)
+
+
+###### FEATURES
+
+* add `toObjectWith` ([52459a3](https://github.com/citycide/stunsail/commit/52459a3))
+* **toObject,toObjectWith:** return empty object on nil input ([b231d3f](https://github.com/citycide/stunsail/commit/b231d3f))
+
+
+###### BREAKING CHANGES
+
+* **toObject,toObjectWith:** Passing `null` or `undefined` to these functions will now result in an empty object.
+
+---
+
 ## [`1.0.0-rc.4`](https://github.com/citycide/stunsail/compare/v1.0.0-rc.3...v1.0.0-rc.4) (2020-01-02)
 
 
