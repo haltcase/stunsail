@@ -5,6 +5,8 @@ export default function isEmpty (value) {
   const type = getType(value)
 
   switch (type) {
+    case 'string':
+      return value.trim().length === 0
     case 'null':
     case 'undefined':
       return true

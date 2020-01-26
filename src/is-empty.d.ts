@@ -16,6 +16,7 @@
  * isEmpty([])
  * isEmpty(null)
  * isEmpty('')
+ * isEmpty('  \t  \n')
  *
  * // examples of `false` cases:
  * isEmpty({ property: 'hello' })

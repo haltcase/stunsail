@@ -5,6 +5,7 @@ test('reports true for empty values', t => {
   t.true(fn([]))
   t.true(fn({}))
   t.true(fn(''))
+  t.true(fn('  \t  \n'))
   t.true(fn(new Map()))
   t.true(fn(new Set()))
   t.true(fn(null))
