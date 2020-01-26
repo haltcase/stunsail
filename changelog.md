@@ -1,3 +1,21 @@
+### [`1.0.0-rc.6`](https://github.com/citycide/stunsail/compare/v1.0.0-rc.5...1.0.0-rc.6) (2020-01-26)
+
+
+###### FEATURES
+
+* remove default export from index ([`b734db8`](https://github.com/citycide/stunsail/commit/b734db8e591f1851d1e270a30c652967d3f6e53c))
+* add `count` ([`505f0df`](https://github.com/citycide/stunsail/commit/505f0df4122583cedaf4ee07bac816ff5b57f66e))
+* **isEmpty:** treat whitespace-only strings as empty ([`a203e5e`](https://github.com/citycide/stunsail/commit/a203e5e55f61abfc0c2e6bdbd62f68d9da0620c1))
+
+
+###### BREAKING CHANGES
+
+* there are now only named exports from the main stunsail package. Use `import *
+as stunsail from 'stunsail'` instead of a default import.
+* **isEmpty:** `isEmpty` now considers strings consisting of only whitespace empty.
+
+---
+
 ## [`1.0.0-rc.5`](https://github.com/citycide/stunsail/compare/v1.0.0-rc.4...v1.0.0-rc.5) (2020-01-12)
 
 
