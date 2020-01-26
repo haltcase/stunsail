@@ -20,25 +20,17 @@ const getFiles = () =>
 const createIndex = () => {
   const files = getFiles()
 
-  const [imports, outputs, defaults] =
-    files.reduce(([imports, outputs, defaults], file) => {
+  const code =
+    files.reduce((imports, file) => {
       const filename = file.slice(0, -3)
       const token = camelize(filename)
 
       imports += token === 'constants'
-        ? `import * as ${token} from './${filename}'\n`
-        : `import ${token} from './${filename}'\n`
+        ? `export * as ${token} from './${filename}'\n`
+        : `export { default as ${token} } from './${filename}'\n`
 
-      outputs += `export { ${token} }\n`
-      defaults += `  ${token},\n`
-
-      return [imports, outputs, defaults]
-    }, ['', '', 'export default {\n'])
-
-  const code =
-    imports + '\n' +
-    outputs + '\n' +
-    defaults.slice(0, -2) + '\n}\n'
+      return imports
+    }, '')
 
   writeFileSync(idx, code)
   writeFileSync(def, code)

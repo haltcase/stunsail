@@ -14,14 +14,15 @@
   "module": "es/index.js",
   "jsnext:main": "es/index.js",
   "files": [
-    "*.js",
-    "*.d.ts",
-    "!.eslintrc.js",
-    "!ava.config.js",
-    "!babel.config.js",
-    "babel",
-    "es",
-    "lib"
+    "/*.js",
+    "/*.d.ts",
+    "/src/*.d.ts",
+    "!/.eslintrc.js",
+    "!/ava.config.js",
+    "!/babel.config.js",
+    "/babel",
+    "/es",
+    "/lib"
   ],
   "scripts": {
     "lint": "eslint src tests",
@@ -53,6 +54,7 @@
     "@babel/cli": "^7.8.0",
     "@babel/core": "^7.8.0",
     "@babel/plugin-proposal-do-expressions": "^7.8.0",
+    "@babel/plugin-proposal-export-namespace-from": "^7.8.3",
     "@babel/plugin-proposal-pipeline-operator": "^7.8.0",
     "@babel/plugin-syntax-jsx": "^7.8.0",
     "@babel/preset-env": "^7.8.0",

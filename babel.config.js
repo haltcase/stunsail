@@ -17,6 +17,7 @@ const plugins = [
   'macros',
   '@babel/plugin-syntax-jsx',
   '@babel/plugin-proposal-do-expressions',
+  '@babel/plugin-proposal-export-namespace-from',
   ['@babel/plugin-proposal-pipeline-operator', { proposal: 'minimal' }]
 ]
 

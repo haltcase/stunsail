@@ -19,7 +19,9 @@ console.log('Creating type definitions...')
 Promise.all(
   getFiles().map(async file => {
     const esm = await promises.readFile(resolve(src, file), 'utf8')
-    const cjs = esm.replace('export default', 'export =')
+    const cjs = esm
+      .replace('export default', 'export =')
+      .replace(/from '.\//g, 'from \'./src/')
 
     const options = { flags: 'w' }
     return Promise.all([
