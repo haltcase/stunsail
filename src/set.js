@@ -1,12 +1,12 @@
-import isObject from './is-object'
-import isArrayLike from './is-array-like'
-import normalizePath from './lib/_normalize-path'
+import isObject from "./is-object"
+import isArrayLike from "./is-array-like"
+import normalizePath from "./lib/_normalize-path"
 
 export default function set (object, path, value) {
   let keys = path
 
-  if (typeof keys === 'string') {
-    keys = normalizePath(path).split('.')
+  if (typeof keys === "string") {
+    keys = normalizePath(path).split(".")
   }
 
   if (!isArrayLike(keys)) keys = [keys]

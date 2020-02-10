@@ -1,6 +1,6 @@
-import isString from './is-string'
-import isNumber from './is-number'
-import { NUMERIC_REGEX } from './constants'
+import isString from "./is-string"
+import isNumber from "./is-number"
+import { NUMERIC_REGEX } from "./constants"
 
 export default function isNumeric (value) {
   if (isNumber(value)) return true

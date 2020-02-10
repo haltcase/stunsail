@@ -1,5 +1,5 @@
-import each from './each'
-import isArrayLike from './is-array-like'
+import each from "./each"
+import isArrayLike from "./is-array-like"
 
 export default function map (collection, fn) {
   const arrayLike = isArrayLike(collection)
@@ -11,7 +11,7 @@ export default function map (collection, fn) {
     result[k] = fn(v, k, o)
   })
 
-  return typeof collection === 'string'
-    ? result.join('')
+  return typeof collection === "string"
+    ? result.join("")
     : result
 }

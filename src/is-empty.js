@@ -1,20 +1,20 @@
-import getType from './get-type'
-import isArrayLike from './is-array-like'
+import getType from "./get-type"
+import isArrayLike from "./is-array-like"
 
 export default function isEmpty (value) {
   const type = getType(value)
 
   switch (type) {
-    case 'string':
+    case "string":
       return value.trim().length === 0
-    case 'null':
-    case 'undefined':
+    case "null":
+    case "undefined":
       return true
-    case 'map':
-    case 'set':
+    case "map":
+    case "set":
       return value.size === 0
-    case 'number': return value === 0
-    case 'object': return !Object.keys(value).length
+    case "number": return value === 0
+    case "object": return !Object.keys(value).length
   }
 
   if (isArrayLike(value)) {

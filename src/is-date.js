@@ -1,5 +1,5 @@
-import getType from './get-type'
+import getType from "./get-type"
 
 export default function isDate (value) {
-  return getType(value) === 'date'
+  return getType(value) === "date"
 }

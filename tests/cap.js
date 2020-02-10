@@ -1,5 +1,5 @@
-import test from 'ava'
-import fn from '../src/cap'
+import test from "ava"
+import fn from "../src/cap"
 
 function target () {
   return arguments.length
@@ -7,7 +7,7 @@ function target () {
 
 const args = [1, 2, 3, 4, 5, 6]
 
-test('limits maximum number of arguments passed to the function', t => {
+test("limits maximum number of arguments passed to the function", t => {
   const zero = fn(target, 0)
   const one = fn(target, 1)
   const two = fn(target, 2)

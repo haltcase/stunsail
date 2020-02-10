@@ -1,5 +1,5 @@
-import getType from './get-type'
+import getType from "./get-type"
 
 export default function isObject (value) {
-  return getType(value) === 'object'
+  return getType(value) === "object"
 }

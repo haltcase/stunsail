@@ -1,5 +1,5 @@
-import getType from './get-type'
+import getType from "./get-type"
 
 export default function isArray (value) {
-  return getType(value) === 'array'
+  return getType(value) === "array"
 }

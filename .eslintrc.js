@@ -1,17 +1,21 @@
 const [off, warn, error] = [0, 1, 2]
 
 module.exports = {
-  parser: 'babel-eslint',
+  parser: "babel-eslint",
   extends: [
-    'standard'
+    "standard"
   ],
   plugins: [
-    'react'
+    "react"
   ],
   rules: {
-    // doesn't play well with pipe operator/do expressions
-    'no-unused-expressions': warn,
-    'react/jsx-uses-react': error,
-    'react/jsx-uses-vars': error
+    quotes: [error, "double", {
+      avoidEscape: true,
+      allowTemplateLiterals: true
+    }],
+    // doesn"t play well with pipe operator/do expressions
+    "no-unused-expressions": warn,
+    "react/jsx-uses-react": error,
+    "react/jsx-uses-vars": error
   }
 }

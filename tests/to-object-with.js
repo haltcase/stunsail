@@ -1,5 +1,5 @@
-import test from 'ava'
-import fn from '../src/to-object-with'
+import test from "ava"
+import fn from "../src/to-object-with"
 
 const run = (expectedValues, input = expectedValues) => {
   const results = []
@@ -14,55 +14,55 @@ const run = (expectedValues, input = expectedValues) => {
   return results.every(Boolean)
 }
 
-test('array: callback receives each element', t => {
-  t.true(run(['one', 'two', 'three']))
+test("array: callback receives each element", t => {
+  t.true(run(["one", "two", "three"]))
 })
 
-test('null/undefined: callback is not called', t => {
+test("null/undefined: callback is not called", t => {
   let flag = true
   fn(null, () => (flag = false))
   t.true(flag)
 })
 
-test('primitive: callback receives the primitive', t => {
+test("primitive: callback receives the primitive", t => {
   t.true(run([3], 3))
   t.true(run([true], true))
-  t.true(run(['fly'], 'fly'))
+  t.true(run(["fly"], "fly"))
 })
 
-test('object: callback receives each value', t => {
-  t.true(run(['cool'], { ultra: 'cool' }))
+test("object: callback receives each value", t => {
+  t.true(run(["cool"], { ultra: "cool" }))
 })
 
-test('array: callback receives value of object entry-like elements', t => {
-  const input = [['keyOne', 1], ['keyTwo', 2], ['keyThree', 3]]
+test("array: callback receives value of object entry-like elements", t => {
+  const input = [["keyOne", 1], ["keyTwo", 2], ["keyThree", 3]]
   t.true(run([1, 2, 3], input))
 })
 
-test('map: callback receives each element', t => {
-  const input = new Map([['keyOne', 1], ['keyTwo', 2], ['keyThree', 3]])
+test("map: callback receives each element", t => {
+  const input = new Map([["keyOne", 1], ["keyTwo", 2], ["keyThree", 3]])
   t.true(run([1, 2, 3], input))
 })
 
-test('set: callback receives each element', t => {
-  const input = new Set(['one', 'two', 'three'])
-  t.true(run(['one', 'two', 'three'], input))
+test("set: callback receives each element", t => {
+  const input = new Set(["one", "two", "three"])
+  t.true(run(["one", "two", "three"], input))
 })
 
-test('returns an empty object for unhandled types', t => {
-  t.throws(() => fn('input'), TypeError)
+test("returns an empty object for unhandled types", t => {
+  t.throws(() => fn("input"), TypeError)
 })
 
-test('allows for transforming values of the resulting object', t => {
-  const input = new Set(['one', 'two', 'three', 'four', 'five'])
+test("allows for transforming values of the resulting object", t => {
+  const input = new Set(["one", "two", "three", "four", "five"])
 
   const callback = value => {
     switch (value) {
-      case 'one': return [1]
-      case 'two': return [2]
-      case 'three': return [3]
-      case 'four': return [4]
-      case 'five': return [5]
+      case "one": return [1]
+      case "two": return [2]
+      case "three": return [3]
+      case "four": return [4]
+      case "five": return [5]
     }
   }
 

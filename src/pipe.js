@@ -1,4 +1,4 @@
-import isThenable from './is-thenable'
+import isThenable from "./is-thenable"
 
 export default function pipe (...args) {
   let output
@@ -9,7 +9,7 @@ export default function pipe (...args) {
     const fn = args[i]
     if (isThenable(output)) {
       output = output.then(fn)
-    } else if (typeof fn === 'function') {
+    } else if (typeof fn === "function") {
       if (i === 0) {
         output = fn()
       } else {

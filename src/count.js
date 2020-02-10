@@ -1,5 +1,5 @@
-import getType from './get-type'
-import isPrimitive from './is-primitive'
+import getType from "./get-type"
+import isPrimitive from "./is-primitive"
 
 const arrayImpl = (str, search, maxOccurrences) => {
   let num = 0
@@ -29,16 +29,16 @@ export default function count (collection, search, maxOccurrences = Number.MAX_S
   const primitive = isPrimitive(collection)
 
   switch (type) {
-    case 'array':
-    case 'string':
+    case "array":
+    case "string":
       return arrayImpl(collection, search, maxOccurrences)
-    case 'number':
+    case "number":
       return Math.min(Math.floor(collection / search), maxOccurrences)
-    case 'set':
+    case "set":
       return Number(collection.has(search))
-    case 'map':
+    case "map":
       return iteratorImpl(collection.values(), search)
-    case 'object':
+    case "object":
       return arrayImpl(Object.values(collection))
   }
 

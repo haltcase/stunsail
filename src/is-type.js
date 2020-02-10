@@ -1,9 +1,9 @@
-import getType from './get-type'
+import getType from "./get-type"
 
 export default function isType (value, type) {
   const assertionType = getType(type)
 
-  if (assertionType !== 'string') {
+  if (assertionType !== "string") {
     type = assertionType
   }
 

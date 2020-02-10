@@ -1,8 +1,8 @@
 export default {
   require: [
-    '@babel/register'
+    "@babel/register"
   ],
   sources: [
-    'src/**/*.js'
+    "src/**/*.js"
   ]
 }

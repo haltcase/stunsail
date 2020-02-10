@@ -1,11 +1,11 @@
-import test from 'ava'
-import fn from '../src/is-nil'
+import test from "ava"
+import fn from "../src/is-nil"
 
-test('reports true only for null & undefined', t => {
+test("reports true only for null & undefined", t => {
   t.true(fn(null))
   t.true(fn(undefined))
   t.false(fn(false))
-  t.false(fn(''))
+  t.false(fn(""))
   t.false(fn([]))
   t.false(fn({}))
   t.false(fn(new Map()))

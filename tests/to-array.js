@@ -1,5 +1,5 @@
-import test from 'ava'
-import fn from '../src/to-array'
+import test from "ava"
+import fn from "../src/to-array"
 
 const cases = [
   { input: undefined, output: [] },
@@ -12,12 +12,12 @@ const cases = [
   { input: [], output: [] }
 ]
 
-test('returns the expected array value based on input', t => {
+test("returns the expected array value based on input", t => {
   t.plan(cases.length)
   cases.forEach(({ input, output }) => t.deepEqual(fn(input), output))
 })
 
-test('removes values when provided the slice argument', t => {
+test("removes values when provided the slice argument", t => {
   const input = [1, 2, 3, 4, 5]
   let result = fn(input, 2)
   t.deepEqual(result, [3, 4, 5])

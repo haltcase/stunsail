@@ -1,10 +1,10 @@
-import test from 'ava'
-import fn from '../src/is-array'
+import test from "ava"
+import fn from "../src/is-array"
 
-test('reports true only for array values', t => {
+test("reports true only for array values", t => {
   t.true(fn([]))
   t.false(fn({}))
-  t.false(fn(''))
+  t.false(fn(""))
   t.false(fn(new Map()))
   t.false(fn(new Set()))
   t.false(fn(null))

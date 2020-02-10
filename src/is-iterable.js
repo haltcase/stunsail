@@ -1,3 +1,3 @@
 export default function isIterable (value) {
-  return typeof value?.[Symbol.iterator] === 'function'
+  return typeof value?.[Symbol.iterator] === "function"
 }

@@ -1,4 +1,4 @@
-import each from './each'
+import each from "./each"
 
 export default function reduce (collection, fn, initial) {
   let accumulator = initial

@@ -1,16 +1,16 @@
-import React from 'react'
-import classnames from 'classnames'
-import Layout from '@theme/Layout'
-import Link from '@docusaurus/Link'
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
-import useBaseUrl from '@docusaurus/useBaseUrl'
+import React from "react"
+import classnames from "classnames"
+import Layout from "@theme/Layout"
+import Link from "@docusaurus/Link"
+import useDocusaurusContext from "@docusaurus/useDocusaurusContext"
+import useBaseUrl from "@docusaurus/useBaseUrl"
 
-import styles from './styles.module.css'
+import styles from "./styles.module.css"
 
 const features = [
   {
     title: <>Practically functional</>,
-    imageUrl: 'img/undraw_both_sides_hbv3.svg',
+    imageUrl: "img/undraw_both_sides_hbv3.svg",
     description: (
       <>
         While stunsail has an API that encourages functional programming, it still
@@ -20,7 +20,7 @@ const features = [
   },
   {
     title: <>TypeScript defined</>,
-    imageUrl: 'img/undraw_code_review_l1q9.svg',
+    imageUrl: "img/undraw_code_review_l1q9.svg",
     description: (
       <>
         TypeScript definitions are included so you'll know what you're looking for
@@ -30,7 +30,7 @@ const features = [
   },
   {
     title: <>Pipeline & param.macro friendly</>,
-    imageUrl: 'img/undraw_good_team_m7uu.svg',
+    imageUrl: "img/undraw_good_team_m7uu.svg",
     description: (
       <>
         Designed for pipelining, stunsail works nicely with both&nbsp;
@@ -44,31 +44,31 @@ const features = [
 
 const badges = [
   {
-    href: 'https://www.npmjs.com/package/stunsail',
-    path: 'npm/v/stunsail',
-    alt: 'Version'
+    href: "https://www.npmjs.com/package/stunsail",
+    path: "npm/v/stunsail",
+    alt: "Version"
   },
   {
-    href: 'https://www.npmjs.com/package/stunsail',
-    path: 'npm/license/stunsail',
-    alt: 'License'
+    href: "https://www.npmjs.com/package/stunsail",
+    path: "npm/license/stunsail",
+    alt: "License"
   },
   {
-    href: 'https://travis-ci.org/citycide/stunsail',
-    path: 'travis/citycide/stunsail',
-    alt: 'Travis CI'
+    href: "https://travis-ci.org/citycide/stunsail",
+    path: "travis/citycide/stunsail",
+    alt: "Travis CI"
   },
   {
-    href: 'https://standardjs.com',
-    path: 'badge/code%20style/standard/green',
-    alt: 'JavaScript Standard Style'
+    href: "https://standardjs.com",
+    path: "badge/code%20style/standard/green",
+    alt: "JavaScript Standard Style"
   }
 ]
 
 const Feature = ({ imageUrl, title, description }) => {
   const imgUrl = useBaseUrl(imageUrl)
   return (
-    <div className={classnames('col col--4', styles.feature)}>
+    <div className={classnames("col col--4", styles.feature)}>
       {imgUrl && (
         <div className="text--center">
           <img className={styles.featureImage} src={imgUrl} alt={title} />
@@ -81,15 +81,15 @@ const Feature = ({ imageUrl, title, description }) => {
 }
 
 const Badge = ({ href, path, alt }) => {
-  const root = 'https://flat.badgen.net/'
+  const root = "https://flat.badgen.net/"
   const img = (
     <img src={root + path} alt={alt} style={{
-      paddingLeft: '0.25rem',
-      paddingRight: '0.25rem'
+      paddingLeft: "0.25rem",
+      paddingRight: "0.25rem"
     }} />
   )
 
-  return typeof href === 'undefined'
+  return typeof href === "undefined"
     ? img
     : (<a href={href}>{img}</a>)
 }
@@ -101,20 +101,20 @@ const Home = () => {
     <Layout
       title={`${siteConfig.title} documentation`}
       description="Documentation for the stunsail JavaScript utility library.">
-      <header className={classnames('hero hero--primary', styles.heroBanner)}>
+      <header className={classnames("hero hero--primary", styles.heroBanner)}>
         <div className="container">
           <h1 className="hero__title">{siteConfig.title}</h1>
           <p className="hero__subtitle">{siteConfig.tagline}</p>
-          <p style={{ textAlign: 'center' }}>
+          <p style={{ textAlign: "center" }}>
             {badges.map(badge => (<Badge {...badge} />))}
           </p>
           <div className={styles.buttons}>
             <Link
               className={classnames(
-                'button button--secondary button--lg',
+                "button button--secondary button--lg",
                 styles.getStarted
               )}
-              to={useBaseUrl('docs/quick-start')}>
+              to={useBaseUrl("docs/quick-start")}>
               Get Started →
             </Link>
           </div>

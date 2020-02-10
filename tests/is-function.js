@@ -1,14 +1,14 @@
-import test from 'ava'
-import fn from '../src/is-function'
+import test from "ava"
+import fn from "../src/is-function"
 
-test('reports true only for functions', t => {
+test("reports true only for functions", t => {
   t.true(fn(Function))
   t.true(fn(() => {}))
   t.true(fn(async () => {}))
   t.true(fn(function () {}))
   t.true(fn(function * () {}))
   t.false(fn(false))
-  t.false(fn(''))
+  t.false(fn(""))
   t.false(fn([]))
   t.false(fn({}))
   t.false(fn(new Map()))

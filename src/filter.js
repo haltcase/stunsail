@@ -1,5 +1,5 @@
-import each from './each'
-import isArrayLike from './is-array-like'
+import each from "./each"
+import isArrayLike from "./is-array-like"
 
 export default function filter (collection, fn) {
   const arrayLike = isArrayLike(collection)
@@ -15,7 +15,7 @@ export default function filter (collection, fn) {
     }
   })
 
-  return typeof collection === 'string'
-    ? result.join('')
+  return typeof collection === "string"
+    ? result.join("")
     : result
 }

@@ -1,13 +1,13 @@
-import test from 'ava'
-import fn from '../src/all'
+import test from "ava"
+import fn from "../src/all"
 
 const object = { one: 1, two: 2, three: 3 }
 const array = [1, 2, 3, 4]
-const string = 'foobar'
+const string = "foobar"
 const _set = new Set(array)
-const _map = new Map([['one', 1], ['two', 2], ['three', 3]])
+const _map = new Map([["one", 1], ["two", 2], ["three", 3]])
 
-test('iterates over objects, short-circuiting on first failure', t => {
+test("iterates over objects, short-circuiting on first failure", t => {
   let iterations = 0
   const result = fn(object, v => {
     iterations++
@@ -27,7 +27,7 @@ test('iterates over objects, short-circuiting on first failure', t => {
   t.is(iterations, 3)
 })
 
-test('iterates over arrays, short-circuiting on first failure', t => {
+test("iterates over arrays, short-circuiting on first failure", t => {
   let iterations = 0
   const result = fn(array, v => {
     iterations++
@@ -38,18 +38,18 @@ test('iterates over arrays, short-circuiting on first failure', t => {
   t.is(iterations, 2)
 })
 
-test('iterates over strings, short-circuiting on first failure', t => {
+test("iterates over strings, short-circuiting on first failure", t => {
   let iterations = 0
   const result = fn(string, v => {
     iterations++
-    return v === 'f' || v === 'o'
+    return v === "f" || v === "o"
   })
 
   t.false(result)
   t.is(iterations, 4)
 })
 
-test('works for `Map` and `Set`', t => {
+test("works for `Map` and `Set`", t => {
   let setIterations = 0
   let mapIterations = 0
   const [setResult, mapResult] = [
@@ -69,7 +69,7 @@ test('works for `Map` and `Set`', t => {
   t.is(mapIterations, 1)
 })
 
-test('allows omitting the predicate function', t => {
+test("allows omitting the predicate function", t => {
   const array = [true, true, true]
   t.true(fn(array))
   array.push(false)

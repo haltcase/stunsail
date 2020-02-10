@@ -1,11 +1,11 @@
-import test from 'ava'
-import fn from '../src/reduce-while'
+import test from "ava"
+import fn from "../src/reduce-while"
 
 const object = { one: 1, two: 2, three: 3 }
 const array = [1, 2, 3, 4, 5]
-const string = 'foobar'
+const string = "foobar"
 
-test('reduces object inputs while predicate returns true', t => {
+test("reduces object inputs while predicate returns true", t => {
   const result = fn(
     object,
     (acc, val) => acc !== 3,
@@ -15,7 +15,7 @@ test('reduces object inputs while predicate returns true', t => {
   t.is(result, 3)
 })
 
-test('reduces array-like inputs while predicate returns true', t => {
+test("reduces array-like inputs while predicate returns true", t => {
   let result = fn(
     array,
     (acc, val) => val < 3,
@@ -27,7 +27,7 @@ test('reduces array-like inputs while predicate returns true', t => {
 
   result = fn(
     string,
-    (acc, val) => val !== 'b',
+    (acc, val) => val !== "b",
     (acc, cur) => {
       acc.splice(0, 0, cur)
       return acc
@@ -35,5 +35,5 @@ test('reduces array-like inputs while predicate returns true', t => {
     []
   )
 
-  t.deepEqual(result, ['o', 'o', 'f'])
+  t.deepEqual(result, ["o", "o", "f"])
 })

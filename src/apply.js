@@ -1,9 +1,9 @@
-import getType from './get-type'
-import toArray from './to-array'
+import getType from "./get-type"
+import toArray from "./to-array"
 
 export default function apply (fn, args) {
   const type = getType(fn)
-  if (type !== 'function') {
+  if (type !== "function") {
     throw new TypeError(`Expected a function, got ${type}`)
   }
 

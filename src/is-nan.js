@@ -1,5 +1,5 @@
-import getType from './get-type'
+import getType from "./get-type"
 
 export default function isNan (value) {
-  return getType(value) === 'nan'
+  return getType(value) === "nan"
 }

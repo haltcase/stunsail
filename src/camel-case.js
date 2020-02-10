@@ -1,6 +1,6 @@
 import {
   WORD_SEPARATOR_REGEX as separators
-} from './constants'
+} from "./constants"
 
 export default function camelCase (string) {
   const words = string.split(separators)
@@ -17,5 +17,5 @@ export default function camelCase (string) {
     result[i] = char + word.slice(1)
   }
 
-  return result.join('')
+  return result.join("")
 }

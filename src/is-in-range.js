@@ -1,8 +1,8 @@
-import toNumber from './to-number'
+import toNumber from "./to-number"
 
 export default function isInRange (value, start, end) {
   start = toNumber(start)
-  if (typeof end === 'undefined') {
+  if (typeof end === "undefined") {
     end = start
     start = 0
   } else {

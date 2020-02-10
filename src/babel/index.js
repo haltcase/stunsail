@@ -1,23 +1,23 @@
-import { _, it } from 'param.macro'
+import { _, it } from "param.macro"
 
-import kebab from '../kebab-case'
-import each from '../each'
-import filter from '../filter'
+import kebab from "../kebab-case"
+import each from "../each"
+import filter from "../filter"
 
-const getNamespaces = filter(_, it.type === 'ImportSpecifier')
+const getNamespaces = filter(_, it.type === "ImportSpecifier")
 
 const makeImport = (t, name, options) => {
   const { useRequire, useModules } = options
   const file = kebab(name)
-  const es = !useRequire && useModules ? 'es/' : ''
+  const es = !useRequire && useModules ? "es/" : ""
   const path = `stunsail/${es}${file}`
 
   if (useRequire) {
-    return t.variableDeclaration('const', [
+    return t.variableDeclaration("const", [
       t.variableDeclarator(
         t.identifier(name),
         t.callExpression(
-          t.identifier('require'),
+          t.identifier("require"),
           [t.stringLiteral(path)]
         )
       )
@@ -35,8 +35,8 @@ export default ({ types: t }) => {
     visitor: {
       CallExpression (path, state) {
         if (
-          !t.isIdentifier(path.node.callee, { name: 'require' }) ||
-          !t.isStringLiteral(path.node.arguments[0], { value: 'stunsail' })
+          !t.isIdentifier(path.node.callee, { name: "require" }) ||
+          !t.isStringLiteral(path.node.arguments[0], { value: "stunsail" })
         ) return
 
         const parent = path.parentPath.parentPath
@@ -59,7 +59,7 @@ export default ({ types: t }) => {
 
       ImportDeclaration (path, state) {
         const { node: { source, specifiers } } = path
-        if (source.value !== 'stunsail') return
+        if (source.value !== "stunsail") return
 
         const imports = []
 

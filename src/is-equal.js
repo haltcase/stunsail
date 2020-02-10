@@ -1,5 +1,5 @@
-import getType from './get-type'
-import isPrimitive from './is-primitive'
+import getType from "./get-type"
+import isPrimitive from "./is-primitive"
 
 export default function is (a, b) {
   return isBase(a, b)
@@ -15,21 +15,21 @@ function isBase (a, b, stack) {
   if (
     aType !== bType ||
     !a || !b ||
-    typeof a !== 'object'
+    typeof a !== "object"
   ) {
     return false
   }
 
   switch (aType) {
-    case 'array':
+    case "array":
       if (a.length !== b.length) return false
       return isDeep(a, b, stack)
-    case 'date':
+    case "date":
       return a.valueOf() === b.valueOf()
-    case 'promise':
+    case "promise":
       return a === b
-    case 'map':
-    case 'set': {
+    case "map":
+    case "set": {
       const aEntries = Array.from(a)
       const bEntries = Array.from(b)
       return (

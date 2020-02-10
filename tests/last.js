@@ -1,17 +1,17 @@
-import test from 'ava'
-import fn from '../src/last'
+import test from "ava"
+import fn from "../src/last"
 
 function getArguments () { return arguments }
 
-test('retrieves the last value of the given array-like', t => {
+test("retrieves the last value of the given array-like", t => {
   let result = fn([1, 2, 3, 4, 5])
   t.is(result, 5)
 
-  result = fn(getArguments('hi', 'world'))
-  t.is(result, 'world')
+  result = fn(getArguments("hi", "world"))
+  t.is(result, "world")
 })
 
-test('works for `Set`', t => {
+test("works for `Set`", t => {
   const result = fn(new Set([1, 2, 3, 4, 5]))
   t.is(result, 5)
 })

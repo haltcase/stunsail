@@ -1,5 +1,5 @@
-import getType from './get-type'
+import getType from "./get-type"
 
 export default function isBuffer (value) {
-  return getType(value) === 'buffer'
+  return getType(value) === "buffer"
 }

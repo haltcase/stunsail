@@ -1,10 +1,10 @@
-import test from 'ava'
-import fn from '../src/is-boolean'
+import test from "ava"
+import fn from "../src/is-boolean"
 
-test('reports true only for boolean values', t => {
+test("reports true only for boolean values", t => {
   t.true(fn(true))
   t.true(fn(false))
-  t.false(fn(''))
+  t.false(fn(""))
   t.false(fn([]))
   t.false(fn({}))
   t.false(fn(new Map()))

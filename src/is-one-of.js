@@ -1,21 +1,21 @@
-import isEqual from './is-equal'
-import getType from './get-type'
+import isEqual from "./is-equal"
+import getType from "./get-type"
 
 export default function isOneOf (value, collection) {
   const inputType = getType(collection)
 
   switch (inputType) {
-    case 'string':
+    case "string":
       return collection.indexOf(value) > -1
-    case 'array':
+    case "array":
       return findIndex(collection, value) > -1
-    case 'object': {
+    case "object": {
       const values = Object.keys(collection).map(k => collection[k])
       return findIndex(values, value) > -1
     }
-    case 'set':
+    case "set":
       return collection.has(value)
-    case 'map':
+    case "map":
       return findIndex(Array.from(collection.values()), value) > -1
     default:
       throw new TypeError(

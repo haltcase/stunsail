@@ -1,13 +1,13 @@
-const { resolve } = require('path')
+const { resolve } = require("path")
 
-const { Application } = require('typedoc')
+const { Application } = require("typedoc")
 
 const resolveInputs = (context, paths = []) =>
   paths.map(path => resolve(context.siteDir, path))
 
 module.exports = (context, options) => {
   return {
-    name: 'typedoc-provider',
+    name: "typedoc-provider",
 
     getPathsToWatch () {
       return resolveInputs(context, options.paths)
@@ -15,14 +15,14 @@ module.exports = (context, options) => {
 
     async loadContent () {
       const app = new Application({
-        mode: 'file',
+        mode: "file",
         includeDeclarations: true,
-        exclude: '**/node_modules/**',
+        exclude: "**/node_modules/**",
         excludeExternals: true,
         excludeNonExported: true,
         excludePrivate: true,
         excludeProtected: true,
-        readme: 'none'
+        readme: "none"
       })
 
       const inputs = resolveInputs(context, options.paths)
@@ -30,7 +30,7 @@ module.exports = (context, options) => {
       const project = app.convert(files)
 
       if (!project) {
-        throw new Error('typedoc-provider encountered errors')
+        throw new Error("typedoc-provider encountered errors")
       }
 
       const data = app.serializer.projectToObject(project)
@@ -38,7 +38,7 @@ module.exports = (context, options) => {
     },
 
     async contentLoaded ({ content, actions }) {
-      await actions.createData('types.json', content)
+      await actions.createData("types.json", content)
     }
   }
 }

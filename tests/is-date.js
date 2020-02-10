@@ -1,10 +1,10 @@
-import test from 'ava'
-import fn from '../src/is-date'
+import test from "ava"
+import fn from "../src/is-date"
 
-test('reports true only for date objects', t => {
+test("reports true only for date objects", t => {
   t.true(fn(new Date()))
   t.false(fn(false))
-  t.false(fn(''))
+  t.false(fn(""))
   t.false(fn([]))
   t.false(fn({}))
   t.false(fn(new Map()))

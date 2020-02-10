@@ -1,11 +1,11 @@
-import test from 'ava'
-import fn from '../src/is-object'
+import test from "ava"
+import fn from "../src/is-object"
 
-test('reports true only for plain objects', t => {
+test("reports true only for plain objects", t => {
   t.true(fn({}))
   t.false(fn(1))
   t.false(fn(false))
-  t.false(fn(''))
+  t.false(fn(""))
   t.false(fn([]))
   t.false(fn(new Map()))
   t.false(fn(new Set()))

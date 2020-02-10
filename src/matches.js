@@ -1,5 +1,5 @@
-import each from './each'
-import isEqual from './is-equal'
+import each from "./each"
+import isEqual from "./is-equal"
 
 export default function matches (object, compare) {
   let isMatch = true

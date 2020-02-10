@@ -1,9 +1,9 @@
-import test from 'ava'
-import fn from '../src/is-map'
+import test from "ava"
+import fn from "../src/is-map"
 
-test('reports true only for `Map` objects', t => {
+test("reports true only for `Map` objects", t => {
   t.true(fn(new Map()))
-  t.false(fn('string'))
+  t.false(fn("string"))
   t.false(fn(1))
   t.false(fn(false))
   t.false(fn({}))

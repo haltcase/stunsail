@@ -1,8 +1,8 @@
-import test from 'ava'
-import fn from '../src/is-string'
+import test from "ava"
+import fn from "../src/is-string"
 
-test('reports true only for string values', t => {
-  t.true(fn('string'))
+test("reports true only for string values", t => {
+  t.true(fn("string"))
   t.false(fn(1))
   t.false(fn(false))
   t.false(fn({}))

@@ -1,7 +1,7 @@
-import test from 'ava'
-import fn from '../src/is-error'
+import test from "ava"
+import fn from "../src/is-error"
 
-test('correctly identifies errors', t => {
+test("correctly identifies errors", t => {
   t.true(fn(new TypeError()))
   t.true(fn(new Error()))
   t.true(fn(new RangeError()))

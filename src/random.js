@@ -1,6 +1,6 @@
-import toNumber from './to-number'
-import isObject from './is-object'
-import isArrayLike from './is-array-like'
+import toNumber from "./to-number"
+import isObject from "./is-object"
+import isArrayLike from "./is-array-like"
 
 export default function random (value, bound) {
   if (isObject(value)) {
@@ -13,11 +13,11 @@ export default function random (value, bound) {
     return value[~~(Math.random() * value.length)]
   }
 
-  if (typeof value !== 'number') {
+  if (typeof value !== "number") {
     value = toNumber(value)
   }
 
-  if (typeof bound === 'undefined') {
+  if (typeof bound === "undefined") {
     bound = value
     value = 0
   }

@@ -1,10 +1,10 @@
-import reduce from './reduce'
-import getType from './get-type'
-import isPrimitive from './is-primitive'
+import reduce from "./reduce"
+import getType from "./get-type"
+import isPrimitive from "./is-primitive"
 
 export default function toObjectWith (value, fn) {
   const fnType = getType(fn)
-  if (fnType !== 'function') {
+  if (fnType !== "function") {
     throw new TypeError(`Expected a function, got ${fnType}`)
   }
 
@@ -12,14 +12,14 @@ export default function toObjectWith (value, fn) {
   if (isPrimitive(value)) return { [value]: fn(value) }
 
   let inputType = getType(value)
-  if (inputType === 'object') return value
+  if (inputType === "object") return value
 
-  if (inputType === 'map' || inputType === 'set') {
-    inputType = 'array'
+  if (inputType === "map" || inputType === "set") {
+    inputType = "array"
     value = Array.from(value)
   }
 
-  if (inputType !== 'array') return {}
+  if (inputType !== "array") return {}
 
   return reduce(value, (acc, key) => {
     if (Array.isArray(key) && key.length === 2) {

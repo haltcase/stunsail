@@ -1,6 +1,6 @@
-import isObject from './is-object'
-import isIterable from './is-iterable'
-import isPrimitive from './is-primitive'
+import isObject from "./is-object"
+import isIterable from "./is-iterable"
+import isPrimitive from "./is-primitive"
 
 const isTraversable = v => isIterable(v) || isObject(v)
 
