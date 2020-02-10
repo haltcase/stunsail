@@ -3,6 +3,10 @@
  * Check that all properties of `compare` are deeply equal to those same
  * properties of `object`.
  *
+ * This differs from [isSubset](#isSubset), which will recurse into an
+ * object's properties to check whether they are _subsets_ of those same
+ * paths in another object.
+ *
  * @parameters
  * | name | type | description |
  * | :--: | :--: | ----------- |
@@ -37,6 +41,7 @@
  * arr.find(o => matches(o, { color: 'red' })
  * // -> { name: 'willy', color: 'red' }
  *
+ * @see isSubset
  * @since v1.0.0
  * @tag objects
  * @tag logic
