@@ -1,5 +1,5 @@
-import remark from 'remark'
-import remarkHtml from 'remark-html'
+import remark from "remark"
+import remarkHtml from "remark-html"
 
 const separators = /[-|.](\w)/g
 

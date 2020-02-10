@@ -1,20 +1,20 @@
-import React from 'react'
-import classes from 'classnames'
+import React from "react"
+import classes from "classnames"
 
-import styles from './styles.module.css'
+import styles from "./styles.module.css"
 
 const calloutNames = {
-  primary: 'NOTE',
-  secondary: 'NOTE',
-  success: 'TIP',
-  info: 'NOTE',
-  warning: 'WARNING',
-  danger: 'DANGER'
+  primary: "NOTE",
+  secondary: "NOTE",
+  success: "TIP",
+  info: "NOTE",
+  warning: "WARNING",
+  danger: "DANGER"
 }
 
-export default ({ children, type = 'success', icon = '!', title }) => {
+export default ({ children, type = "success", icon = "!", title }) => {
   return (
-    <p className={classes(styles[`callout-${type}`], { 'no-title': title === '' })}>
+    <p className={classes(styles[`callout-${type}`], { "no-title": title === "" })}>
       <span className={styles.title}>
         {title === undefined ? calloutNames[type] : title}
       </span>

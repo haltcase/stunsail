@@ -5,21 +5,21 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import React from 'react'
+import React from "react"
 
-import Head from '@docusaurus/Head'
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
-import useBaseUrl from '@docusaurus/useBaseUrl'
-import DocPaginator from '@theme/DocPaginator'
-import useTOCHighlight from '@theme/hooks/useTOCHighlight'
+import Head from "@docusaurus/Head"
+import useDocusaurusContext from "@docusaurus/useDocusaurusContext"
+import useBaseUrl from "@docusaurus/useBaseUrl"
+import DocPaginator from "@theme/DocPaginator"
+import useTOCHighlight from "@theme/hooks/useTOCHighlight"
 
-import { interfaces } from '@site/src/common/types'
-import { getName } from '@site/src/common/typedoc-renderer'
+import { interfaces } from "@site/src/common/types"
+import { getName } from "@site/src/common/typedoc-renderer"
 
-import styles from './styles.module.css'
+import styles from "./styles.module.css"
 
-const LINK_CLASS_NAME = 'contents__link'
-const ACTIVE_LINK_CLASS_NAME = 'contents__link--active'
+const LINK_CLASS_NAME = "contents__link"
+const ACTIVE_LINK_CLASS_NAME = "contents__link--active"
 const TOP_OFFSET = 100
 
 function DocTOC ({ headings }) {
@@ -36,7 +36,7 @@ function DocTOC ({ headings }) {
 function Headings ({ headings, isChild }) {
   if (!headings.length) return null
   return (
-    <ul className={isChild ? '' : 'contents contents__left-border'}>
+    <ul className={isChild ? "" : "contents contents__left-border"}>
       {headings.map(heading => (
         <li key={heading.id}>
           <a
@@ -86,7 +86,7 @@ function DocItem (props) {
           <meta property="og:description" content={description} />
         )}
         {keywords && keywords.length && (
-          <meta name="keywords" content={keywords.join(',')} />
+          <meta name="keywords" content={keywords.join(",")} />
         )}
         {metaImage && <meta property="og:image" content={metaImageUrl} />}
         {metaImage && <meta property="twitter:image" content={metaImageUrl} />}
@@ -103,7 +103,7 @@ function DocItem (props) {
                 <article>
                   {version && (
                     <span
-                      style={{ verticalAlign: 'top' }}
+                      style={{ verticalAlign: "top" }}
                       className="badge badge--info">
                       Version: {version}
                     </span>
@@ -134,8 +134,8 @@ function DocItem (props) {
                               preserveAspectRatio="xMidYMid meet"
                               viewBox="0 0 40 40"
                               style={{
-                                marginRight: '0.3em',
-                                verticalAlign: 'sub'
+                                marginRight: "0.3em",
+                                verticalAlign: "sub"
                               }}>
                               <g>
                                 <path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z" />
@@ -149,10 +149,10 @@ function DocItem (props) {
                         <div className="col text--right">
                           <em>
                             <small>
-                              Last updated{' '}
+                              Last updated{" "}
                               {lastUpdatedAt && (
                                 <>
-                                  on{' '}
+                                  on{" "}
                                   <time
                                     dateTime={new Date(
                                       lastUpdatedAt * 1000
@@ -162,7 +162,7 @@ function DocItem (props) {
                                       lastUpdatedAt * 1000
                                     ).toLocaleDateString()}
                                   </time>
-                                  {lastUpdatedBy && ' '}
+                                  {lastUpdatedBy && " "}
                                 </>
                               )}
                               {lastUpdatedBy && (
@@ -170,10 +170,10 @@ function DocItem (props) {
                                   by <strong>{lastUpdatedBy}</strong>
                                 </>
                               )}
-                              {process.env.NODE_ENV === 'development' && (
+                              {process.env.NODE_ENV === "development" && (
                                 <div>
                                   <small>
-                                    {' '}
+                                    {" "}
                                     (Simulated during dev for better perf)
                                   </small>
                                 </div>
@@ -190,8 +190,8 @@ function DocItem (props) {
                 </div>
               </div>
             </div>
-            {!hideTableOfContents && (id === 'api' || DocContent.rightToc) && (
-              <DocTOC headings={id === 'api'
+            {!hideTableOfContents && (id === "api" || DocContent.rightToc) && (
+              <DocTOC headings={id === "api"
                 ? interfaces.map(it => {
                   const name = getName(it)
                   return {

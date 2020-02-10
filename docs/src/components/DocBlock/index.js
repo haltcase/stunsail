@@ -1,12 +1,12 @@
-import React from 'react'
-import Collapsible from 'react-collapsible'
-import classes from 'classnames'
-import CodeBlock from '@theme/CodeBlock'
-import Heading from '@theme/Heading'
+import React from "react"
+import Collapsible from "react-collapsible"
+import classes from "classnames"
+import CodeBlock from "@theme/CodeBlock"
+import Heading from "@theme/Heading"
 
-import * as t from '@site/src/common/typedoc-renderer'
-import styles from './styles.module.css'
-import './styles.css'
+import * as t from "@site/src/common/typedoc-renderer"
+import styles from "./styles.module.css"
+import "./styles.css"
 
 export const DocSection = ({ children, title }) =>
   <div className={styles.marginBottomLeading}>
@@ -16,7 +16,7 @@ export const DocSection = ({ children, title }) =>
     {children}
   </div>
 
-export const Code = ({ children, language = 'js' }) =>
+export const Code = ({ children, language = "js" }) =>
   <div>
     <CodeBlock className={language}>{children}</CodeBlock>
   </div>
@@ -30,25 +30,25 @@ export const SignatureCollapsible = ({ name, element }) =>
       triggerTagName="div"
       triggerClassName="card__header"
       triggerOpenedClassName="card__header"
-      triggerStyle={{ cursor: 'pointer', paddingBottom: '1rem' }}
+      triggerStyle={{ cursor: "pointer", paddingBottom: "1rem" }}
       contentOuterClassName="card__footer">
       <Code language='typescript'>
         {element.signatures.map(sig =>
-          t.getTypedSignature(sig, name)).join('\n')}
+          t.getTypedSignature(sig, name)).join("\n")}
       </Code>
     </Collapsible>
   </div>
 
-const FunctionHeader = Heading('h2')
+const FunctionHeader = Heading("h2")
 
 export default ({ element }) => {
   const name = t.getName(element)
-  const usage = t.getTag(element, 'example').text
-  const since = t.getTag(element, 'since').text
-  const refs = t.getTags(element, 'see')
+  const usage = t.getTag(element, "example").text
+  const since = t.getTag(element, "since").text
+  const refs = t.getTags(element, "see")
   const returns = t.getReturns(element)
   const params = t.getParams(element)
-  const badges = t.getTags(element, 'tag').map(it => it.text)
+  const badges = t.getTags(element, "tag").map(it => it.text)
 
   return (
     <>
@@ -57,25 +57,25 @@ export default ({ element }) => {
         <span className={styles.functionHeaderTags}>
           {t.isAsync(element) &&
             <span
-              className={classes(styles.functionHeaderTag, 'badge', 'badge--primary')}
+              className={classes(styles.functionHeaderTag, "badge", "badge--primary")}
               title="This function returns a Promise.">
               async
             </span>}
           {Boolean(badges.length) && badges.map(text =>
             <span
-              className={classes(styles.functionHeaderTag, 'badge', 'badge--info')}>
+              className={classes(styles.functionHeaderTag, "badge", "badge--info")}>
               {text}
             </span>)}
-          {t.hasTag(element, 'deprecated') &&
+          {t.hasTag(element, "deprecated") &&
             <span
-              className={classes(styles.functionHeaderTag, 'badge', 'badge--warning')}
-              title={t.getTag(element, 'deprecated').text}>
+              className={classes(styles.functionHeaderTag, "badge", "badge--warning")}
+              title={t.getTag(element, "deprecated").text}>
               deprecated
             </span>
           }
           {since &&
             <span
-              className={classes(styles.functionHeaderTag, 'badge', 'badge--secondary')}
+              className={classes(styles.functionHeaderTag, "badge", "badge--secondary")}
               title={`Added in ${since}`}>{since}</span>
           }
         </span>
@@ -99,7 +99,7 @@ export default ({ element }) => {
 
       {Boolean(refs.length) && <DocSection title="see also">
         <ul>{refs.map(ref =>
-          <li><a href={'#' + ref.text}><code>{ref.text}</code></a></li>)
+          <li><a href={"#" + ref.text}><code>{ref.text}</code></a></li>)
         }</ul>
       </DocSection>}
     </>

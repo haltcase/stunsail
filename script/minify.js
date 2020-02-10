@@ -1,4 +1,4 @@
-'use strict'
+"use strict"
 
 const {
   mkdirSync,
@@ -6,26 +6,26 @@ const {
   readFileSync,
   statSync,
   writeFileSync
-} = require('fs')
+} = require("fs")
 
-const { dirname, join, relative, resolve } = require('path')
+const { dirname, join, relative, resolve } = require("path")
 
-const { minify } = require('terser')
+const { minify } = require("terser")
 
-const root = resolve(__dirname, '..')
-const prod = resolve(__dirname, '..', 'prod')
+const root = resolve(__dirname, "..")
+const prod = resolve(__dirname, "..", "prod")
 
 const makeDirPath = path => {
-  const mode = parseInt('0777', 8)
+  const mode = parseInt("0777", 8)
   try {
     mkdirSync(path, mode)
     return true
   } catch (err) {
-    if (err.code === 'EEXIST') {
+    if (err.code === "EEXIST") {
       return statSync(path).isDirectory()
     }
 
-    if (err.code === 'ENOENT') {
+    if (err.code === "ENOENT") {
       const target = dirname(path)
       return (
         target !== path &&
@@ -43,11 +43,11 @@ const minifyFile = (src, dest) => {
     return false
   }
 
-  const source = readFileSync(src, 'utf8')
+  const source = readFileSync(src, "utf8")
   const { code, error } = minify(source)
   return error
     ? false
-    : writeFileSync(dest, code, { flag: 'w' }) || true
+    : writeFileSync(dest, code, { flag: "w" }) || true
 }
 
 const isDirectory = path =>
@@ -69,7 +69,7 @@ const getFiles = (dir = prod) => {
 }
 
 const run = () => {
-  console.log('Minifying source files...')
+  console.log("Minifying source files...")
   const files = getFiles()
   let success = 0
 
@@ -78,7 +78,7 @@ const run = () => {
     if (minifyFile(item, dest)) {
       success++
     } else {
-      console.error('Failed to minify file at ' + item)
+      console.error("Failed to minify file at " + item)
     }
   })
 

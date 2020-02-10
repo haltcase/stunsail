@@ -1,11 +1,11 @@
-'use strict'
+"use strict"
 
-const { resolve } = require('path')
-const { readdirSync, writeFileSync } = require('fs')
+const { resolve } = require("path")
+const { readdirSync, writeFileSync } = require("fs")
 
-const src = resolve(__dirname, '..', 'src')
-const idx = resolve(src, 'index.js')
-const def = resolve(src, 'index.d.ts')
+const src = resolve(__dirname, "..", "src")
+const idx = resolve(src, "index.js")
+const def = resolve(src, "index.d.ts")
 
 const separators = /[-|.](\w)/g
 
@@ -14,7 +14,7 @@ const camelize = str =>
 
 const getFiles = () =>
   readdirSync(src).filter(file =>
-    file.slice(-3) === '.js' && file !== 'index.js'
+    file.slice(-3) === ".js" && file !== "index.js"
   )
 
 const createIndex = () => {
@@ -25,12 +25,12 @@ const createIndex = () => {
       const filename = file.slice(0, -3)
       const token = camelize(filename)
 
-      imports += token === 'constants'
-        ? `export * as ${token} from './${filename}'\n`
-        : `export { default as ${token} } from './${filename}'\n`
+      imports += token === "constants"
+        ? `export * as ${token} from "./${filename}"\n`
+        : `export { default as ${token} } from "./${filename}"\n`
 
       return imports
-    }, '')
+    }, "")
 
   writeFileSync(idx, code)
   writeFileSync(def, code)
@@ -39,7 +39,7 @@ const createIndex = () => {
 }
 
 try {
-  console.log('Creating index file...')
+  console.log("Creating index file...")
   const quantity = createIndex()
   console.log(`Index file created. (${quantity} source files)`)
   process.exit(0)
