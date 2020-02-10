@@ -1,3 +1,12 @@
+### [`1.0.0-rc.7`](https://github.com/citycide/stunsail/compare/v1.0.0-rc.6...1.0.0-rc.7) (2020-02-09)
+
+
+###### FEATURES
+
+* add `isSubset` ([`7875a58`](https://github.com/citycide/stunsail/commit/7875a589b7a9803c25d29fccfe230e08bc7a6801))
+
+---
+
 ### [`1.0.0-rc.6`](https://github.com/citycide/stunsail/compare/v1.0.0-rc.5...1.0.0-rc.6) (2020-01-26)
 
 

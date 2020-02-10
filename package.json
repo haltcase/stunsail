@@ -1,6 +1,6 @@
 {
   "name": "stunsail",
-  "version": "1.0.0-rc.6",
+  "version": "1.0.0-rc.7",
   "description": "Super opinionated, functional utility collection.",
   "license": "MIT",
   "author": "Bo Lingen <lingenbw@gmail.com> (https://github.com/citycide)",
@@ -25,7 +25,7 @@
     "/lib"
   ],
   "scripts": {
-    "lint": "eslint src tests",
+    "lint": "eslint script src tests docs/src",
     "copy-docs": "node script/copy-docs.js",
     "copy-types": "node script/copy-types.js",
     "index": "node script/create-index.js",
