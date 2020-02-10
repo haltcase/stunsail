@@ -95,7 +95,8 @@ module.exports = {
   ],
   plugins: [
     [resolve(__dirname, "./src/plugins/typedoc.js"), {
-      paths: ["../src"]
+      paths: ["../src"],
+      exclude: ["**/index.d.ts"]
     }]
   ]
 }

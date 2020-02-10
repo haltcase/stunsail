@@ -5,7 +5,7 @@ const { Application } = require("typedoc")
 const resolveInputs = (context, paths = []) =>
   paths.map(path => resolve(context.siteDir, path))
 
-module.exports = (context, options) => {
+module.exports = (context, options = {}) => {
   return {
     name: "typedoc-provider",
 
@@ -14,10 +14,20 @@ module.exports = (context, options) => {
     },
 
     async loadContent () {
+      const { exclude = [] } = options
       const app = new Application({
         mode: "file",
         includeDeclarations: true,
-        exclude: "**/node_modules/**",
+        exclude: [
+          ...new Set([
+            "**/node_modules/**",
+            ...(
+              Array.isArray(exclude)
+                ? exclude
+                : (exclude ? [exclude] : [])
+            )
+          ])
+        ],
         excludeExternals: true,
         excludeNonExported: true,
         excludePrivate: true,
