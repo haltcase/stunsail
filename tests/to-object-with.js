@@ -50,7 +50,9 @@ test("set: callback receives each element", t => {
 })
 
 test("returns an empty object for unhandled types", t => {
-  t.throws(() => fn("input"), TypeError)
+  t.throws(() => fn("input"), {
+    instanceOf: TypeError
+  })
 })
 
 test("allows for transforming values of the resulting object", t => {
