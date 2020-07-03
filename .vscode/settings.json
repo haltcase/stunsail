@@ -4,5 +4,7 @@
   ],
   "search.exclude": {
     "docs/{.docusaurus,build}/**": true
-  }
+  },
+  "typescript.tsdk": "node_modules\\typescript\\lib",
+  "eslint.enable": true
 }
