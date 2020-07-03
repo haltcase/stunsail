@@ -1,4 +1,4 @@
-const [off, warn, error] = [0, 1, 2]
+const [, warn, error] = [0, 1, 2]
 
 module.exports = {
   parser: "babel-eslint",
