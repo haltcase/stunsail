@@ -13,7 +13,7 @@ module.exports = {
       avoidEscape: true,
       allowTemplateLiterals: true
     }],
-    // doesn"t play well with pipe operator/do expressions
+    // doesn't play well with pipe operator/do expressions
     "no-unused-expressions": warn,
     "react/jsx-uses-react": error,
     "react/jsx-uses-vars": error
