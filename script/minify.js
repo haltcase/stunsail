@@ -7,7 +7,7 @@ import terser from "terser"
 const __dirname = fileURLToPath(dirname(import.meta.url))
 
 const root = resolve(__dirname, "..")
-const prod = resolve(__dirname, "..", "prod")
+const staging = resolve(__dirname, "..", "build_staging")
 
 const makeDirPath = path => {
   const mode = parseInt("0777", 8)
@@ -47,7 +47,7 @@ const minifyFile = (src, dest) => {
 const isDirectory = path =>
   statSync(path).isDirectory()
 
-const getFiles = (dir = prod) => {
+const getFiles = (dir = staging) => {
   const results = []
 
   readdirSync(dir).forEach(item => {
@@ -68,7 +68,7 @@ const run = () => {
   let success = 0
 
   files.forEach(item => {
-    const dest = join(root, relative(prod, item))
+    const dest = join(root, relative(staging, item))
     if (minifyFile(item, dest)) {
       success++
     } else {

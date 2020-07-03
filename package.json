@@ -11,47 +11,42 @@
     "node": ">=12"
   },
   "type": "module",
-  "main": "index.js",
+  "main": "dist/index.js",
   "module": "es/index.js",
   "jsnext:main": "es/index.js",
+  "types": "es/index.d.ts",
   "exports": {
     ".": {
       "import": "./es/index.js",
-      "require": "./index.js"
+      "require": "./dist/index.js"
     },
     "./": {
       "import": "./es/",
-      "require": "./"
+      "require": "./dist/"
+    },
+    "./babel": {
+      "import": "./es/babel/index.js",
+      "require": "./dist/babel/index.js"
     }
   },
   "files": [
-    "/*.js",
-    "/*.d.ts",
-    "/src/*.d.ts",
-    "!/.eslintrc.js",
-    "!/ava.config.js",
-    "!/babel.config.js",
-    "/babel",
-    "/es",
-    "/lib"
+    "dist",
+    "es"
   ],
   "scripts": {
     "lint": "eslint script src tests docs/src",
     "copy-docs": "node script/copy-docs.js",
     "copy-types": "node script/copy-types.js",
     "index": "node script/create-index.js",
-    "clean": "npm run clean:types && npm run clean:dirs && npm run clean:js",
-    "clean:types": "del-cli \"*.d.ts\"",
-    "clean:dirs": "del-cli \"babel\" \"prod\" \"es\" \"lib\"",
-    "clean:js": "del-cli \"*.js\" \"!babel.config.js\" \"!ava.config.js\"",
+    "clean": "del-cli \"build_staging\" \"dist\" \"es\"",
     "prebuild": "npm run clean",
-    "build": "npm run index && npm run build:prod && if-not-ci npm run build:es",
-    "build:prod": "cross-env NODE_ENV=production babel src -d prod",
-    "build:dev": "babel src -d prod",
-    "build:es": "cross-env NODE_ENV=esm babel src -d prod/es",
+    "build": "npm run index && npm run build:staging && if-not-ci npm run build:es",
+    "build:staging": "cross-env NODE_ENV=production babel src -d build_staging/dist",
+    "build:es": "cross-env NODE_ENV=esm babel src -d build_staging/es",
     "build:pkg": "node script/minify.js && npm run copy-types",
+    "pretest": "npm run build && npm run build:pkg",
     "test": "ava",
-    "prepublishOnly": "npm run lint && npm run build && ava && npm run build:pkg"
+    "prepublishOnly": "npm run lint && npm test"
   },
   "keywords": [
     "utility",

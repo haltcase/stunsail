@@ -5,7 +5,7 @@ import { fileURLToPath } from "url"
 const __dirname = fileURLToPath(dirname(import.meta.url))
 
 const src = resolve(__dirname, "..", "src")
-const prod = resolve(__dirname, "..")
+const dist = resolve(__dirname, "..", "dist")
 const es = resolve(__dirname, "..", "es")
 
 mkdirSync(es, { recursive: true })
@@ -27,7 +27,7 @@ Promise.all(
     const options = { flags: "w" }
     return Promise.all([
       promises.writeFile(resolve(es, file), esm, options),
-      promises.writeFile(resolve(prod, file), cjs, options)
+      promises.writeFile(resolve(dist, file), cjs, options)
     ])
   })
 ).then(results => {
