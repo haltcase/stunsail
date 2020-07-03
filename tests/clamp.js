@@ -1,5 +1,5 @@
 import test from "ava"
-import fn from "../src/clamp"
+import fn from "../es/clamp.js"
 
 test("ensures the number is within the supplied range", t => {
   t.is(fn(20, -10, 10), 10)

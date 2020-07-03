@@ -1,5 +1,5 @@
 import test from "ava"
-import fn from "../src/is-type"
+import fn from "../es/is-type.js"
 
 test("returns true if value is the given type", t => {
   t.true(fn("hello, world!", "string"))

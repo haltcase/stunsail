@@ -1,5 +1,5 @@
 import test from "ava"
-import fn from "../src/all"
+import fn from "../es/all.js"
 
 const object = { one: 1, two: 2, three: 3 }
 const array = [1, 2, 3, 4]

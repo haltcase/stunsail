@@ -1,5 +1,5 @@
 import test from "ava"
-import fn from "../src/is-function"
+import fn from "../es/is-function.js"
 
 test("reports true only for functions", t => {
   t.true(fn(Function))

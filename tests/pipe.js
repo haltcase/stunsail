@@ -1,5 +1,5 @@
 import test from "ava"
-import fn from "../src/pipe"
+import fn from "../es/pipe.js"
 
 test("runs the given synchronous functions in series", async t => {
   const result = await fn(

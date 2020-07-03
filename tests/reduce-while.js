@@ -1,5 +1,5 @@
 import test from "ava"
-import fn from "../src/reduce-while"
+import fn from "../es/reduce-while.js"
 
 const object = { one: 1, two: 2, three: 3 }
 const array = [1, 2, 3, 4, 5]

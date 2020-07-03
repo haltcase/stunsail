@@ -1,5 +1,5 @@
 import test from "ava"
-import fn from "../src/is-in-range"
+import fn from "../es/is-in-range.js"
 
 test("true cases", t => {
   t.true(fn(3, 1, 4))

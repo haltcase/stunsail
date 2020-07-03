@@ -1,5 +1,5 @@
 import test from "ava"
-import fn from "../src/last"
+import fn from "../es/last.js"
 
 function getArguments () { return arguments }
 

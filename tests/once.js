@@ -1,5 +1,5 @@
 import test from "ava"
-import fn from "../src/once"
+import fn from "../es/once.js"
 
 test("only runs the function once & returns the same value on subsequent calls", t => {
   const target = fn(x => x * 2)

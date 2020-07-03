@@ -1,5 +1,5 @@
 import test from "ava"
-import fn from "../src/is-nan"
+import fn from "../es/is-nan.js"
 
 test("reports true only for NaN", t => {
   t.true(fn(NaN))

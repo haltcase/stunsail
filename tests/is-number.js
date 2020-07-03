@@ -1,5 +1,5 @@
 import test from "ava"
-import fn from "../src/is-number"
+import fn from "../es/is-number.js"
 
 test("reports true only for number values", t => {
   t.true(fn(1))

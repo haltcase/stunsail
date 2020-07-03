@@ -1,5 +1,5 @@
 import test from "ava"
-import fn from "../src/to-object-with"
+import fn from "../es/to-object-with.js"
 
 const run = (expectedValues, input = expectedValues) => {
   const results = []

@@ -1,5 +1,5 @@
 import test from "ava"
-import fn from "../src/snake-case"
+import fn from "../es/snake-case.js"
 
 test("converts input strings to snake-case", t => {
   t.is(fn("already_snake_case"), "already_snake_case")

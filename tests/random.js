@@ -1,5 +1,5 @@
 import test from "ava"
-import fn from "../src/random"
+import fn from "../es/random.js"
 
 test("operates on array input", t => {
   const input = [1, 2, 3]

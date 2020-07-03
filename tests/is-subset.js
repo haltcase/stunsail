@@ -1,5 +1,5 @@
 import test from "ava"
-import fn from "../src/is-subset"
+import fn from "../es/is-subset.js"
 
 test("returns true when specified properties match", t => {
   const obj = { name: "wishy", color: "green" }

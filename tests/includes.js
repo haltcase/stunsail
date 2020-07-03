@@ -1,5 +1,5 @@
 import test from "ava"
-import fn from "../src/includes"
+import fn from "../es/includes.js"
 
 const str = "string"
 const arr = [1, 2, 3, 4, 5]

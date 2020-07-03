@@ -1,5 +1,5 @@
 import test from "ava"
-import fn from "../src/is-empty"
+import fn from "../es/is-empty.js"
 
 test("reports true for empty values", t => {
   t.true(fn([]))

@@ -1,5 +1,5 @@
 import test from "ava"
-import fn from "../src/is-map"
+import fn from "../es/is-map.js"
 
 test("reports true only for `Map` objects", t => {
   t.true(fn(new Map()))

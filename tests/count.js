@@ -1,5 +1,5 @@
 import test from "ava"
-import fn from "../src/count"
+import fn from "../es/count.js"
 
 test("returns the number of occurrences in collections", t => {
   t.is(fn([1, 6, 6, 3], 6), 2)

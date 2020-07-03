@@ -1,5 +1,5 @@
 import test from "ava"
-import fn from "../src/invariant"
+import fn from "../es/invariant.js"
 
 test("throws on falsy conditions", t => {
   const error = t.throws(() => fn(false))

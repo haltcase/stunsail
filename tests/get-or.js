@@ -1,5 +1,5 @@
 import test from "ava"
-import fn from "../src/get-or"
+import fn from "../es/get-or.js"
 
 const object = { key: "value", nested: { inner: { deep: "thing" } } }
 

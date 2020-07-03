@@ -1,5 +1,5 @@
 import test from "ava"
-import fn from "../src/is-boolean"
+import fn from "../es/is-boolean.js"
 
 test("reports true only for boolean values", t => {
   t.true(fn(true))

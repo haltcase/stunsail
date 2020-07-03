@@ -1,5 +1,5 @@
 import test from "ava"
-import fn from "../src/is-equal"
+import fn from "../es/is-equal.js"
 
 test("returns true for strictly equal primitives", t => {
   t.true(fn(1, 1))

@@ -1,5 +1,5 @@
 import test from "ava"
-import fn from "../src/cap"
+import fn from "../es/cap.js"
 
 function target () {
   return arguments.length

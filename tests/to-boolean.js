@@ -1,5 +1,5 @@
 import test from "ava"
-import fn from "../src/to-boolean"
+import fn from "../es/to-boolean.js"
 
 test("converts the input to a boolean value", t => {
   // truthy values

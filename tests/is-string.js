@@ -1,5 +1,5 @@
 import test from "ava"
-import fn from "../src/is-string"
+import fn from "../es/is-string.js"
 
 test("reports true only for string values", t => {
   t.true(fn("string"))

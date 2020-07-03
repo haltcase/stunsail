@@ -1,5 +1,5 @@
 import test from "ava"
-import fn from "../src/to-empty"
+import fn from "../es/to-empty.js"
 
 test("returns an empty object of the provided type", t => {
   t.is(fn("string"), "")
