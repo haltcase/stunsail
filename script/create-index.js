@@ -27,8 +27,8 @@ const createIndex = ({ extension = ".js" } = {}) => {
       const token = camelize(filename)
 
       imports += token === "constants"
-        ? `export * as ${token} from "./${filename}"\n`
-        : `export { default as ${token} } from "./${filename}"\n`
+        ? `export * as ${token} from "./${filename}${extension}"\n`
+        : `export { default as ${token} } from "./${filename}${extension}"\n`
 
       return imports
     }, "")
@@ -40,9 +40,12 @@ const createIndex = ({ extension = ".js" } = {}) => {
 }
 
 try {
-  console.log("Creating index file...")
-  const quantity = createIndex()
-  console.log(`Index file created. (${quantity} source files)`)
+  ;[".js"].forEach(extension => {
+    console.log(`Creating index${extension} file...`)
+    const quantity = createIndex({ extension })
+    console.log(`Index file created. (${quantity} source files)`)
+  })
+
   process.exit(0)
 } catch (e) {
   console.error(e)
