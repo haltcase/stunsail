@@ -1,5 +1,5 @@
-import isEqual from "./is-equal"
-import getType from "./get-type"
+import isEqual from "./is-equal.js"
+import getType from "./get-type.js"
 
 export default function isOneOf (value, collection) {
   const inputType = getType(collection)

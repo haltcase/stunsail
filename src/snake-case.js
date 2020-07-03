@@ -1,7 +1,7 @@
 import {
   WORD_SEPARATOR_REGEX as separators,
   UPPERCASE_CHARACTER_REGEX as uppers
-} from "./constants"
+} from "./constants.js"
 
 export default function snakeCase (string) {
   return string

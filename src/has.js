@@ -1,5 +1,5 @@
-import isArrayLike from "./is-array-like"
-import normalizePath from "./lib/_normalize-path"
+import isArrayLike from "./is-array-like.js"
+import normalizePath from "./lib/_normalize-path.js"
 
 export default function has (object, path) {
   let keys = path

@@ -1,5 +1,5 @@
-import getType from "./get-type"
-import isPrimitive from "./is-primitive"
+import getType from "./get-type.js"
+import isPrimitive from "./is-primitive.js"
 
 export default function is (a, b) {
   return isBase(a, b)

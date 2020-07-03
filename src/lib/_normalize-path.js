@@ -1,7 +1,7 @@
 import {
   BRACKETED_REGEX,
   LEFT_RIGHT_DOT_REGEX
-} from "../constants"
+} from "../constants.js"
 
 /**
  * @param {string} path

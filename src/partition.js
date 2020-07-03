@@ -1,6 +1,6 @@
-import reduce from "./reduce"
-import getType from "./get-type"
-import toEmpty from "./to-empty"
+import reduce from "./reduce.js"
+import getType from "./get-type.js"
+import toEmpty from "./to-empty.js"
 
 function addTo (type, target, value, key) {
   switch (type) {

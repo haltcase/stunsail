@@ -1,5 +1,5 @@
-import getType from "./get-type"
-import toArray from "./to-array"
+import getType from "./get-type.js"
+import toArray from "./to-array.js"
 
 export default function apply (fn, args) {
   const type = getType(fn)

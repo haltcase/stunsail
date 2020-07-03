@@ -1,12 +1,12 @@
-import getType from "./get-type"
-import isArrayLike from "./is-array-like"
+import getType from "./get-type.js"
+import isArrayLike from "./is-array-like.js"
 
 import {
   LEFT_RIGHT_WHITESPACE_REGEX,
   BINARY_REGEX,
   OCTAL_REGEX,
   BAD_HEX_REGEX
-} from "./constants"
+} from "./constants.js"
 
 export default function toNumber (value, round) {
   if (!value) return 0

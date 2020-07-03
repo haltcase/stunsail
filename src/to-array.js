@@ -1,4 +1,4 @@
-import getType from "./get-type"
+import getType from "./get-type.js"
 
 export default function toArray (value, begin, end) {
   const kind = getType(value)

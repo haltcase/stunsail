@@ -1,4 +1,4 @@
-import each from "./each"
+import each from "./each.js"
 
 export default function reduceWhile (collection, predicate, fn, initial) {
   let accumulator = initial

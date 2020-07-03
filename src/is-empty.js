@@ -1,5 +1,5 @@
-import getType from "./get-type"
-import isArrayLike from "./is-array-like"
+import getType from "./get-type.js"
+import isArrayLike from "./is-array-like.js"
 
 export default function isEmpty (value) {
   const type = getType(value)

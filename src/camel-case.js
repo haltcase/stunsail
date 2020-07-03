@@ -1,6 +1,6 @@
 import {
   WORD_SEPARATOR_REGEX as separators
-} from "./constants"
+} from "./constants.js"
 
 export default function camelCase (string) {
   const words = string.split(separators)

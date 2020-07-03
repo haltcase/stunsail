@@ -1,5 +1,5 @@
-import each from "./each"
-import isArrayLike from "./is-array-like"
+import each from "./each.js"
+import isArrayLike from "./is-array-like.js"
 
 export default function filter (collection, fn) {
   const arrayLike = isArrayLike(collection)

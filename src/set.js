@@ -1,6 +1,6 @@
-import isObject from "./is-object"
-import isArrayLike from "./is-array-like"
-import normalizePath from "./lib/_normalize-path"
+import isObject from "./is-object.js"
+import isArrayLike from "./is-array-like.js"
+import normalizePath from "./lib/_normalize-path.js"
 
 export default function set (object, path, value) {
   let keys = path

@@ -1,8 +1,8 @@
 import { _, it } from "param.macro"
 
-import kebab from "../kebab-case"
-import each from "../each"
-import filter from "../filter"
+import kebab from "../kebab-case.js"
+import each from "../each.js"
+import filter from "../filter.js"
 
 const getNamespaces = filter(_, it.type === "ImportSpecifier")
 

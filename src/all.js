@@ -1,4 +1,4 @@
-import each from "./each"
+import each from "./each.js"
 
 export default function all (collection, fn = value => !!value) {
   let all = true

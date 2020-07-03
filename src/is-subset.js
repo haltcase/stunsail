@@ -1,6 +1,6 @@
-import each from "./each"
-import isEqual from "./is-equal"
-import isObject from "./is-object"
+import each from "./each.js"
+import isEqual from "./is-equal.js"
+import isObject from "./is-object.js"
 
 export default function isSubset (superset, subset) {
   if (!isObject(superset) || !isObject(subset)) {

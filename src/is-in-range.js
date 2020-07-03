@@ -1,4 +1,4 @@
-import toNumber from "./to-number"
+import toNumber from "./to-number.js"
 
 export default function isInRange (value, start, end) {
   start = toNumber(start)

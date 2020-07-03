@@ -1,5 +1,5 @@
-import apply from "./apply"
-import getType from "./get-type"
+import apply from "./apply.js"
+import getType from "./get-type.js"
 
 export default function once (fn) {
   const type = getType(fn)

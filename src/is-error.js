@@ -1,5 +1,5 @@
-import getType from "./get-type"
-import isOneOf from "./is-one-of"
+import getType from "./get-type.js"
+import isOneOf from "./is-one-of.js"
 
 export default function isError (value) {
   const type = getType(value)

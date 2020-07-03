@@ -1,6 +1,6 @@
-import getType from "./get-type"
-import isIterable from "./is-iterable"
-import isArrayLike from "./is-array-like"
+import getType from "./get-type.js"
+import isIterable from "./is-iterable.js"
+import isArrayLike from "./is-array-like.js"
 
 export default function each (collection, fn) {
   const type = getType(collection)

@@ -1,6 +1,6 @@
-import toNumber from "./to-number"
-import isObject from "./is-object"
-import isArrayLike from "./is-array-like"
+import toNumber from "./to-number.js"
+import isObject from "./is-object.js"
+import isArrayLike from "./is-array-like.js"
 
 export default function random (value, bound) {
   if (isObject(value)) {

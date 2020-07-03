@@ -1,4 +1,4 @@
-import isThenable from "./is-thenable"
+import isThenable from "./is-thenable.js"
 
 export default function pipe (...args) {
   let output

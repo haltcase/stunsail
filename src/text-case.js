@@ -2,7 +2,7 @@ import {
   LEFT_RIGHT_NONALPHANUM_REGEX,
   LOWER_UPPER_PAIR_REGEX,
   NONALPHANUM_OR_UNDERSCORE_REGEX
-} from "./constants"
+} from "./constants.js"
 
 export default function textCase (string) {
   return string

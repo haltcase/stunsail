@@ -1,4 +1,4 @@
-import isEmpty from "./is-empty"
+import isEmpty from "./is-empty.js"
 
 export default function toBoolean (value, smart) {
   // takes care of falsy values

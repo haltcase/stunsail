@@ -1,5 +1,5 @@
-import isArrayLike from "./is-array-like"
-import isSet from "./is-set"
+import isArrayLike from "./is-array-like.js"
+import isSet from "./is-set.js"
 
 export default function last (collection) {
   if (isArrayLike(collection)) {

@@ -1,6 +1,6 @@
-import reduce from "./reduce"
-import getType from "./get-type"
-import isPrimitive from "./is-primitive"
+import reduce from "./reduce.js"
+import getType from "./get-type.js"
+import isPrimitive from "./is-primitive.js"
 
 export default function toObjectWith (value, fn) {
   const fnType = getType(fn)
