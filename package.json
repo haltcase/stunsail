@@ -10,9 +10,20 @@
   "engines": {
     "node": ">=12"
   },
+  "type": "module",
   "main": "index.js",
   "module": "es/index.js",
   "jsnext:main": "es/index.js",
+  "exports": {
+    ".": {
+      "import": "./es/index.js",
+      "require": "./index.js"
+    },
+    "./": {
+      "import": "./es/",
+      "require": "./"
+    }
+  },
   "files": [
     "/*.js",
     "/*.d.ts",
