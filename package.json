@@ -53,7 +53,9 @@
     "tools",
     "utils",
     "collection",
-    "functions"
+    "functions",
+    "modules",
+    "esm"
   ],
   "dependencies": {},
   "devDependencies": {
