@@ -1,7 +1,8 @@
-"use strict"
+import { readFileSync, writeFileSync } from "fs"
+import { dirname, resolve } from "path"
+import { fileURLToPath } from "url"
 
-const { resolve } = require("path")
-const { readFileSync, writeFileSync } = require("fs")
+const __dirname = fileURLToPath(dirname(import.meta.url))
 
 const root = resolve(__dirname, "..")
 const docs = resolve(root, "docs", "docs")

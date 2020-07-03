@@ -1,16 +1,10 @@
-"use strict"
+import { mkdirSync, readdirSync, readFileSync, statSync, writeFileSync } from "fs"
+import { dirname, join, relative, resolve } from "path"
+import { fileURLToPath } from "url"
 
-const {
-  mkdirSync,
-  readdirSync,
-  readFileSync,
-  statSync,
-  writeFileSync
-} = require("fs")
+import terser from "terser"
 
-const { dirname, join, relative, resolve } = require("path")
-
-const { minify } = require("terser")
+const __dirname = fileURLToPath(dirname(import.meta.url))
 
 const root = resolve(__dirname, "..")
 const prod = resolve(__dirname, "..", "prod")
@@ -44,7 +38,7 @@ const minifyFile = (src, dest) => {
   }
 
   const source = readFileSync(src, "utf8")
-  const { code, error } = minify(source)
+  const { code, error } = terser.minify(source)
   return error
     ? false
     : writeFileSync(dest, code, { flag: "w" }) || true

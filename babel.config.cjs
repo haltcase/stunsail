@@ -15,6 +15,7 @@ const presets = [
 
 const plugins = [
   "macros",
+  "@babel/plugin-syntax-import-meta",
   "@babel/plugin-syntax-jsx",
   "@babel/plugin-proposal-do-expressions",
   "@babel/plugin-proposal-export-namespace-from",

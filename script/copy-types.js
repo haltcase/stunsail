@@ -1,7 +1,8 @@
-"use strict"
+import { mkdirSync, readdirSync, promises } from "fs"
+import { dirname, resolve } from "path"
+import { fileURLToPath } from "url"
 
-const { resolve } = require("path")
-const { mkdirSync, readdirSync, promises } = require("fs")
+const __dirname = fileURLToPath(dirname(import.meta.url))
 
 const src = resolve(__dirname, "..", "src")
 const prod = resolve(__dirname, "..")

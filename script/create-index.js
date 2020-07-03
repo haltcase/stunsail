@@ -1,7 +1,8 @@
-"use strict"
+import { dirname, resolve } from "path"
+import { readdirSync, writeFileSync } from "fs"
+import { fileURLToPath } from "url"
 
-const { resolve } = require("path")
-const { readdirSync, writeFileSync } = require("fs")
+const __dirname = fileURLToPath(dirname(import.meta.url))
 
 const src = resolve(__dirname, "..", "src")
 const idx = resolve(src, "index.js")
@@ -17,7 +18,7 @@ const getFiles = () =>
     file.slice(-3) === ".js" && file !== "index.js"
   )
 
-const createIndex = () => {
+const createIndex = ({ extension = ".js" } = {}) => {
   const files = getFiles()
 
   const code =
