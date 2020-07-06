@@ -40,7 +40,7 @@
     "index": "node script/create-index.js",
     "clean": "del-cli \"build_staging\" \"dist\" \"es\"",
     "prebuild": "npm run clean",
-    "build": "npm run index && npm run build:staging && if-not-ci npm run build:es",
+    "build": "npm run index && npm run build:staging",
     "build:staging": "cross-env NODE_ENV=production babel src -d build_staging/dist",
     "build:es": "cross-env NODE_ENV=esm babel src -d build_staging/es",
     "build:pkg": "node script/minify.js && npm run copy-types",
@@ -84,7 +84,6 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-react": "^7.20.3",
     "eslint-plugin-standard": "^4.0.1",
-    "if-ci": "^3.0.0",
     "param.macro": "^3.2.1",
     "terser": "^4.8.0",
     "typescript": "^3.9.6"
