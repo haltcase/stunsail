@@ -1,4 +1,13 @@
-### [`1.0.0-rc.7`](https://github.com/citycide/stunsail/compare/v1.0.0-rc.6...1.0.0-rc.7) (2020-02-09)
+## [`1.0.0-rc.8`](https://github.com/citycide/stunsail/compare/v1.0.0-rc.7...v1.0.0-rc.8) (2020-07-06)
+
+
+###### FEATURES
+
+* add package exports for node esm support ([`4c0f30a`](https://github.com/citycide/stunsail/commit/4c0f30a69484a069a6865c63bdf7d51ce4e5a396))
+
+---
+
+## [`1.0.0-rc.7`](https://github.com/citycide/stunsail/compare/v1.0.0-rc.6...v1.0.0-rc.7) (2020-02-09)
 
 
 ###### FEATURES
@@ -7,7 +16,7 @@
 
 ---
 
-### [`1.0.0-rc.6`](https://github.com/citycide/stunsail/compare/v1.0.0-rc.5...1.0.0-rc.6) (2020-01-26)
+## [`1.0.0-rc.6`](https://github.com/citycide/stunsail/compare/v1.0.0-rc.5...v1.0.0-rc.6) (2020-01-26)
 
 
 ###### FEATURES
