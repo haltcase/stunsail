@@ -15,7 +15,7 @@ module.exports = {
         alt: "stunsail logo",
         src: "img/undraw_Container_ship_ok1c.svg"
       },
-      links: [
+      items: [
         { to: "docs/quick-start", label: "quick start", position: "left" },
         { to: "docs/api", label: "api", position: "left" },
         { to: "docs/changelog", label: "changelog", position: "left" },

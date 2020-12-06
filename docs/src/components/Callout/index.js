@@ -1,5 +1,5 @@
 import React from "react"
-import classes from "classnames"
+import classes from "clsx"
 
 import styles from "./styles.module.css"
 

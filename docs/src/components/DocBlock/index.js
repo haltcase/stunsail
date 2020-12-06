@@ -1,6 +1,6 @@
 import React from "react"
 import Collapsible from "react-collapsible"
-import classes from "classnames"
+import classes from "clsx"
 import CodeBlock from "@theme/CodeBlock"
 import Heading from "@theme/Heading"
 

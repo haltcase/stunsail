@@ -1,5 +1,5 @@
 import React from "react"
-import classnames from "classnames"
+import classes from "clsx"
 import Layout from "@theme/Layout"
 import Link from "@docusaurus/Link"
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext"
@@ -68,7 +68,7 @@ const badges = [
 const Feature = ({ imageUrl, title, description }) => {
   const imgUrl = useBaseUrl(imageUrl)
   return (
-    <div className={classnames("col col--4", styles.feature)}>
+    <div className={classes("col col--4", styles.feature)}>
       {imgUrl && (
         <div className="text--center">
           <img className={styles.featureImage} src={imgUrl} alt={title} />
@@ -101,7 +101,7 @@ const Home = () => {
     <Layout
       title={`${siteConfig.title} documentation`}
       description="Documentation for the stunsail JavaScript utility library.">
-      <header className={classnames("hero hero--primary", styles.heroBanner)}>
+      <header className={classes("hero hero--primary", styles.heroBanner)}>
         <div className="container">
           <h1 className="hero__title">{siteConfig.title}</h1>
           <p className="hero__subtitle">{siteConfig.tagline}</p>
@@ -110,7 +110,7 @@ const Home = () => {
           </p>
           <div className={styles.buttons}>
             <Link
-              className={classnames(
+              className={classes(
                 "button button--secondary button--lg",
                 styles.getStarted
               )}
