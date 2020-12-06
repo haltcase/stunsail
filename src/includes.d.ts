@@ -3,7 +3,7 @@ import { GenericCollection } from './types'
 /**
  * @description
  * Check whether `value` is included in `collection`. This is a version of
- * [`isOneOf()`](#isoneof) with the arguments flipped.
+ * [`isOneOf()`](#isOneOf) with the arguments flipped.
  *
  * @parameters
  * | name | type | description |
