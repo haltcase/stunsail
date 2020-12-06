@@ -1,9 +1,9 @@
 import React from "react"
 
-import DocBlock from "@site/src/components/DocBlock"
 import { interfaces } from "@site/src/common/types"
+import DocBlock from "@site/src/components/DocBlock"
 
 export default () =>
   <>{
-    interfaces.map(v => (<DocBlock element={v}></DocBlock>))
+    interfaces.map((v, i) => (<DocBlock element={v} key={i}></DocBlock>))
   }</>

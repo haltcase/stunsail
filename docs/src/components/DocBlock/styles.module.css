@@ -1,14 +1,17 @@
 .functionHeader {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
 }
 
 .functionHeaderName {
-  order: -1;
+  /* align function name to the left */
+  margin-right: auto;
 }
 
 .functionHeaderTags {
   opacity: 1;
+  /* align tags to the right by moving them after the `hash-link` anchor */
+  order: 1;
 }
 
 .functionHeaderTag {

@@ -98,8 +98,8 @@ export default ({ element }) => {
       </DocSection>}
 
       {Boolean(refs.length) && <DocSection title="see also">
-        <ul>{refs.map(ref =>
-          <li><a href={"#" + ref.text}><code>{ref.text}</code></a></li>)
+        <ul>{refs.map((ref, i) =>
+          <li><a href={"#" + ref.text} key={i}><code>{ref.text}</code></a></li>)
         }</ul>
       </DocSection>}
     </>

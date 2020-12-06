@@ -31,3 +31,17 @@ html[data-theme="dark"] a {
   margin: 0 calc(-1 * var(--ifm-pre-padding));
   padding: 0 var(--ifm-pre-padding);
 }
+
+.row.api {
+  flex-wrap: nowrap;
+}
+
+.row.api .col.col--3.toc {
+  --ifm-col-width: calc(3 / 12 * 120%);
+}
+
+@media only screen and (max-width: 996px) {
+  .row.api .col.col--3.toc {
+    display: none;
+  }
+}
